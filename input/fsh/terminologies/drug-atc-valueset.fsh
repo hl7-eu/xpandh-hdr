@@ -1,7 +1,7 @@
 Alias: $atc = http://www.whocc.no/atc
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-ValueSet: VsXehAtcCodes
+ValueSet: VsXpandhAtcCodes
 Id: drugsAtc-eu-xpandh
 Title: "Antineoplastic and immunostimulating agents"
 Description: "List of WHO ATC codes for antineoplastic and immunostimulating agents."

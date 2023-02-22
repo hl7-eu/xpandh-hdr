@@ -1,4 +1,4 @@
-ValueSet:      LabStudyTypesXeh
+ValueSet:      LabStudyTypesXpandh
 Id:	       lab-studyType-xpandh
 Title:	       "Lab Study Types"
 Description:   "Laboratory Specialties.\r\n

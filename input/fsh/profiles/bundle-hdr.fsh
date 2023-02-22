@@ -1,8 +1,8 @@
-Profile: BundleHdrXeh
+Profile: BundleHdrXpandh
 Parent: Bundle
 Id: Bundle-hdr-xpandh
 Title: "Bundle: EU Hospital Discharge Report"
-Description: "Clinical document used to represent a Hospital Discharge Report for the scope of the Xehealth project."
+Description: "Clinical document used to represent a Hospital Discharge Report for the scope of the XPanDH project."
 * ^publisher = "XPanDH Project"
 * ^copyright = "XPanDH Project"
 * . ^short = "Hospital Discharge Report bundle"
@@ -58,9 +58,9 @@ Description: "Clinical document used to represent a Hospital Discharge Report fo
     flag 0..*
 
 * entry[composition].resource 1..
-* entry[composition].resource only CompositionHdrXehealth
+* entry[composition].resource only CompositionHdrXpandh
 * entry[patient].resource 1..
-* entry[patient].resource only PatientXeh
+* entry[patient].resource only PatientXpandh
 * entry[allergyintolerance].resource 1..
 * entry[allergyintolerance].resource only $AllergyIntolerance-uv-ips
 * entry[condition].resource 1..
@@ -111,7 +111,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report fo
 * entry[medicationDispense].resource only MedicationDispense
 
 * entry[flag].resource 1..
-* entry[flag].resource only FlagXeh
+* entry[flag].resource only FlagXpandh
 
 * entry[familyMemberHistory].resource 1..
 * entry[familyMemberHistory].resource only FamilyMemberHistory

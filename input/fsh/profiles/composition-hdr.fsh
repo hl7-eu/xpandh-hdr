@@ -1,4 +1,4 @@
-Profile: CompositionHdrXehealth
+Profile: CompositionHdrXpandh
 Parent: http://hl7.org/fhir/StructureDefinition/clinicaldocument
 Id: Composition-hdr-xpandh
 Title: "Hospital Discharge Report"
@@ -15,7 +15,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * type ^short = "Kind of composition (\"Hospital Discharge Report\")"
 * type ^definition = "Specifies that this composition refer to a Hospital Discharge Report"
 * type = http://loinc.org#34105-7  
-* subject only Reference(PatientXeh)
+* subject only Reference(PatientXpandh)
 * subject 1..1
 * subject ^definition = "Who or what the composition is about. \r\nIn general a composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).\r\nFor the hdr the subject is always the patient."
 * encounter MS
@@ -529,7 +529,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionResults].code = http://loinc.org#30954-2 (exactly)
 * section[sectionResults].text 1.. MS
 * section[sectionResults].entry MS
-* section[sectionResults].entry only Reference (Observation or DiagnosticReport or DocumentReference or $Observation-results-uv-ips or $DiagnosticReport-uv-ips) // or BundleLabReportXeh)
+* section[sectionResults].entry only Reference (Observation or DiagnosticReport or DocumentReference or $Observation-results-uv-ips or $DiagnosticReport-uv-ips) // or BundleLabReportXpandh)
 
 * section[sectionResults].entry ^short = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient."
 * section[sectionResults].entry ^definition = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results."

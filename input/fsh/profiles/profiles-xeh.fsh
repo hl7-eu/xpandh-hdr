@@ -3,7 +3,7 @@
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  OrganizationCareProviderXeh
+Profile:  OrganizationCareProviderXpandh
 Parent:   $Organization-uv-ips
 Id:       Organization-careprovider-eu-xpandh
 Title:    "CareTeam"
@@ -14,29 +14,29 @@ Description: "This profile constrains the Organization IPS profile to represent 
 * telecom MS
 * address MS
 * partOf ^short = "The organization of which this organization is part of: e.g. an ERN"
-* partOf only Reference (OrganizationCareProviderXeh or Organization)
+* partOf only Reference (OrganizationCareProviderXpandh or Organization)
 * contact MS
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  CareTeamXeh
+Profile:  CareTeamXpandh
 Parent:   CareTeam
 Id:       CareTeam-eu-xpandh
 Title:    "CareTeam"
 Description: "This profile constrains the CareTeam resource for the purpose of the XPanDH project."
 //-------------------------------------------------------------------------------------------
 
-* subject only Reference(PatientXeh)
+* subject only Reference(PatientXpandh)
 * subject MS
 * participant 1.. MS
 * participant.role MS
 * participant.member 1.. MS
-* participant.member only Reference (Practitioner or PractitionerRole or RelatedPerson or OrganizationCareProviderXeh or CareTeamXeh)
+* participant.member only Reference (Practitioner or PractitionerRole or RelatedPerson or OrganizationCareProviderXpandh or CareTeamXpandh)
 * reasonCode ^short = "Problem this team is in charge of"
-* reasonReference only Reference(ConditionXeh)
+* reasonReference only Reference(ConditionXpandh)
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  MedicationStatementXeh
+Profile:  MedicationStatementXpandh
 Parent:   $MedicationStatement-uv-ips
 Id:       MedicationStatement-eu-xpandh
 Title:    "MedicationStatement"
@@ -44,11 +44,11 @@ Description: "This profile constrains the MedicationStatement IPS FHIR profile f
 //-------------------------------------------------------------------------------------------
 
 * reasonCode ^short = "Reason (e.g. the Rare Disease) for why the medication is being/was taken"
-* reasonReference only Reference(ConditionXeh or Observation or DiagnosticReport)
-* subject only Reference(PatientXeh)
+* reasonReference only Reference(ConditionXpandh or Observation or DiagnosticReport)
+* subject only Reference(PatientXpandh)
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  FlagXeh
+Profile:  FlagXpandh
 Parent:   Flag
 Id:       Flag-eu-xpandh
 Title:    "Flag"
@@ -62,11 +62,11 @@ Description: "This profile constrains the Flag resource to represent alerts or w
 * status MS
 * code MS
 * subject MS
-* subject only Reference(PatientXeh)
+* subject only Reference(PatientXpandh)
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  ConditionXeh
+Profile:  ConditionXpandh
 Parent:   $Condition-uv-ips
 Id:       Condition-eu-xpandh
 Title:    "Condition"
@@ -95,7 +95,7 @@ Description: "This profile defines how to represent Condition in FHIR for the pu
 
 /* 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  PatientXeh
+Profile:  PatientXpandh
 Parent:   $Patient-uv-ips
 Id:       Patient-eu-xpandh
 Title:    "Patient"
@@ -105,7 +105,7 @@ Description: "This profile defines how to represent Patient in FHIR for the purp
 * ^description = "Information about an individual receiving health care services"
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  ObservationResultsPathologyXeh
+Profile:  ObservationResultsPathologyXpandh
 Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-pathology-uv-ips
 Id:       Observation-results-pathology-eu-xpandh
 Title:    "Observation Results: pathology"
@@ -113,7 +113,7 @@ Description: "This profile constrains the Observation resource to represent resu
 //-------------------------------------------------------------------------------------------
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  ObservationResultsRadiologyXeh
+Profile:  ObservationResultsRadiologyXpandh
 Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips
 Id:       Observation-results-radiology-eu-xpandh
 Title:    "Observation Results: radiology"
@@ -122,7 +122,7 @@ Description: "This profile constrains the Observation resource to represent resu
 
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  PractitionerXeh
+Profile:  PractitionerXpandh
 Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/Practitioner-uv-ips
 Id:       Practitioner-eu-xpandh
 Title:    "Practitioner"
@@ -131,7 +131,7 @@ Description: "This profile defines how to represent Practitioners in FHIR for th
 //-------------------------------------------------------------------------------------------
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  PractitionerRoleXeh
+Profile:  PractitionerRoleXpandh
 Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/PractitionerRole-uv-ips
 Id:       PractitionerRole-eu-xpandh
 Title:    "PractitionerRole"
