@@ -1,8 +1,8 @@
 id: hl7.eu.fhir.xpandh.hdr
 canonical: http://hl7.eu/fhir/ig/xpandh/hdr # check if this may create issues
 name:  XPandhHospitalDischargeReportIg
-title: XPanDH Hospital Discharge Report
-description: This guide describes how the Hospital Discharge Report can be represented for the purpose of the XPanDH project experimantions.
+title: XpanDH Hospital Discharge Report
+description: This guide describes how the Hospital Discharge Report can be represented for the purpose of the XpanDH project experimantions.
 status: draft # draft | active | retired | unknown
 version: 0.1.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html

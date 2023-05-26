@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "type": "fhir.template",
     "license": "CC0-1.0",
-    "description": "XPanDH FHIR Template",
+    "description": "XpanDH FHIR Template",
     "base": "fhir.base.template",
     "dependencies": {
       "fhir.base.template": "current"

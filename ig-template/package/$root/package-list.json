@@ -1,8 +1,8 @@
 {
   "package-id" : "hl7.eu.fhir.xpandh.lab",
-  "title" : "XPanDH FHIR IG: Laboratory report",
+  "title" : "XpanDH FHIR IG: Laboratory report",
   "canonical" : "http://hl7.eu/fhir/ig/xpandh/lab",
-  "introduction" : "This guide describes how the Laboratory Report can be represented for the purpose of the XPanDH project experimantions.",
+  "introduction" : "This guide describes how the Laboratory Report can be represented for the purpose of the XpanDH project experimantions.",
   "list" : [
     {
       "version" : "current",

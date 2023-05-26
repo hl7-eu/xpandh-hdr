@@ -1,2 +1,2 @@
 # xpandh-hdr
-XPanDH Hospital Discharge Report FHIR IG
+XpanDH Hospital Discharge Report FHIR IG

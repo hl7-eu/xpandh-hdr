@@ -32,6 +32,6 @@ Note 4:Virology MAY be included in 18725-2 (MICROBIOLOGY STUDIES) specialty or 1
 ValueSet: LabOrderCodesXeH
 Id: lab-order-codes-xpandh
 Title: "Lab Order Codes"
-Description: "Laboratory Order Codes for use in XPanDH."
+Description: "Laboratory Order Codes for use in XpanDH."
 * include codes from system $loinc and valueset $results-laboratory-observations-uv-ips where ORDER_OBS = "Order"
 * include codes from system $loinc and valueset $results-laboratory-observations-uv-ips where ORDER_OBS = "Both"

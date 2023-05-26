@@ -2,9 +2,9 @@ Profile: BundleHdrXpandh
 Parent: Bundle
 Id: Bundle-hdr-xpandh
 Title: "Bundle: EU Hospital Discharge Report"
-Description: "Clinical document used to represent a Hospital Discharge Report for the scope of the XPanDH project."
-* ^publisher = "XPanDH Project"
-* ^copyright = "XPanDH Project"
+Description: "Clinical document used to represent a Hospital Discharge Report for the scope of the XpanDH project."
+* ^publisher = "XpanDH Project"
+* ^copyright = "XpanDH Project"
 * . ^short = "Hospital Discharge Report bundle"
 * . ^definition = "Hospital Discharge Report bundle."
 * obeys bdl-ips-1

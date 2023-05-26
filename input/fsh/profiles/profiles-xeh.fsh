@@ -7,7 +7,7 @@ Profile:  OrganizationCareProviderXpandh
 Parent:   $Organization-uv-ips
 Id:       Organization-careprovider-eu-xpandh
 Title:    "CareTeam"
-Description: "This profile constrains the Organization IPS profile to represent care provisioning organanizations (as RD centers) for the purpose of the XPanDH project."
+Description: "This profile constrains the Organization IPS profile to represent care provisioning organanizations (as RD centers) for the purpose of the XpanDH project."
 //-------------------------------------------------------------------------------------------
 
 * type MS
@@ -22,7 +22,7 @@ Profile:  CareTeamXpandh
 Parent:   CareTeam
 Id:       CareTeam-eu-xpandh
 Title:    "CareTeam"
-Description: "This profile constrains the CareTeam resource for the purpose of the XPanDH project."
+Description: "This profile constrains the CareTeam resource for the purpose of the XpanDH project."
 //-------------------------------------------------------------------------------------------
 
 * subject only Reference(PatientXpandh)
@@ -40,7 +40,7 @@ Profile:  MedicationStatementXpandh
 Parent:   $MedicationStatement-uv-ips
 Id:       MedicationStatement-eu-xpandh
 Title:    "MedicationStatement"
-Description: "This profile constrains the MedicationStatement IPS FHIR profile for the purpose of the XPanDH project."
+Description: "This profile constrains the MedicationStatement IPS FHIR profile for the purpose of the XpanDH project."
 //-------------------------------------------------------------------------------------------
 
 * reasonCode ^short = "Reason (e.g. the Rare Disease) for why the medication is being/was taken"
@@ -52,7 +52,7 @@ Profile:  FlagXpandh
 Parent:   Flag
 Id:       Flag-eu-xpandh
 Title:    "Flag"
-Description: "This profile constrains the Flag resource to represent alerts or warnings in FHIR for the purpose of the XPanDH project."
+Description: "This profile constrains the Flag resource to represent alerts or warnings in FHIR for the purpose of the XpanDH project."
 //-------------------------------------------------------------------------------------------
 
 * extension contains $flag-detail named flagDetailExt 0..*
@@ -70,7 +70,7 @@ Profile:  ConditionXpandh
 Parent:   $Condition-uv-ips
 Id:       Condition-eu-xpandh
 Title:    "Condition"
-Description: "This profile defines how to represent Condition in FHIR for the purpose of the XPanDH project."
+Description: "This profile defines how to represent Condition in FHIR for the purpose of the XpanDH project."
 
 //-------------------------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ Profile:  PatientXpandh
 Parent:   $Patient-uv-ips
 Id:       Patient-eu-xpandh
 Title:    "Patient"
-Description: "This profile defines how to represent Patient in FHIR for the purpose of the XPanDH project." */
+Description: "This profile defines how to represent Patient in FHIR for the purpose of the XpanDH project." */
 
 //-------------------------------------------------------------------------------------------
 * ^description = "Information about an individual receiving health care services"
@@ -109,7 +109,7 @@ Profile:  ObservationResultsPathologyXpandh
 Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-pathology-uv-ips
 Id:       Observation-results-pathology-eu-xpandh
 Title:    "Observation Results: pathology"
-Description: "This profile constrains the Observation resource to represent results produced by pathology studies for the XPanDH project."
+Description: "This profile constrains the Observation resource to represent results produced by pathology studies for the XpanDH project."
 //-------------------------------------------------------------------------------------------
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -117,7 +117,7 @@ Profile:  ObservationResultsRadiologyXpandh
 Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-radiology-uv-ips
 Id:       Observation-results-radiology-eu-xpandh
 Title:    "Observation Results: radiology"
-Description: "This profile constrains the Observation resource to represent results produced by pathology studies for the XPanDH project."
+Description: "This profile constrains the Observation resource to represent results produced by pathology studies for the XpanDH project."
 //-------------------------------------------------------------------------------------------
 
 
@@ -126,7 +126,7 @@ Profile:  PractitionerXpandh
 Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/Practitioner-uv-ips
 Id:       Practitioner-eu-xpandh
 Title:    "Practitioner"
-Description: "This profile defines how to represent Practitioners in FHIR for the purpose of the XPanDH project."
+Description: "This profile defines how to represent Practitioners in FHIR for the purpose of the XpanDH project."
 
 //-------------------------------------------------------------------------------------------
 
@@ -135,6 +135,6 @@ Profile:  PractitionerRoleXpandh
 Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/PractitionerRole-uv-ips
 Id:       PractitionerRole-eu-xpandh
 Title:    "PractitionerRole"
-Description: "This profile defines how to represent Practitioners (with thier roles) in FHIR for the purpose of the XPanDH project."
+Description: "This profile defines how to represent Practitioners (with thier roles) in FHIR for the purpose of the XpanDH project."
 
 //-------------------------------------------------------------------------------------------

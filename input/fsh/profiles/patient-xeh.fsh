@@ -2,7 +2,7 @@ Profile: PatientXpandh
 Parent: $Patient-uv-ips 
 Id: Patient-eu-xpandh
 Title:    "Patient"
-Description: "This profile defines how to represent Patient in FHIR for the purpose of the XPanDH project."
+Description: "This profile defines how to represent Patient in FHIR for the purpose of the XpanDH project."
 * identifier MS
 * name 1..* MS
 * name obeys xeh-pat-1
