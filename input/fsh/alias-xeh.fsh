@@ -27,6 +27,7 @@ Alias: $reference-range-meaning = http://terminology.hl7.org/CodeSystem/referenc
 
 // --- Value Sets
 Alias: $v3-ClassNullFlavor = http://terminology.hl7.org/ValueSet/v3-ClassNullFlavor
+Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
 
 Alias: $results-laboratory-observations-uv-ips = http://hl7.org/fhir/uv/ips/ValueSet/results-laboratory-observations-uv-ips
 Alias: $results-coded-values-laboratory-uv-ips = http://hl7.org/fhir/uv/ips/ValueSet/results-coded-values-laboratory-uv-ips
