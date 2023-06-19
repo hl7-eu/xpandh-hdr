@@ -1,49 +1,71 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../src-generated/schemas/fhir-single.xsd" lang="en">
+<div xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../src-generated/schemas/fhir-single.xsd" lang="en">
 
-<a name="scope">  </a>
-<h3>Scope</h3>
-<p>
-    This is the HL7 FHIR Implementation Guide for Laboratory Report XpanDH project, created to assist work with pilot product list product data in FHIR. 
-</p>
 
-	<p>
-    The specification herewith documented is a demo working specification, and may not be used for any implementation purposes. 
-    No liability can be inferred from the use or misuse of this specification, or its consequences.
+  <blockquote class="stu-note">
+    <p>The specification herewith documented is for the time being a working specification, and may not be used for any implementation purposes. 
+    No liability can be inferred from the use or misuse of this specification, or its consequences.</p>
+  </blockquote>
+
+  <a name="scope"></a>
+  <h3>Scope</h3>
+  <p>
+    This is the Hospital Dischareg Report HL7 FHIR Implementation Guide for the XpanDH project, created to assist the work of the pilots for the <a href="#adoption-domains">XpanDH exprimentation bubbles</a>.
   </p>
 
-<a name="project">  </a>
-<h3>The project</h3>
-<p>
+  <a name="project"></a>
+  <h3>The project</h3>
+  <a name="mission"></a>
+  <h4>The mission</h4>
+  <p>Help individuals and organizations successfully adopt the European Electronic Health Record Exchange Format (EEHRxF) in a way that is empowering and supportive.
+  </p>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a hendrerit ante, a efficitur neque. Fusce pulvinar pellentesque risus, vel aliquet ante aliquet eu. Pellentesque non dui accumsan, feugiat augue in, sollicitudin felis. Curabitur dignissim venenatis leo, ut finibus lacus ornare at. Quisque sem diam, mollis vel luctus et, egestas rutrum arcu. Maecenas placerat, nisi sit amet faucibus dapibus, ante ex imperdiet enim, at porttitor erat tortor et felis. Maecenas auctor, elit at fermentum pellentesque, libero magna elementum leo, id molestie neque nisi fermentum odio. Suspendisse potenti. Quisque luctus ligula nec sapien tincidunt sodales.
+  <a name="how"></a>
+  <h4>How to:</h4>
+  <p>Mobilizing and building capacity to ensure the widespread adoption of the European Electronic Health Records Exchange Format (EEHRxF) across Europe. 
+  </p>
+  <p>More details in <a href="https://xpandh-project.iscte-iul.pt/">XpanDH Web Site</a>
 
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In tempor felis eget eros eleifend egestas. Integer a tellus tortor. Ut auctor metus justo, ut fermentum tellus dapibus id. Phasellus convallis rutrum est nec consequat. Vivamus in libero quis ex blandit euismod a eu arcu. Phasellus sollicitudin dui blandit eros malesuada maximus. Curabitur mollis metus vitae turpis semper blandit. Cras eu mi eget ex posuere aliquet quis rhoncus mauris. Donec hendrerit urna eget purus ultrices ullamcorper. Vivamus eget porttitor mi.
+  </p>
 
-In velit nulla, iaculis sed lorem ut, interdum imperdiet mauris. Quisque interdum diam purus, vel faucibus risus vulputate sit amet. Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut maximus nulla ac nisi condimentum, ac ornare orci gravida. Nullam convallis tincidunt pretium. Ut ac nisi dolor. Donec efficitur orci pellentesque, rutrum ipsum vel, iaculis ante.
+  <a name="adoption-domains"></a>
+  <h3>XpanDH Adoption Domains/X-Bubbles</h3>
+  <a name="mission"></a>
 
-Quisque at mauris rutrum, pellentesque ex eu, volutpat mauris. Suspendisse potenti. In tortor mi, volutpat eget malesuada quis, pulvinar vel lectus. Nulla facilisi. Morbi in arcu mauris. Duis lobortis vehicula dui vel dapibus. Ut molestie nisi id eros tincidunt aliquam. Cras vulputate neque sed feugiat finibus.
+  <a name="what-is-adoption-domain"></a>
+  <h4>What is:</h4>
+  <p>An EEHRxF adoption domain could be considered as an instantiation of a use case, with a specific case application, that has meaning from a health system or clinical perspective, with defined implementable requirements (simple if only one EEHRxF priority category is uses or composite if data from more than one is required), that satisfies all the conditions for users to be ready to implement data exchange in conformity to EEHRxF guidelines and specifications 
+  </p>
+  <p>XpanDH will exercise a set of adoption domains, involving Hospitals, Regional/National organziation, vendors,.., thorugh experimentaion bubbles (in the Hpandh jargon called X-Bubbles)</p>
 
-Donec accumsan tempor enim, vel fermentum magna imperdiet vel. Nunc quis nisi id orci sodales lobortis. Vestibulum massa purus, tincidunt nec congue pharetra, ultrices ac velit. Duis in convallis neque. Integer elementum, purus at viverra mattis, tellus arcu rutrum ex, a aliquam lacus turpis a justo. Nam id mi magna. Maecenas sed elementum ligula.
+  <a name="covered-adoption-domain"></a>
+  <h4>Adoption domains / X-Bubbles covered by this guide:</h4>
+  <ul>
+    <li>X-Bubble 3: NCZI; organisation to organisation (national). Exchange of discharge reports between different organisations, such as a hospital and a GP or between a hospital local to the patient and a specialist centre treating a disease such as a cancer, in order to enable each clinical actor to be well informed and contribute accurately to the same patient care pathway.</li>
+    <li>X-Bubble 4: CHUP; organisation to patient (national. Communicate discharge reports from a hospital to the patient (within the same country) so that they can be informed, raise questions if needed, share this information with other caregivers and take any self-care actions indicated in the report.</li>
+    <li>X-Bubble 5: KETEKNY; organisation to national authority.Communicate discharge reports from a hospital to a national authority to support reimbursement decisions or to contribute content to a national registry.</li>
+    <li>X-Bubble 6: KETEKNY; national authority to organisation. The national authority communicates discharge reports to a hospital treating a patient, that it has previously received from other hospitals treating that patient, to enable a smooth transfer and continuity of care (e.g. if a patient moves home).</li>
+  </ul>
+  <p>More details on X-Bubbles and Adoption Doamin in XpanDH deliverable D1.4 and D4.1 <a href="https://xpandh-project.iscte-iul.pt/">XpanDH Web Site</a>
+  </p>
 
-</p>
-
-<a name="dependencies">  </a>
-<h3>Dependencies</h3>
+  <a name="dependencies"></a>
+  <h3>Dependencies</h3>
 
 {% include dependency-table.xhtml %}
 
-<a name="x-versions">  </a>
-<h3>Cross Version Analysis</h3>
+  <a name="x-versions"></a>
+  <h3>Cross Version Analysis</h3>
 
 {% include cross-version-analysis.xhtml %}
 
-<a name="global">  </a>
-<h3>Global Profiles</h3>
+  <a name="global"></a>
+  <h3>Global Profiles</h3>
 
 {% include globals-table.xhtml %}
 
-<a name="authors">  </a>
-<h3>Authors and Contributors</h3>
+  <a name="authors"></a>
+  <h3>Authors and Contributors</h3>
 
 
 </div>
