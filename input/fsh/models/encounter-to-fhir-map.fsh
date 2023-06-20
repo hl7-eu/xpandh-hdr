@@ -9,8 +9,8 @@ Usage: #definition
 * title = "eHN Recipient to this guide Map"					
 * status = #draft					
 * experimental = true					
-* description = "eHN HDR Encounter Model to this guide Map"					
-* purpose = "It shows how the HDR Encounter data set defined by the EU eHN guidelines is mapped into this guide"					
+* description = "eHN HDR Encounter Model to this guide mapping"					
+* purpose = "Proposed relationship between the HDR Encounter data set defined by the EU eHN guidelines and this guide"					
 * sourceUri = "http://hl7.eu/fhir/ig/xpandh/hdr/StructureDefinition/HDREncounter"					
 * targetUri = "http://hl7.eu/fhir/ig/xpandh/hdr/StructureDefinition/Encounter-eu-xpandh"					
 					

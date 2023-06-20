@@ -3,7 +3,7 @@
 //===================================================				
 Logical: HospitalDischargeReportEHN				
 Id: HospitalDischargeReport				
-Title: "Hospital Discharge Report (eHN)"				
+Title: "A - Hospital Discharge Report (eHN)"				
 Description:  """Hospital Discharge Report
 Maturity Level: 0 Draft"""				
 * header 1..1 BackboneElement "A.1 - Report header data element [Mandatory]" """A.1-Report header data element [Mandatory]"""				

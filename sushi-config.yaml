@@ -1,6 +1,6 @@
 id: hl7.eu.fhir.xpandh.hdr
 canonical: http://hl7.eu/fhir/ig/xpandh/hdr # check if this may create issues
-name:  XPandhHospitalDischargeReportIg
+name:  XpandhHospitalDischargeReportIg
 title: XpanDH Hospital Discharge Report
 description: This guide describes how the Hospital Discharge Report can be represented for the purpose of the XpanDH project experimantions.
 status: draft # draft | active | retired | unknown
@@ -11,9 +11,11 @@ releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | re
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 jurisdiction: 	http://unstats.un.org/unsd/methods/m49/m49.htm#150 "Europe" # https://www.hl7.org/fhir/valueset-jurisdiction.html
 publisher:
-  name:  XPandDH Project
-  url: http://example.org/xpandh # to be fixed
+  name:  XpanDH Project
+  url: https://xpandh-project.iscte-iul.pt
   # email: test@example.org
+copyright: >-
+  Used by permission of the XpanDH project, all rights reserved Creative Commons License
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
 # package id and the value is the version (or dev/current). For advanced
@@ -60,11 +62,17 @@ pages:
 # partial list of allowed parameters see:
 # https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
 #
-# parameters:
+parameters:
 #  produce-jekyll-data: true
 #  special-url:
 #    - https://spor.ema.europa.eu/v1/lists/100000000004
 
+  apply-contact: true
+  apply-jurisdiction: true
+  apply-publisher: true
+  apply-version: true
+  show-inherited-invariants: true
+  usage-stats-opt-out: true
 
 #   excludettl: true
 #   validation: [allow-any-extensions, no-broken-links]
@@ -142,7 +150,11 @@ menu:
 #    exampleBoolean: true
 #  Patient/bad-example: omit
 
- 
+resources: 
+  ConceptMap/ConceptMap-hdrEncounter2FHIR-eu-xpandh:
+    name: Encounter to this guide
+    description: Proposed relationship between the HDR Encounter data set defined by the EU eHN guidelines and this guide
+
 
 
 #
@@ -155,12 +167,25 @@ menu:
 # is specified by id or name, SUSHI will replace it with the correct
 # URL when generating the IG JSON.
 #
-# groups:
-#  eHNGuidelines:
-#    name:  eHN Laboratory Guidelines
-#    description: Logical model representing the eHN Laboratory Guidelines
-#    resources:
-#      - StructureDefinition/LabReport
+groups:
+  eHNGuidelines:
+    name:  eHN HDR Guidelines
+    description: Logical models representing the eHN HDR Guidelines
+    resources:
+      - StructureDefinition/HospitalDischargeReport
+      - StructureDefinition/HDREncounter
+
+  Slovakia:
+    name:  Slovakia HDR
+    description: Logical models representing the Slovakia Data set
+    resources:
+      - StructureDefinition/HospitalDischargeReportSK
+
+  logicalModelsMaps:
+    name:  Logical Model mappings
+    description: Concept Maps describing how the eHN Guidelines are supposed to be implemented by using this guide
+    resources:
+      - ConceptMap/ConceptMap-hdrEncounter2FHIR-eu-xpandh
 
 
 #

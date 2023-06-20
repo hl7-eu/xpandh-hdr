@@ -6,7 +6,7 @@
 Profile:  OrganizationCareProviderXpandh
 Parent:   $Organization-uv-ips
 Id:       Organization-careprovider-eu-xpandh
-Title:    "CareTeam"
+Title:    "Organization: Care provisioning"
 Description: "This profile constrains the Organization IPS profile to represent care provisioning organanizations (as RD centers) for the purpose of the XpanDH project."
 //-------------------------------------------------------------------------------------------
 
