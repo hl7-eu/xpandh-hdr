@@ -4,7 +4,6 @@ for /R ..\input\fsh\models %%f in (*.fsh) do (
  CALL :processFshFile %%f  
 )
 
-
 :processFshFile
 
  fart %~1  \"Description: Description:

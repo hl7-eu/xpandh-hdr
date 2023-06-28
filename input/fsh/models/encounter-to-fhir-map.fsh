@@ -25,7 +25,6 @@ Usage: #definition
 					
 * group[=].element[+].code = #HDREncounter.note					
 * group[=].element[=].display = "A.2.3.2 - Encounter note [Optional]"					
-* group[=].element[+].code = #HDREncounter.type					
 //-- unmatched					
 //-- unmatched					
 * group[=].element[=].target.equivalence = #unmatched					
@@ -186,6 +185,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""					
 * group[=].element[=].target.equivalence = #relatedto					
 * group[=].element[=].target.comment = "to be checked"					
+//---END					
 //---END					
 //---END					
 //---END					

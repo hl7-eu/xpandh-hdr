@@ -93,16 +93,6 @@ Description: "This profile defines how to represent Condition in FHIR for the pu
 * note ^definition = "Comment by the one who determined or updated the Problem." 
 * bodySite  ^definition = "Anatomical location which is the focus of the problem."
 
-/* 
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  PatientXpandh
-Parent:   $Patient-uv-ips
-Id:       Patient-eu-xpandh
-Title:    "Patient"
-Description: "This profile defines how to represent Patient in FHIR for the purpose of the XpanDH project." */
-
-//-------------------------------------------------------------------------------------------
-* ^description = "Information about an individual receiving health care services"
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Profile:  ObservationResultsPathologyXpandh
@@ -119,22 +109,5 @@ Id:       Observation-results-radiology-eu-xpandh
 Title:    "Observation Results: radiology"
 Description: "This profile constrains the Observation resource to represent results produced by pathology studies for the XpanDH project."
 //-------------------------------------------------------------------------------------------
-
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  PractitionerXpandh
-Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/Practitioner-uv-ips
-Id:       Practitioner-eu-xpandh
-Title:    "Practitioner"
-Description: "This profile defines how to represent Practitioners in FHIR for the purpose of the XpanDH project."
-
-//-------------------------------------------------------------------------------------------
-
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Profile:  PractitionerRoleXpandh
-Parent:   http://hl7.org/fhir/uv/ips/StructureDefinition/PractitionerRole-uv-ips
-Id:       PractitionerRole-eu-xpandh
-Title:    "PractitionerRole"
-Description: "This profile defines how to represent Practitioners (with thier roles) in FHIR for the purpose of the XpanDH project."
 
 //-------------------------------------------------------------------------------------------

@@ -1,7 +1,11 @@
 
 Alias: $radiotherapy-energy-units = http://hl7.org/fhir/us/codex-radiation-therapy/ValueSet/radiotherapy-energy-units
 Alias: $codex-radiotherapy-isotopes = http://hl7.org/fhir/us/codex-radiation-therapy/ValueSet/codex-radiotherapy-isotopes
+Alias: $patient-citizenship = http://hl7.org/fhir/StructureDefinition/patient-citizenship
+Alias: $patient-nationality = http://hl7.org/fhir/StructureDefinition/patient-nationality
 
+Alias: $composition-basedOn-order-or-requisition = http://hl7.eu/fhir/laboratory/StructureDefinition/composition-basedOn-order-or-requisition
+Alias: $information-recipient = http://hl7.eu/fhir/StructureDefinition/information-recipient
 //============== ALIAS ===============
 
 // --- Code Systems

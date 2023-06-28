@@ -1,25 +1,36 @@
 Profile: PatientXpandh
 Parent: $Patient-uv-ips 
 Id: Patient-eu-xpandh
-Title:    "Patient"
+Title: "Patient"
 Description: "This profile defines how to represent Patient in FHIR for the purpose of the XpanDH project."
-* identifier MS
-* name 1..* MS
+* extension contains $patient-nationality named nationality 0..*
+* extension[nationality] ^short = "Nationality"
+
+* identifier ^short = "patient identifier"
+* name 1..* 
 * name obeys xeh-pat-1
 * name ^requirements = "Need to be able to track the patient by multiple names. Examples are your official name and a partner name.\r\nThe Alphabetic representation of the name SHALL be always provided"
-* name.text MS
 * name.text ^definition = "Text representation of the full name. Due to the cultural variance around the world a consuming system may not know how to present the name correctly; moreover not all the parts of the name go in given or family. Creators are therefore strongly encouraged to provide through this element a presented version of the name. Future versions of this guide may require this element"
-* name.text ^min = 0
-* name.family 1..1 MS
-* name.given MS
-* name.given ^min = 1
-* telecom MS
-* gender MS
-* birthDate 1.. MS
-* address MS
+* name.family 1..1 
+* name.given 1..
+* telecom ^short = "A contact detail for the patient"
+* gender ^short = "The gender of the patient used for administrative purposes."
+* birthDate 1..
+  * ^short = "The date of birth for the patient"
+* address ^short = "Patient Address"
 * address obeys pat-cnt-2or3-char
-* contact.relationship only $CodeableConcept-uv-ips
-* generalPractitioner MS
+* contact
+  * relationship only $CodeableConcept-uv-ips
+  * address ^short = "Contact person address"
+  * telecom ^short = "Contact details for the person"
+  * name
+    * given 1.. // to be checked
+    * family 1.. // to be checked
+
+* generalPractitioner ^short = "Patient's nominated primary care provider."
+* generalPractitioner only Reference( Organization or PractitionerRole) // is this OK ?
+* communication.language ^short = "Communication language"
+
 
 Invariant: xeh-pat-1
 Description: "Patient.name.given, Patient.name.family or Patient.name.text SHALL be present"

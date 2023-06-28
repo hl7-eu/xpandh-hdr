@@ -23,7 +23,9 @@ copyright: >-
 #
 dependencies:
   hl7.fhir.uv.ips: current 
-  hl7.fhir.us.mcode: current # to be removed if no more needed
+  # hl7.fhir.us.mcode: current # to be removed if no more needed
+  hl7.fhir.eu.laboratory: current 
+  # hl7.fhir.eu.xpandh: dev 
   hl7.fhir.extensions.r5: 4.0.1
 #   hl7.fhir.us.mcode:
 #     id: mcode
