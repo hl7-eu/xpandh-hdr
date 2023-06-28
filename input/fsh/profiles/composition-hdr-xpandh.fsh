@@ -37,11 +37,21 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * date ^short = "HDR date"
 * author ^short = "Who and/or what authored the Hospital Discharge Report"
 * author ^definition = "Identifies who is responsible for the information in the Hospital Discharge Report, not necessarily who typed it in."
+  * ^slicing.discriminator[0].type = #type
+  * ^slicing.discriminator[0].path = "valueReference.resolve()"
+  * ^slicing.ordered = false
+  * ^slicing.rules = #open
+  * ^short = "Sliced per type of author"
+  * ^definition = "Sliced per type of author"
+* author contains practictionerRole 0..*
+* author[practictionerRole] only Reference ( PractitionerRoleXpandh )
+
 * title ^short = "Hospital Discharge Report"
 * title ^definition = "Official human-readable label for the composition.\r\n\r\nFor this document should be \"Hospital Discharge Report\" or any equivalent translation"
 * attester.mode ^short = "The type of attestation"
 * attester.time ^short = "When the composition was attested"
 * attester.party ^short = "Who attested the composition"
+
 * section 1..
 * section ^slicing.discriminator[0].type = #pattern
 * section ^slicing.discriminator[0].path = "code"
