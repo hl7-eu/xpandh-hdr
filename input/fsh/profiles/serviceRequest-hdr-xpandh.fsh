@@ -13,7 +13,7 @@ Description: "ServiceRequest used to represent a the request that triggered this
 /* * category 1..  */
 * code 1..
 * subject 1..
-* subject only Reference ( PatientXpandh)
+* subject only Reference ( PatientXpandh )
 * requisition ^short = "Composite Request ID." 
 * specimen 0..
 * insurance only Reference (CoverageHdrXpandh)

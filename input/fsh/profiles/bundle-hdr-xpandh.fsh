@@ -119,7 +119,11 @@ Description: "Clinical document used to represent a Hospital Discharge Report fo
 * entry[documentReference].resource 1..
 * entry[documentReference].resource only DocumentReference
 
-
+* signature ^short = "Report Digital Signature"
+  * type ^short = "Digital Signature Purposes"
+  * when ^short = "When was signed"
+  * who ^short = "Who signed."
+  * data ^short = "Signature content"
 
 
 

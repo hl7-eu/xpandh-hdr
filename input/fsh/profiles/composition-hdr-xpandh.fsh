@@ -11,7 +11,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 * extension contains $composition-basedOn-order-or-requisition named basedOn-order-or-requisition 0..*
 * extension[basedOn-order-or-requisition]
-* extension[basedOn-order-or-requisition].valueReference only Reference ( ServiceRequest )
+* extension[basedOn-order-or-requisition].valueReference only Reference ( ServiceRequestHdrXpandh )
 
 * extension contains $information-recipient named information-recipient 0..*
 * extension[information-recipient]
@@ -23,6 +23,10 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * ^definition = "Sliced per type of recipient"
 * extension[information-recipient] contains practictionerRole 0..*
 * extension[information-recipient][practictionerRole].valueReference only Reference ( PractitionerRoleXpandh )
+
+/* * extension contains $composition-clinicaldocument-versionNumber named versionNumber 0..* */
+* extension[composition-clinicaldocument-versionNumber]
+
 
 
 * identifier ^short = "HDR business identifier"
