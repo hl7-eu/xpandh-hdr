@@ -1,6 +1,6 @@
 Profile: CompositionHdrXpandh
 Parent: http://hl7.org/fhir/StructureDefinition/clinicaldocument
-Id: Composition-hdr-xpandh
+Id: Composition-hdr-eu-xpandh
 Title: "Composition: Hospital Discharge Report"
 Description: "Clinical document used to represent a Hospital Discharge Report (HDR) for the scope of the XpanDH project."
 * ^publisher = "XpanDH Project"
@@ -11,6 +11,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 * extension contains $composition-basedOn-order-or-requisition named basedOn-order-or-requisition 0..*
 * extension[basedOn-order-or-requisition]
+* extension[basedOn-order-or-requisition].valueReference only Reference ( ServiceRequest )
 
 * extension contains $information-recipient named information-recipient 0..*
 * extension[information-recipient]

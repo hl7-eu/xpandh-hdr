@@ -17,6 +17,30 @@ Usage: #definition
 * group[+].source = "http://hl7.eu/fhir/ig/xpandh/hdr/StructureDefinition/HospitalDischargeReport"					
 * group[=].target = "http://hl7.eu/fhir/ig/xpandh/hdr/StructureDefinition/Composition-eu-xpandh"					
 					
+* group[=].element[+].code = #HospitalDischargeReport.header.payer					
+* group[=].element[=].display = "A.1.3 - Health insurance and payment information [Required]"					
+* group[=].element[=].target.code = #Composition.extension:basedOn-order-or-requisition.insurance					
+* group[=].element[=].target.display = ""					
+* group[=].element[=].target.equivalence = #relatedto					
+* group[=].element[=].target.comment = "To be disucssed if the payor is conveyed with the request or thorugh other means"					
+* group[=].element[+].code = #HospitalDischargeReport.header.payer.insuranceCode					
+* group[=].element[=].display = "A.1.3.1 - Health insurance code [Mandatory]"					
+* group[=].element[=].target.code = #Composition.extension:basedOn-order-or-requisition.insurance.payor.identifier					
+* group[=].element[=].target.display = ""					
+* group[=].element[=].target.equivalence = #relatedto					
+					
+* group[=].element[+].code = #HospitalDischargeReport.header.payer.insuranceName					
+* group[=].element[=].display = "A.1.3.2 - Health insurance name [Required]"					
+* group[=].element[=].target.code = #Composition.extension:basedOn-order-or-requisition.insurance.payor.name					
+* group[=].element[=].target.display = ""					
+* group[=].element[=].target.equivalence = #relatedto					
+* group[=].element[=].target.comment = "with payor as Organization"					
+* group[=].element[+].code = #HospitalDischargeReport.header.payer.insuranceNumber					
+* group[=].element[=].display = "A.1.3.3 - Health insurance number [Mandatory]"					
+* group[=].element[=].target.code = #Composition.extension:basedOn-order-or-requisition.insurance.beneficiary.identifier					
+* group[=].element[=].target.display = ""					
+* group[=].element[=].target.equivalence = #relatedto					
+* group[=].element[=].target.comment = "to be discussed"					
 * group[=].element[+].code = #HospitalDischargeReport.header.informationRecipient					
 * group[=].element[=].display = "A.1.4 - Information recipient [Required]"					
 * group[=].element[=].target.code = #Composition.extension:information-recipient					
@@ -160,47 +184,23 @@ Usage: #definition
 //---END					
 //---END					
 //---END					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
+//---END					
 					
 					
 					
