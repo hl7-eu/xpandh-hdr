@@ -167,7 +167,7 @@ Usage: #definition
 * group[=].element[=].target.display = ""					
 * group[=].element[=].target.equivalence = #relatedto					
 * group[=].element[=].target.comment = "to be checked"					
-* group[=].element[+].code = #HDREncounter.location.organization.id					
+* group[=].element[+].code = #HDREncounter.location.organization.identifier					
 * group[=].element[=].display = "A.2.3.6.2 - Organization Id [Required]"					
 * group[=].element[=].target.code = #Encounter.conformsTo('http://hl7.eu/fhir/ig/xpandh/hdr/StructureDefinition/Encounter-eu-xpandh').TBD					
 * group[=].element[=].target.display = ""					
