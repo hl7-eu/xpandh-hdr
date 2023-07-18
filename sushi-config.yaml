@@ -22,10 +22,10 @@ copyright: >-
 # use cases, the value can be an object with keys for id, uri, and version.
 #
 dependencies:
-  hl7.fhir.uv.ips: current 
+  hl7.fhir.uv.ips: current
   # hl7.fhir.us.mcode: current # to be removed if no more needed
-  hl7.fhir.eu.laboratory: current 
-  # hl7.fhir.eu.xpandh: dev 
+  hl7.fhir.eu.laboratory: current
+  # hl7.fhir.eu.xpandh: dev
   hl7.fhir.extensions.r5: 4.0.1
 #   hl7.fhir.us.mcode:
 #     id: mcode
@@ -47,6 +47,8 @@ dependencies:
 pages:
   index.xml:
     title: Home
+  hospital-discharge-report.md:
+    title: Hospital Discharge Report
   examples.md:
     title: Examples
   downloads.md:
@@ -90,10 +92,11 @@ parameters:
 menu:
   Home: index.html
   Table of Contents: toc.html
+  Hospital Discharge Report: hospital-discharge-report.html
   Examples: examples.html
   Artifacts: artifacts.html
   Downloads: downloads.html
-  
+
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
@@ -152,7 +155,7 @@ menu:
 #    exampleBoolean: true
 #  Patient/bad-example: omit
 
-resources: 
+resources:
   ConceptMap/ConceptMap-hdrEncounter2FHIR-eu-xpandh:
     name: Encounter to this guide
     description: Proposed relationship between the HDR Encounter data set defined by the EU eHN guidelines and this guide
