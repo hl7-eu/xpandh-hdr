@@ -1,14 +1,15 @@
 Profile: EncounterXpandh
-Parent: Encounter 
+Parent: Encounter
 Id: Encounter-eu-xpandh
 Title:    "Encounter"
 Description: "This profile defines how to represent Encounter in FHIR for the purpose of the XpanDH Hospital Discharge Report."
 * identifier ^short = "Identifier(s) by which this encounter is known."
 * status ^short = "Status of this Hospital stay"
 * class from HdrEncounterClassXpandh (extensible)
-* type ^short = "Specific type of Hospital stay" // add voc binding 
-* serviceType ^short = "Specific type of encounter." // add voc binding 
+* type ^short = "Specific type of Hospital stay" // add voc binding
+* serviceType ^short = "Specific type of encounter." // add voc binding
 * priority ^short = "Encounter priority" // add voc binding
+* priority from http://terminology.hl7.org/ValueSet/v3-xEncounterAdmissionUrgency (extensible)
 * subject only Reference (PatientXpandh)
 * subject 1..
 * basedOn ^short = "The request for which this encounter has been made"
@@ -16,7 +17,7 @@ Description: "This profile defines how to represent Encounter in FHIR for the pu
 * reasonCode ^short = "Coded reason the encounter takes place"
 * reasonReference only Reference ( Observation or Condition or Procedure)
 
-* participant 
+* participant
   * ^short = "List of participants involved in the encounters"
   * ^definition = """Slice per type of participant: admitter, discharger,.."""
   * ^slicing.discriminator[0].type = #pattern
@@ -27,17 +28,17 @@ Description: "This profile defines how to represent Encounter in FHIR for the pu
 * participant contains admitter 0..*
 * participant[admitter]
   * type = $v3-ParticipationType#ADM
-  * individual 0..1	
+  * individual 0..1
   * individual only Reference (Practitioner or PractitionerRole)
 
 * participant contains discharger 0..*
 * participant[discharger]
   * type = $v3-ParticipationType#DIS
-  * individual 0..1	
+  * individual 0..1
   * individual only Reference (Practitioner or PractitionerRole)
 
 
-* diagnosis 
+* diagnosis
   * ^short = "The list of diagnosis relevant to this encounter."
   * ^definition = """Slice per type of diagnosis: admission, discharge,.."""
   * ^slicing.discriminator[0].type = #pattern
@@ -60,4 +61,4 @@ Description: "This profile defines how to represent Encounter in FHIR for the pu
 * hospitalization
   * admitSource ^short = "From where patient was admitted (physician referral, transfer)."
   * dischargeDisposition ^short = "Category or kind of location after discharge"
-  // add voc binding 
+  // add voc binding
