@@ -8,12 +8,14 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * . ^short = "Hospital Discharge Report composition"
 * . ^definition = "Hospital Discharge Report composition. \r\nA composition is a set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. \r\nWhile a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained."
 
-
+/* HK: Is order still relevant in case of discharge report? I don't think so.
 * extension contains $composition-basedOn-order-or-requisition named basedOn-order-or-requisition 0..*
 * extension[basedOn-order-or-requisition]
 * extension[basedOn-order-or-requisition].valueReference only Reference ( ServiceRequestHdrXpandh )
+*/
 
 * extension contains $information-recipient named information-recipient 0..*
+/* HK: Commented, because causing error during build
 * extension[information-recipient]
   * ^slicing.discriminator[0].type = #type
   * ^slicing.discriminator[0].path = "valueReference.resolve()"
@@ -21,20 +23,19 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * ^slicing.rules = #open
   * ^short = "Sliced per type of recipient"
   * ^definition = "Sliced per type of recipient"
+*/
 * extension[information-recipient] contains practictionerRole 0..*
 * extension[information-recipient][practictionerRole].valueReference only Reference ( PractitionerRoleXpandh )
 
-/* * extension contains $composition-clinicaldocument-versionNumber named versionNumber 0..* */
-* extension[composition-clinicaldocument-versionNumber]
 
-
+//* extension[composition-clinicaldocument-versionNumber]
 
 * identifier ^short = "HDR business identifier"
 * status ^short = "HDR status"
 * type only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
 * type ^short = "Kind of composition (\"Hospital Discharge Report\")"
 * type ^definition = "Specifies that this composition refer to a Hospital Discharge Report"
-* type = http://loinc.org#34105-7  
+* type = http://loinc.org#34105-7 "Hospital Discharge summary"
 * subject only Reference(PatientXpandh)
 * subject 1..1
 * subject ^definition = "Who or what the composition is about. \r\nIn general a composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).\r\nFor the hdr the subject is always the patient."
@@ -72,7 +73,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 * section contains patientHxSection ..1
 * section[patientHxSection]
-  * insert SectionComRules ( Patient History Section,  
+  * insert SectionComRules ( Patient History Section,
   This Section describes all aspects of the medical history of the patient even if not pertinent to the current procedure\, and may include chief complaint\, past medical history\, social history\, family history\, surgical or procedure history\, medication history\, and other history information. The history may be limited to information pertinent to the current procedure or may be more comprehensive. The history may be reported as a collection of random clinical statements or it may be reported categorically. Categorical report formats may be divided into multiple subsections including Past Medical History\, Social History.,
    http://loinc.org#11329-0 )
 
@@ -83,7 +84,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 * section contains admissionDiagnosisSection ..1
 * section[admissionDiagnosisSection]
-  * insert SectionComRules ( 
+  * insert SectionComRules (
     Admission Diagnosis, // SHORT
       Admission Diagnosis, // DESC
       http://loinc.org#46241-6  )   // CODE
@@ -93,20 +94,20 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * insert SectionEntrySliceDefRules (admissionDiagnosis, 0.. , Admission Diagnosis , Admission Diagnosis , Condition)
 
 
-// ------------------------------------- 
+// -------------------------------------
 // Admission Medications Section 0 … 1 R
 // -------------------------------------
 * section contains sectionAdmissionMedications ..1
 
 * section[sectionAdmissionMedications]
-  * insert SectionComRules ( 
+  * insert SectionComRules (
     Admission Medications, // SHORT
       Admission Medications, // DESC
       http://loinc.org#42346-7  )   // CODE
   * entry 0..
   * entry only Reference(MedicationStatement
                           or MedicationRequest
-                          or MedicationAdministration 
+                          or MedicationAdministration
                           or MedicationDispense
                           or DocumentReference  )
 
@@ -139,10 +140,10 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 // -------------------------------------
 * section contains CCandReasonforVisitSection ..1
 * section[CCandReasonforVisitSection]
-  * insert SectionComRules (Chief Complaint and Reason for Visit, 
-                          This section records the patient's chief complaint (the patient’s own description\) and/or the reason for the patient's visit (the provider’s description of the reason for visit\). Local policy determines whether the information is divided into two sections or recorded in one section serving both purposes., 
+  * insert SectionComRules (Chief Complaint and Reason for Visit,
+                          This section records the patient's chief complaint (the patient’s own description\) and/or the reason for the patient's visit (the provider’s description of the reason for visit\). Local policy determines whether the information is divided into two sections or recorded in one section serving both purposes.,
                              http://loinc.org#46239-0  )
-          
+
 /* * section[CCandReasonforVisitSection] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[CCandReasonforVisitSection] ^extension[0].valueString = "Section"
 * section[CCandReasonforVisitSection] ^short = "Chief Complaint and Reason for Visit"
@@ -164,8 +165,8 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 // -------------------------------------
 
 * section contains sectionProblems ..1
-* section[sectionProblems] 
-  * insert SectionComRules ( 
+* section[sectionProblems]
+  * insert SectionComRules (
     HDR Problems Section, // SHORT
       The HDR problem section lists and describes clinical problems or conditions currently being monitored for the patient., // DESC
       http://loinc.org#11450-4 )   // CODE
@@ -203,7 +204,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section contains sectionAllergies 1..1
 
 * section[sectionAllergies]
-  * insert SectionComRules ( 
+  * insert SectionComRules (
     HDR Allergies and Intolerances Section, // SHORT
       This section documents the relevant allergies or intolerances (conditions\) for that patient\, describing the kind of reaction (e.g. rash\, anaphylaxis\,..\); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy.\r\nAt a minimum\, it should list currently active and any relevant historical allergies and adverse reactions.\r\nIf no information about allergies is available\, or if no allergies are known this should be clearly documented in the section. // DESC
       ,  http://loinc.org#48765-2 )   // CODE
@@ -227,7 +228,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 // -------------------------------------
 * section contains sectionProceduresHx ..1
 * section[sectionProceduresHx]
-  * insert SectionComRules ( 
+  * insert SectionComRules (
     HDR History of Procedures Section, // SHORT
       The History of Procedures Section contains a description of the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section\)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy // DESC
       ,  http://loinc.org#47519-4 )   // CODE
@@ -248,7 +249,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section contains sectionImmunizations ..1
 
 * section[sectionImmunizations]
-  * insert SectionComRules ( 
+  * insert SectionComRules (
     HDR Immunizations Section, // SHORT
       The Immunizations Section defines a patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nThe section includes current immunization status\, and may contain the entire immunization history that is relevant to the period of time being summarized. // DESC
       ,  http://loinc.org#11369-6 )   // CODE
@@ -257,7 +258,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
                           or DocumentReference  )
   * insert SectionEntrySliceComRules ( Patient's immunization status and pertinent history.
     , It defines the patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\n It may contain the entire immunization history that is relevant to the period of time being summarized. This entry shall be used to document that no information about immunizations is available\, or that no immunizations are known. ) //'
-  
+
 
   // entry slices
   * insert SectionEntrySliceDefRules (immunization, 0.. , Immunization entry ,
@@ -287,7 +288,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 // -------------------------------------
 * section contains familyHistorySection ..1
 * section[familyHistorySection]
-  * insert SectionComRules ( 
+  * insert SectionComRules (
     Family History Section, // SHORT
       This section contains data defining the patient’s genetic relatives in terms of possible or relevant health risk factors that have a potential impact on the patient’s healthcare risk profile. // DESC
       ,  http://loinc.org#10157-6  )   // CODE
@@ -306,7 +307,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[familyHistorySection].code = http://loinc.org#10157-6 (exactly)
 * section[familyHistorySection].text 1..
 * section[familyHistorySection].text only Narrative
-* section[familyHistorySection].entry 0.. 
+* section[familyHistorySection].entry 0..
 * section[familyHistorySection].entry only Reference(FamilyMemberHistory)
 * section[familyHistorySection].entry ^short = "Family History"
 * section[familyHistorySection].entry ^definition = "Family History"
@@ -318,7 +319,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 // -------------------------------------
 * section contains sectionMedicalDevices ..1
 * section[sectionMedicalDevices]
-  * insert SectionComRules ( 
+  * insert SectionComRules (
     HDR Medical Devices Section, // SHORT
       The medical devices section contains narrative text and coded entries describing the patient history of medical device use. // DESC
       , http://loinc.org#46264-8 )   // CODE
@@ -327,12 +328,12 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
                           or DocumentReference  )
   * insert SectionEntrySliceComRules ( Patient history of medical device use.
     , It describes the patient history of medical device use. This entry shall be used to document that no information about medical device use is available\, or that no relevant medical device use is known. ) //'
-  
+
 
   // entry slices
   * insert SectionEntrySliceDefRules (deviceUse, 0.. , Medical Device entry ,
     Medical Device entry  , $DeviceUseStatement-uv-ips)
-/* 
+/*
 * section[sectionMedicalDevices] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[sectionMedicalDevices] ^extension[0].valueString = "Section"
 * section[sectionMedicalDevices] ^short = "HDR Medical Devices Section"
@@ -343,7 +344,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionMedicalDevices].code = http://loinc.org#46264-8 (exactly)
 * section[sectionMedicalDevices].text 1..
 * section[sectionMedicalDevices].text only Narrative
-* section[sectionMedicalDevices].entry 1.. 
+* section[sectionMedicalDevices].entry 1..
 * section[sectionMedicalDevices].entry only Reference($DeviceUseStatement-uv-ips)
 * section[sectionMedicalDevices].entry ^short = "Patient history of medical device use."
 * section[sectionMedicalDevices].entry ^definition = "It describes the patient history of medical device use. This entry shall be used to document that no information about medical device use is available, or that no relevant medical device use is known."
@@ -365,7 +366,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionPastIllnessHx].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
 * section[sectionPastIllnessHx].code = http://loinc.org#11348-0 (exactly)
 * section[sectionPastIllnessHx].text 1..
-* section[sectionPastIllnessHx].entry 1.. 
+* section[sectionPastIllnessHx].entry 1..
 * section[sectionPastIllnessHx].entry only Reference($Condition-uv-ips)
 * section[sectionPastIllnessHx].entry ^short = "Conditions the patient suffered in the past."
 * section[sectionPastIllnessHx].entry ^definition = "It contains a description of the conditions the patient suffered in the past."
@@ -433,7 +434,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionSocialHistory].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
 * section[sectionSocialHistory].code = http://loinc.org#29762-2 (exactly)
 * section[sectionSocialHistory].text 1..
-* section[sectionSocialHistory].entry 
+* section[sectionSocialHistory].entry
 * section[sectionSocialHistory].entry only Reference(Observation or DocumentReference or $Observation-alcoholuse-uv-ips or $Observation-tobaccouse-uv-ips)
 * section[sectionSocialHistory].entry ^short = "Health related \"lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
 * section[sectionSocialHistory].entry ^definition = "Description of the person’s Health related “lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
@@ -578,7 +579,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[dischargeDiagnosisSection].code = http://loinc.org#11535-2 (exactly)
 * section[dischargeDiagnosisSection].text 1..
 * section[dischargeDiagnosisSection].text only Narrative
-* section[dischargeDiagnosisSection].entry 0.. 
+* section[dischargeDiagnosisSection].entry 0..
 * section[admissionDiagnosisSection].entry only Reference(Condition) // define specialized profiles
 * section[dischargeDiagnosisSection].entry ^short = "Discharge Diagnosis"
 * section[dischargeDiagnosisSection].entry ^definition = "Discharge Diagnosis"
@@ -588,7 +589,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 
 // -------------------------------------
-// Discharge Medications Section 0 … 1 
+// Discharge Medications Section 0 … 1
 // -------------------------------------
 * section contains sectionDischargeMedications ..1
 * section[sectionDischargeMedications] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
@@ -639,7 +640,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[hospitalDischargeStudiesSection].code = http://loinc.org#11493-4 (exactly)
 * section[hospitalDischargeStudiesSection].text 1..
 * section[hospitalDischargeStudiesSection].text only Narrative
-* section[hospitalDischargeStudiesSection].entry 0.. 
+* section[hospitalDischargeStudiesSection].entry 0..
 * section[hospitalDischargeStudiesSection].entry ^short = "Study Summary"
 * section[hospitalDischargeStudiesSection].entry ^definition = "Study Summary"
 * section[hospitalDischargeStudiesSection].emptyReason ..0
