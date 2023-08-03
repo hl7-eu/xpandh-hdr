@@ -21,7 +21,10 @@ Alias: $istat-unitaAmministrativeTerritoriali = http://terminology.hl7.it/CodeSy
 Alias: $minsan-regione = http://terminology.hl7.it/CodeSystem/minsan-regione
 Alias: $spor = https://spor.ema.europa.eu/v1/organisations
 Alias: $jrc = https://covid-19-diagnostics.jrc.ec.europa.eu/devices
-
+Alias: $fhir-org-type = http://terminology.hl7.org/CodeSystem/organization-type
+Alias: $encounter-status = http://hl7.org/fhir/encounter-status
+Alias: $v3-act-priority = http://terminology.hl7.org/CodeSystem/v3-ActPriority
+Alias: $encounter-admit-source = http://terminology.hl7.org/CodeSystem/admit-source
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
@@ -33,3 +36,7 @@ Alias: $MedicationStatement-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinit
 Alias: $Immunization-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Immunization-uv-ips
 Alias: $clinicaldocument = http://hl7.org/fhir/StructureDefinition/clinicaldocument
 Alias: $CodeableConcept-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
+
+Alias: $iso21090-ADXP-streetName = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName
+Alias: $iso21090-ADXP-houseNumber = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber
+Alias: $iso21090-ADXP-postBox = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox
