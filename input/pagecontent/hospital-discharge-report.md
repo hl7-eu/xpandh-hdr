@@ -136,10 +136,25 @@ This section includes the following parts:
 - Clinical synthesis (free text)
 
 ##### Diagnostic summary
-The diagnostic summary **includes** all problems/diagnoses that affected care during the hospitalisation. In accordance with international recommendations, the diagnostic summary distinguishes between active problems/diagnoses, problems that arose during the hospitalisation and inactive problems/diagnoses. The diagnostic summary includes all conditions recognised at the end of the hospital stay after all investigations. Thus:
-1. Active problems/diagnoses - those that were present on admission and had an impact on care during the inpatient case. We recommend that problems/diagnoses are listed in order of current importance, with the diagnosis that is the main reason for hospitalisation listed first.
-2. Complications - conditions that arose during hospitalisation
-3. Inactive problems/diagnoses - those that were present on admission and did not affect care during hospitalisation - but will need to be considered later in care
+The diagnostic summary **INCLUDES** all conditions (problems/diagnoses) that affected care during the hospitalization, as well as others that are important for continuity of care.
+The diagnostic summary presents all reported conditions as they were recognized at the end of the hospitalization, i.e. after all examinations. The diagnostic summary, in line with international recommendations, specifies for each condition its characteristics in relation to the hospital case, from two perspectives:
+1. The presence of the condition on admission
+2. The impact of the condition on care during hospitalisation
+
+In terms of presence at admission, they are classified as:
+<ol type="a">
+  <li> POA - conditions/diagnoses present on admission, or problems existing on admission or prior to admission - (definition corresponds to the category POA = Present on Admission in English terminology)</li>
+  <li> HAC - conditions/diagnoses not present on admission, arising during hospitalisation (definition corresponds to the HAC = Hospital Acquired Conditions category in English terminology)</li>
+  <li> OTH - conditions/diagnoses for which it is not possible to decide whether they were present on admission (before admission) or whether they arose after admission and diagnoses for which this information is irrelevant.</li>
+</ol>
+
+In terms of the impact on care during hospitalisation, the following conditions are distinguished:
+<ol type="a">
+<li> treated - with an impact on care during hospitalisation </li>
+<li> other - no impact on care during hospitalisation</li>
+</ol>
+
+Conditions for which treatment or diagnosis or nursing care or monitoring was provided during the hospitalisation are considered as 'treated' conditions. The specification of the category of treated conditions may vary slightly between European countries depending on the specific requirements of their reimbursement system.
 
 Diagnosis summary **DOES NOT INCLUDE**:
 - Anamnestic data - these are listed in other sections (if there is a reason to do so)
@@ -147,6 +162,27 @@ Diagnosis summary **DOES NOT INCLUDE**:
 - Treatment - this is given in other sections (if there is a need)
 - Individual findings on which the diagnosis is based - this is given in other sections (if there is a reason to do so)
 - Anomalies in examinations (e.g., "mild enlargement of the aortic root on echocardiography"), which alone or with other findings are not conclusive.
+
+The Hospital discharge Report standard leaves the author free to choose the order of the items in the diagnostic summary. Possible and already used sorting vectors are:
+- impact on care (separate sections for conditions with and without impact on care)
+- aetiology (conditions with the same aetiology are grouped together)
+- organ system (conditions affecting the same organ system are grouped together)
+- importance (conditions that presented more serious problem during the hospitalisation are ranked higher)
+
+When presenting hospital discharge reports in electronic form, it should be possible to select the display according to the original order of conditions chosen by the author or according to the impact on care (treated, other).
+
+<blockquote class="stu-note">
+<p> Semantic notes </p>
+<ul>
+<li>  The language of the diagnostic summary is scientific, the appropriate standard for the used terminology should follow current medical guidelines, best practice or articles in the scientific literature </li>
+<li> Abbreviations are strictly avoided in the diagnostic summary</li>
+<li> Do <b>NOT</b> use ICD* code names (e.g.: "Cutaneous abscess, furuncle and carbuncle, unspecified", which is the name belonging to the L02.9 ICD-10 code); except, of course, where the code name corresponds to the clinical terminology used (e.g. acute respiratory failure, hypercapnic type)</li>
+<li> For conditions that were treated during hospitalisation, do not report 'status after ...'. If the patient was treated for a myocardial infarction, the dg. myocardial infarction (with appropriate clarification) will be given, <b>NOT</b> "<s>condition after myocardial infarction</s>"!, even if the discharge report is written by a different department than the one where the patient was treated for the myocardial infarction.</li>
+<li> For procedures that were performed during hospitalisation, do <b>NOT</b> include 'status after ...' (e.g. status after hysterectomy); this information belongs in the <a href="#significant-procedures">Significant procedures</a> section.</li>
+<li> The presence of the condition on admission may even be (rightly) assumed (e.g. for structural abnormalities recognised during hospitalisation, such as intestinal diverticula). The condition may therefore not be recognised on admission.</li>
+<li> If the onset date of the condition is provided, consistency with the entry for the presence of the condition on admission should be ensured.</li>
+</ul>
+</blockquote>
 
 ##### Significant procedures
 This section lists surgery and other 'instrumental' procedures (endoscopic, intravascular). Typically, these are all invasive procedures performed in the operating theatre.
@@ -158,7 +194,6 @@ A list of implants inserted during the hospital stay, if relevant to the provisi
 
 ##### Other significant treatment
 Treatment that cannot be clearly identified as a major procedure (in the sense of the previous definition) but is significant - typically chemotherapy, radiotherapy, purification procedures (dialysis, haemoperfusion), circulatory support procedures (counterpulsation, etc.), administration of blood derivatives etc.
-
 
 ##### Pharmacotherapy
 Medications provided only during hospitalisation or for a short period after discharge, but of which knowledge is important for subsequent health care continuity (antibiotics other than routine ones, high-dose corticosteroids, etc.) should be listed.
