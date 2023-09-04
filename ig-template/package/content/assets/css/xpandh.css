@@ -27,9 +27,12 @@
 
   --toc-box-bg-color: #ddeeff; /* 17.  TOC box background color */
   --toc-box-border: 1px solid navy; /* 18. TOC box border definition */
-  
+
   --stu-note-background-color: #f2f2ff; /* 19. (STU) Note box background color */
   --stu-note-border-left-color: #a0a0ff; /* 20. (STU) Note box border color */
+
+  --semantic-note-background-color: #fdd9cd; /* 19. (STU) Note box background color */
+  --semantic-note-border-left-color: #ffb1a0; /* 20. (STU) Note box border color */
 
   --ig-header-color: #c9ebdb; /* 21. Header color (sides) */
   --ig-header-container-color: #ffffff; /* 22. Header container color (center) */
