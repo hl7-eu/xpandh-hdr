@@ -1,5 +1,5 @@
 Profile: PatientXpandh
-Parent: $Patient-uv-ips 
+Parent: $Patient-uv-ips
 Id: Patient-eu-xpandh
 Title: "Patient: HDR"
 Description: "This profile defines how to represent Patient in FHIR for the purpose of the XpanDH project."
@@ -7,11 +7,11 @@ Description: "This profile defines how to represent Patient in FHIR for the purp
 * extension[nationality] ^short = "Nationality"
 
 * identifier ^short = "patient identifier"
-* name 1..* 
+* name 1..*
 * name obeys xeh-pat-1
 * name ^requirements = "Need to be able to track the patient by multiple names. Examples are your official name and a partner name.\r\nThe Alphabetic representation of the name SHALL be always provided"
 * name.text ^definition = "Text representation of the full name. Due to the cultural variance around the world a consuming system may not know how to present the name correctly; moreover not all the parts of the name go in given or family. Creators are therefore strongly encouraged to provide through this element a presented version of the name. Future versions of this guide may require this element"
-* name.family 1..1 
+* name.family 1.. // to be cheked
 * name.given 1..
 * telecom ^short = "A contact detail for the patient"
 * gender ^short = "The gender of the patient used for administrative purposes."
