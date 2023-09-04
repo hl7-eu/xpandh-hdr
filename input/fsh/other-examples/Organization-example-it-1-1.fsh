@@ -7,9 +7,9 @@ Usage: #example
 * identifier[1].system = "http://hl7.it/sid/toscana/asl"
 * identifier[1].value = "201"
 * identifier[2].system = "http://hl7.it/sid/partitaIva"
-* identifier[2].value = "06593810481 " 
+* identifier[2].value = "06593810481"
 * identifier[3].system = "http://hl7.it/sid/codiceFiscale"
-* identifier[3].value = "06593810481 " 
+* identifier[3].value = "06593810481"
 * active = true
 * type[0] = $it-tipoEntita#asl "Azienda Sanitaria Locale"
 * name = "AZIENDA USL TOSCANA CENTRO"
