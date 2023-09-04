@@ -172,7 +172,6 @@ The Hospital discharge Report standard leaves the author free to choose the orde
 When presenting hospital discharge reports in electronic form, it should be possible to select the display according to the original order of conditions chosen by the author or according to the impact on care (treated, other).
 
 <blockquote class="stu-note">
-<p> Semantic notes </p>
 <ul>
 <li>  The language of the diagnostic summary is scientific, the appropriate standard for the used terminology should follow current medical guidelines, best practice or articles in the scientific literature </li>
 <li> Abbreviations are strictly avoided in the diagnostic summary</li>
