@@ -1,12 +1,4 @@
 
-Alias: $radiotherapy-energy-units = http://hl7.org/fhir/us/codex-radiation-therapy/ValueSet/radiotherapy-energy-units
-Alias: $codex-radiotherapy-isotopes = http://hl7.org/fhir/us/codex-radiation-therapy/ValueSet/codex-radiotherapy-isotopes
-Alias: $patient-citizenship = http://hl7.org/fhir/StructureDefinition/patient-citizenship
-Alias: $patient-nationality = http://hl7.org/fhir/StructureDefinition/patient-nationality
-
-Alias: $composition-basedOn-order-or-requisition = http://hl7.eu/fhir/laboratory/StructureDefinition/composition-basedOn-order-or-requisition
-Alias: $information-recipient = http://hl7.eu/fhir/StructureDefinition/information-recipient
-Alias: $composition-clinicaldocument-versionNumber = http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber
 //============== ALIAS ===============
 
 // --- Code Systems
@@ -14,6 +6,7 @@ Alias: $ajcc = http://cancerstaging.org
 Alias: $atc = http://www.whocc.no/atc
 Alias: $dicomOntology = http://dicom.nema.org/resources/ontology/DCM
 Alias: $edqm = https://standardterms.edqm.eu
+Alias: $spor-sms = http://spor.ema.eu/sms // FAKE URL TO BE CHANGED
 Alias: $iccc3 = http://terminology.hl7.org/CodeSystem/iccc-3 // FAKE URL NOT YET ASSIGNED !!
 Alias: $icd03 = http://terminology.hl7.org/CodeSystem/icd-o-3
 Alias: $loinc =  http://loinc.org
@@ -30,6 +23,18 @@ Alias: $diagnostic-service-sections = http://terminology.hl7.org/CodeSystem/v2-0
 Alias: $obs-interpretation = http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
 Alias: $reference-range-meaning = http://terminology.hl7.org/CodeSystem/referencerange-meaning
 
+Alias: $absent-unknown-uv-ips = http://hl7.org/fhir/uv/ips/CodeSystem/absent-unknown-uv-ips
+Alias: $allergyintolerance-verification = http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
+Alias: $allergyintolerance-clinical = http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical
+Alias: $v3-Confidentiality = http://terminology.hl7.org/CodeSystem/v3-Confidentiality
+Alias: $condition-ver-status = http://terminology.hl7.org/CodeSystem/condition-ver-status
+Alias: $allergy-intolerance-criticality = http://hl7.org/fhir/allergy-intolerance-criticality
+Alias: $orphanet = https://www.orpha.net // TEMPORARY
+Alias: $isco = urn:oid:2.16.840.1.113883.2.9.6.2.7
+Alias: $eu-device = http://example.org/eu-devices // ASSIGN URL
+
+
+
 // --- Value Sets
 Alias: $v3-ClassNullFlavor = http://terminology.hl7.org/ValueSet/v3-ClassNullFlavor
 Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
@@ -39,6 +44,8 @@ Alias: $diagnosis-role = http://terminology.hl7.org/CodeSystem/diagnosis-role
 Alias: $results-laboratory-observations-uv-ips = http://hl7.org/fhir/uv/ips/ValueSet/results-laboratory-observations-uv-ips
 Alias: $results-coded-values-laboratory-uv-ips = http://hl7.org/fhir/uv/ips/ValueSet/results-coded-values-laboratory-uv-ips
 
+Alias: $radiotherapy-energy-units = http://hl7.org/fhir/us/codex-radiation-therapy/ValueSet/radiotherapy-energy-units
+Alias: $codex-radiotherapy-isotopes = http://hl7.org/fhir/us/codex-radiation-therapy/ValueSet/codex-radiotherapy-isotopes
 
 // ---- Extensions
 Alias: $condition-related = http://hl7.org/fhir/StructureDefinition/condition-related
@@ -54,8 +61,15 @@ Alias: $workflow-supportingInfo = http://hl7.org/fhir/StructureDefinition/workfl
 Alias: $bodySite = http://hl7.org/fhir/StructureDefinition/bodySite
 Alias: $flag-detail = http://hl7.org/fhir/StructureDefinition/flag-detail
 Alias: $flag-priority = http://hl7.org/fhir/StructureDefinition/flag-priority
-Alias: $composition-diagnostic-report-reference = http://hl7.eu/fhir/ig/xeh/StructureDefinition/composition-DiagnosticReportReference
+// Alias: $composition-diagnostic-report-reference = http://hl7.eu/fhir/ig/xeh/StructureDefinition/composition-DiagnosticReportReference
 Alias: $diagnostic-report-composition-r5 = http://hl7.org/fhir/5.0/StructureDefinition/extension-DiagnosticReport.composition
+
+Alias: $patient-citizenship = http://hl7.org/fhir/StructureDefinition/patient-citizenship
+Alias: $patient-nationality = http://hl7.org/fhir/StructureDefinition/patient-nationality
+Alias: $composition-basedOn-order-or-requisition = http://hl7.eu/fhir/StructureDefinition/composition-basedOn-order-or-requisition
+Alias: $information-recipient = http://hl7.eu/fhir/StructureDefinition/information-recipient
+Alias: $composition-clinicaldocument-versionNumber = http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber
+
 
 // --- Profiles
 Alias: $Composition-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Composition-uv-ips

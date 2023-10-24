@@ -9,7 +9,7 @@ Description: "This profile defines how to represent Encounter in FHIR for the pu
 * type ^short = "Specific type of Hospital stay" // add voc binding
 * serviceType ^short = "Specific type of encounter." // add voc binding
 * priority ^short = "Encounter priority" // add voc binding
-* priority from http://terminology.hl7.org/ValueSet/v3-xEncounterAdmissionUrgency (extensible)
+* priority from http://terminology.hl7.org/ValueSet/v3-xEncounterAdmissionUrgency (preferred)
 * subject only Reference (PatientXpandh)
 * subject 1..
 * basedOn ^short = "The request for which this encounter has been made"

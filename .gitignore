@@ -5,3 +5,6 @@ Thumbs.db
 /output
 /temp
 /template
+input/fsh/models/*.xlk
+.gitignore
+src-models/*.xlk
