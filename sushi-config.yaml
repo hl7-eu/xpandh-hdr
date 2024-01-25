@@ -21,16 +21,15 @@ copyright: >-
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
 #
+
 dependencies:
-  hl7.fhir.uv.ips: current
-  # hl7.fhir.us.mcode: current # to be removed if no more needed
-  hl7.fhir.eu.laboratory: current
-  # hl7.fhir.eu.xpandh: dev
+  hl7.fhir.eu.laboratory: current 
+  hl7.fhir.uv.ips: 1.1.0  
   hl7.fhir.extensions.r5: 4.0.1
-#   hl7.fhir.us.mcode:
-#     id: mcode
-#     uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode
-#     version: 1.0.0
+  hl7.eu.fhir.xpandh: current
+  hl7.fhir.eu.extensions.r4: dev
+  # hl7.fhir.us.mcode: current # to be removed if no more needed
+
 #
 #
 # The pages property corresponds to IG.definition.page. SUSHI can

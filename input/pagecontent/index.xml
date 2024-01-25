@@ -13,12 +13,11 @@
     This is the Hospital Dischareg Report HL7 FHIR Implementation Guide for the XpanDH project, created to assist the work of the pilots for the <a href="#adoption-domains">XpanDH exprimentation bubbles</a>.
   </p>
 
-  
-<blockquote class="dragon">
+
+  <blockquote class="dragon">
     <p>This specification has been created to contribute to the development of the European EHRxF for this domain.</p>
-    <p>This guide is not intended to replace or override possible future standard guides or any other Implementation Guide that will be specified by MyHealth@Eu and/or JA-09; but to provide support for thier development.</p>
-    <p>
-</blockquote>
+    <p><b>This guide is not intended to replace or override possible future standard guides or any other Implementation Guide that will be specified by MyHealth@Eu and/or JA-09; but to provide support for thier development.</b></p>
+  </blockquote>
 
 
   <a name="project"></a>
@@ -72,8 +71,8 @@
 {% include globals-table.xhtml %}
 
 
-<a name="ip-statements"></a>
-<h3>IP Statements</h3>
+  <a name="ip-statements"></a>
+  <h3>IP Statements</h3>
 
 {% include ip-statements.xhtml %}
 
