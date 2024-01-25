@@ -13,12 +13,19 @@
     This is the Hospital Dischareg Report HL7 FHIR Implementation Guide for the XpanDH project, created to assist the work of the pilots for the <a href="#adoption-domains">XpanDH exprimentation bubbles</a>.
   </p>
 
+  
+<blockquote class="dragon">
+    <p>This specification has been created to contribute to the development of the European EHRxF for this domain.</p>
+    <p>This guide is not intended to replace or override possible future standard guides or any other Implementation Guide that will be specified by MyHealth@Eu and/or JA-09; but to provide support for thier development.</p>
+    <p>
+</blockquote>
+
+
   <a name="project"></a>
   <h3>The project</h3>
   <a name="mission"></a>
   <h4>The mission</h4>
-  <p>Help individuals and organizations successfully adopt the European Electronic Health Record Exchange Format (EEHRxF) in a way that is empowering and supportive.
-  </p>
+  <p>Help individuals and organizations successfully adopt the European Electronic Health Record Exchange Format (EEHRxF) in a way that is empowering and supportive.</p>
 
   <a name="how"></a>
   <h4>How to:</h4>
@@ -63,6 +70,12 @@
   <h3>Global Profiles</h3>
 
 {% include globals-table.xhtml %}
+
+
+<a name="ip-statements"></a>
+<h3>IP Statements</h3>
+
+{% include ip-statements.xhtml %}
 
   <a name="authors"></a>
   <h3>Authors and Contributors</h3>
