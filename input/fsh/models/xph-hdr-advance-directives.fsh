@@ -1,9 +1,9 @@
 //===================================================
-//  Logical Model				xph-hdr-enc.fsh
+//  Logical Model				xph-hdr-advance-directives.fsh
 //===================================================
 Logical: HdrEHNAdvanceDirectives
-Id: HdrAdvanceDirectives
-Title: "A2.1 - Advance Directives (eHN)"
+Id: HDRAdvanceDirectives
+Title: "A.2.1 - Advance Directives (eHN)"
 Description:  """Hospital Discharge Report - Advance Directives - A.2.1 eHN
 Maturity Level: 0 Draft"""
 
