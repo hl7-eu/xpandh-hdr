@@ -77,14 +77,14 @@ Maturity Level: 0 Draft"""
 
 * body 1..1 BackboneElement "A.2 - Hospital Discharge Report body data element" """Hospital Discharge Report body data element"""
 * body.presentedForm 0..1 BackboneElement "A.2.0 - Hospital Discharge Report in its narrative form" """Hospital Discharge Report in its narrative form"""
-* body.advanceDirectives 0..1 BackboneElement "A.2.1 - Advance directives" """Advance directives"""
-* body.alerts 1..1 BackboneElement "A.2.2 - Alerts" """Alerts"""
-* body.encounter 1..1 BackboneElement "A.2.3 - Encounter [Mandatory]" """A.2.3-Encounter [Mandatory]"""
-* body.admissionEvaluation 0..1 BackboneElement "A.2.4 - Admission evaluation - Admission status should be reported exceptionally only if it is relevant to ensure continuity of care." """Admission evaluation - Admission status should be reported exceptionally only if it is relevant to ensure continuity of care."""
+* body.advanceDirectives 0..1 HDRAdvanceDirectives "A.2.1 - Advance directives" """Advance directives"""
+* body.alerts 1..1 HDRAlerts "A.2.2 - Alerts" """Alerts"""
+* body.encounter 1..1 HDREncounter "A.2.3 - Encounter [Mandatory]" """A.2.3-Encounter [Mandatory]"""
+* body.admissionEvaluation 0..1 HDRAdmissionEvaluation "A.2.4 - Admission evaluation - Admission status should be reported exceptionally only if it is relevant to ensure continuity of care." """Admission evaluation - Admission status should be reported exceptionally only if it is relevant to ensure continuity of care."""
 * body.patientHistory 0..1 BackboneElement "A.2.6 - Patient history" """Patient history (might include information about provenance of the information)"""
-* body.hospitalStay 1..1 BackboneElement "A.2.7 - Course of hospitalisation (Hospital stay)" """Course of hospitalisation (Hospital stay)"""
-* body.dischargeDetails 1..1 BackboneElement "A.2.8 - Discharge details" """Discharge details (structured information should be provided, however if not available, at least a summary note should be present)."""
-* body.recommendations 0..1 BackboneElement "A.2.9 - Care plan and other recommendations after discharge." """Care plan and other recommendations after discharge."""
+* body.hospitalStay 1..1 HDRHospitalStay "A.2.7 - Course of hospitalisation (Hospital stay)" """Course of hospitalisation (Hospital stay)"""
+* body.dischargeDetails 1..1 HDRDischargeDetails "A.2.8 - Discharge details" """Discharge details (structured information should be provided, however if not available, at least a summary note should be present)."""
+* body.recommendations 0..1 HDRRecommendations "A.2.9 - Care plan and other recommendations after discharge." """Care plan and other recommendations after discharge."""
 
 
 //--------------------------------------------------------------------------------
