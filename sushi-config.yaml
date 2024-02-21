@@ -23,8 +23,8 @@ copyright: >-
 #
 
 dependencies:
-  hl7.fhir.eu.laboratory: current 
-  hl7.fhir.uv.ips: 1.1.0  
+  hl7.fhir.eu.laboratory: current
+  hl7.fhir.uv.ips: 1.1.0
   hl7.fhir.extensions.r5: 4.0.1
   hl7.eu.fhir.xpandh: current
   hl7.fhir.eu.extensions.r4: dev
@@ -177,7 +177,14 @@ groups:
     description: Logical models representing the eHN HDR Guidelines
     resources:
       - StructureDefinition/HospitalDischargeReport
+      - StructureDefinition/HDRAdvanceDirectives
+      - StructureDefinition/HDRAlerts
       - StructureDefinition/HDREncounter
+      - StructureDefinition/HDRAdmissionEvaluation
+      - StructureDefinition/HDRPatientHistory
+      - StructureDefinition/HDRHospitalStay
+      - StructureDefinition/HDRDischargeDetails
+      - StructureDefinition/HDRRecommendations
 
   Slovakia:
     name:  Slovakia HDR
