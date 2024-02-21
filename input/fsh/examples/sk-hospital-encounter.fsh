@@ -15,4 +15,6 @@ Description: "Slovak hospital - example of a health provider organization"
 * hospitalization.origin = Reference(SK-Organization-GP)
 * hospitalization.admitSource = $encounter-admit-source#gp
 
+
+
 // Here: to be completed !!!
