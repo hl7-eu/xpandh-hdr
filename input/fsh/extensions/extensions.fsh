@@ -1,3 +1,18 @@
+Extension: EncounterVoluntaryStatus
+Id:   encounter-voluntary-status
+Title:  "Encounter Voluntary Status"
+Description: "This extension provides information about voluntary or involuntary nature of the encounter."
+// publisher, contact, and other metadata here using caret (^) syntax (omitted)
+* ^context[+].type = #element
+* ^context[=].expression = "Encounter"
+* value[x] only code
+* value[x] from AdmissionVoluntaryStatusVS
+
+
+
+
+
+
 /* //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

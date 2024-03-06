@@ -25,6 +25,7 @@ Alias: $fhir-org-type = http://terminology.hl7.org/CodeSystem/organization-type
 Alias: $encounter-status = http://hl7.org/fhir/encounter-status
 Alias: $v3-act-priority = http://terminology.hl7.org/CodeSystem/v3-ActPriority
 Alias: $encounter-admit-source = http://terminology.hl7.org/CodeSystem/admit-source
+Alias: $poa = POAIndicatorXpanDHCS
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
