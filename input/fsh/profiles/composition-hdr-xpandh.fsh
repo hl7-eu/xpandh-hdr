@@ -59,7 +59,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * attester.party ^short = "Who attested the composition"
 
 * section 1..
-* section ^slicing.discriminator[0].type = #pattern
+* section ^slicing.discriminator[0].type = #value
 * section ^slicing.discriminator[0].path = "code"
 * section ^slicing.ordered = false
 * section ^slicing.rules = #open
@@ -79,19 +79,55 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 
 // -------------------------------------
-// Admission Diagnosis Section 0 … 1 R
+// Admission Evaluation Section 0 … 1 R
 // -------------------------------------
 
-* section contains admissionDiagnosisSection ..1
-* section[admissionDiagnosisSection]
+* section contains admissionEvaluationSection ..1
+* section[admissionEvaluationSection]
   * insert SectionComRules (
-    Admission Diagnosis, // SHORT
-      Admission Diagnosis, // DESC
-      http://loinc.org#46241-6  )   // CODE
+    Hospital Admission evaluation, // SHORT
+      Hospital Admission evaluation, // DESC
+      http://loinc.org#67852-4 )   // CODE
+  * section
+    * ^slicing.discriminator[+].type = #type
+    * ^slicing.discriminator[=].path = "resolve()"
+    * ^slicing.ordered = false
+    * ^slicing.rules = #open
+    * ^short = "Objective findings"
+    * ^definition = "Findings made by healthcare practitioner"
+
+  * section contains anthropometry 0..1
+  * section[anthropometry]
+    * title = "Anthropometric observations"
+    * code = $sct#248326004 "Body measure (observable entity)"
+    * entry 1..
+    * entry only Reference(BodyHeightXpandh or BodyWeightXpandh or BMIProfileXpandh or SkinfoldThicknessXpandh or CircumferenceMeasurementXpandh)
+    * section ..0
+
+  * section contains vitalSigns 0..1
+  * section[vitalSigns]
+    * title = "Vital signs"
+    * code = $sct#1184593002 "Vital sign document section (record artifact)"
+    * entry 1..
+    * entry only Reference(BloodPressureXpandh or HeartRateXpandh or RespiratoryRateXpandh or BodyTemperatureXpandh or OxygenSaturationXpandh )
+    * section ..0
+
+  * section contains physicalExamination 0..1  // ToDo: add structure
+  * section[physicalExamination]
+    * title = "Physical examination"
+    * code = $sct#425044008 "Physical exam section (record artifact)"
+    * text 1..    // now only textual section, should we use questionnair resource for structuring per body part?
+    * entry 0..   // now only textual section, should we use questionnair resource or observation for structuring per body part?
+    * section ..0
+
+  * section contains functionalStatus 0..1  // ToDo: add structure
+    * section[functionalStatus]
+    * title = "Functional status assessment"
+    * code = $sct#1184588000 "Functional status document section (record artifact)"
+    * entry only Reference(FunctionalStatusAssessmentXpandh)
+    * section ..0
+
   * entry 0..
-  * insert SectionEntrySliceComRules(Admission Diagnosis, Admission Diagnosis)
-  // entry slices
-  * insert SectionEntrySliceDefRules (admissionDiagnosis, 0.. , Admission Diagnosis , Admission Diagnosis , Condition)
 
 
 // -------------------------------------
@@ -538,7 +574,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionProcedure].emptyReason ..0
 * section[sectionProcedure].emptyReason ^mustSupport = false
 
-
+/*
 // -------------------------------------
 // Vital Signs Section 0 … 1
 // -------------------------------------
@@ -561,9 +597,11 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionVitalSigns].entry ^definition = "Notable vital signs or physical findings as: blood pressure, body temperature, heart rate, and respiratory rate. It may also include other clinical findings, such as height, weight, body mass index, head circumference, and pulse oximetry. In particular, notable vital signs or physical findings such as the most recent, maximum and/or minimum, baseline, or relevant trends may be included"
 * section[sectionVitalSigns].emptyReason ..0
 * section[sectionVitalSigns].emptyReason ^mustSupport = false
-
+*/
 // -------------------------------------
 
+
+/*
 // -------------------------------------
 // Discharge Diagnosis Section 0 … 1 R
 // -------------------------------------
@@ -580,14 +618,14 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[dischargeDiagnosisSection].text 1..
 * section[dischargeDiagnosisSection].text only Narrative
 * section[dischargeDiagnosisSection].entry 0..
-* section[admissionDiagnosisSection].entry only Reference(Condition) // define specialized profiles
+* section[dischargeDiagnosisSection].entry only Reference(Condition) // define specialized profiles
 * section[dischargeDiagnosisSection].entry ^short = "Discharge Diagnosis"
 * section[dischargeDiagnosisSection].entry ^definition = "Discharge Diagnosis"
 * section[dischargeDiagnosisSection].emptyReason ..0
 * section[dischargeDiagnosisSection].emptyReason ^mustSupport = false
+*/
 
-
-
+/*
 // -------------------------------------
 // Discharge Medications Section 0 … 1
 // -------------------------------------
@@ -604,7 +642,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionDischargeMedications].entry only Reference($MedicationStatement-uv-ips or $MedicationRequest-uv-ips or MedicationAdministration or MedicationDispense)
 * section[sectionDischargeMedications].emptyReason ..0
 * section[sectionDischargeMedications].emptyReason ^mustSupport = false
-
+*/
 
 
 // -------------------------------------

@@ -8,7 +8,7 @@ Description: "This profile represents the constraint applied to the Condition in
 * code only $CodeableConcept-uv-ips
 * code from HdrConditionXpandhVS
 * category only $CodeableConcept-uv-ips
-* category ^slicing.discriminator.type = #pattern
+* category ^slicing.discriminator.type = #value
 * category ^slicing.discriminator.path = "$this"
 * category ^slicing.rules = #open
 * category ^definition = """Slices per type of classificaton"""

@@ -18,17 +18,18 @@ Description: "This profile defines how to represent Patient in FHIR for the purp
 * birthDate 1..
   * ^short = "The date of birth for the patient"
 * address ^short = "Patient Address"
-* address obeys pat-cnt-2or3-char
+* address only $address-eu
 * contact
   * relationship only $CodeableConcept-uv-ips
   * address ^short = "Contact person address"
+  * address only $address-eu
   * telecom ^short = "Contact details for the person"
   * name
     * given 1.. // to be checked
     * family 1.. // to be checked
 
 * generalPractitioner ^short = "Patient's nominated primary care provider."
-* generalPractitioner only Reference( Organization or PractitionerRole) // is this OK ?
+* generalPractitioner only Reference(OrganizationXpandh or PractitionerRole) // is this OK ?
 * communication.language ^short = "Communication language"
 
 

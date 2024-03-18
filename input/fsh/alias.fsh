@@ -26,6 +26,7 @@ Alias: $encounter-status = http://hl7.org/fhir/encounter-status
 Alias: $v3-act-priority = http://terminology.hl7.org/CodeSystem/v3-ActPriority
 Alias: $encounter-admit-source = http://terminology.hl7.org/CodeSystem/admit-source
 Alias: $poa = POAIndicatorXpanDHCS
+Alias: $whodas = https://id.who.int/whodas   // temporary URL
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
@@ -37,7 +38,7 @@ Alias: $MedicationStatement-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinit
 Alias: $Immunization-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Immunization-uv-ips
 Alias: $clinicaldocument = http://hl7.org/fhir/StructureDefinition/clinicaldocument
 Alias: $CodeableConcept-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-
+Alias: $address-eu = http://hl7.eu/fhir/laboratory/StructureDefinition/Address-eu
 Alias: $iso21090-ADXP-streetName = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName
 Alias: $iso21090-ADXP-houseNumber = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber
 Alias: $iso21090-ADXP-postBox = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox

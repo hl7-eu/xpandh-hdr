@@ -16,8 +16,9 @@ Title:    "PractitionerRole"
 Description: "This profile defines how to represent Practitioners (with thier roles) in FHIR for the purpose of the XpanDH project."
 * identifier ^short = "PractitionerRole identifier"
 * practitioner 1..
-* practitioner only Reference ( PractitionerXpandh )
+* practitioner only Reference(PractitionerXpandh)
 * organization ^short = "PractitionerRole's organization"
+* organization only Reference(OrganizationXpandh)
 
 
 

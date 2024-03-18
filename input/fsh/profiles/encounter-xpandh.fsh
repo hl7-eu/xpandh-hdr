@@ -30,7 +30,7 @@ Description: "This profile defines how to represent Encounter in FHIR for the pu
 * participant
   * ^short = "List of participants involved in the encounters"
   * ^definition = """Slice per type of participant: admitter, discharger,.."""
-  * ^slicing.discriminator[0].type = #pattern
+  * ^slicing.discriminator[0].type = #value
   * ^slicing.discriminator[0].path = "type"
   * ^slicing.ordered = false
   * ^slicing.rules = #open
