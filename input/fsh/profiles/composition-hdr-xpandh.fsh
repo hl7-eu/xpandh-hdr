@@ -8,14 +8,14 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * . ^short = "Hospital Discharge Report composition"
 * . ^definition = "Hospital Discharge Report composition. \r\nA composition is a set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. \r\nWhile a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained."
 
-/* HK: Is order still relevant in case of discharge report? I don't think so.
+/* HK: Is order still relevant in case of discharge report?
 * extension contains $composition-basedOn-order-or-requisition named basedOn-order-or-requisition 0..*
 * extension[basedOn-order-or-requisition]
 * extension[basedOn-order-or-requisition].valueReference only Reference ( ServiceRequestHdrXpandh )
 */
 
 * extension contains $information-recipient named information-recipient 0..*
-/* HK: Commented, because causing error during build
+/* //HK: Commented, because causing error during build
 * extension[information-recipient]
   * ^slicing.discriminator[0].type = #type
   * ^slicing.discriminator[0].path = "valueReference.resolve()"
@@ -66,18 +66,6 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section ^short = "Sections composing the Hospital Discharge Report"
 * section ^definition = "The root of the sections that make up the Hospital Discharge Report composition."
 
-
-// -------------------------------------
-// Patient History Section 0 … 1 R
-// -------------------------------------
-
-* section contains patientHxSection ..1
-* section[patientHxSection]
-  * insert SectionComRules ( Patient History Section,
-  This Section describes all aspects of the medical history of the patient even if not pertinent to the current procedure\, and may include chief complaint\, past medical history\, social history\, family history\, surgical or procedure history\, medication history\, and other history information. The history may be limited to information pertinent to the current procedure or may be more comprehensive. The history may be reported as a collection of random clinical statements or it may be reported categorically. Categorical report formats may be divided into multiple subsections including Past Medical History\, Social History.,
-   http://loinc.org#11329-0 )
-
-
 // -------------------------------------
 // Admission Evaluation Section 0 … 1 R
 // -------------------------------------
@@ -98,8 +86,10 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
   * section contains anthropometry 0..1
   * section[anthropometry]
-    * title = "Anthropometric observations"
-    * code = $sct#248326004 "Body measure (observable entity)"
+    * insert SectionComRules (
+      Anthropometric observations, // SHORT
+      Anthropometric Observations sub-section, // DESC
+      $sct#248326004)
     * entry 1..
     * entry only Reference(BodyHeightXpandh or BodyWeightXpandh or BMIProfileXpandh or SkinfoldThicknessXpandh or CircumferenceMeasurementXpandh)
     * section ..0
@@ -116,11 +106,12 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * section[physicalExamination]
     * title = "Physical examination"
     * code = $sct#425044008 "Physical exam section (record artifact)"
-    * text 1..    // now only textual section, should we use questionnair resource for structuring per body part?
-    * entry 0..   // now only textual section, should we use questionnair resource or observation for structuring per body part?
+    * text 1..    // now only textual section, should we use questionnair resource for structuring per body part? Maybe as on option?
+    * entry 0..   // now only textual section, should we use questionnair response or Observation for structuring per body part?
     * section ..0
 
-  * section contains functionalStatus 0..1  // ToDo: add structure
+  * section contains functionalStatus 0..1
+  * section[functionalStatus]
     * section[functionalStatus]
     * title = "Functional status assessment"
     * code = $sct#1184588000 "Functional status document section (record artifact)"
@@ -129,7 +120,21 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
   * entry 0..
 
+// -------------------------------------
+// Patient History Section 0 … 1 R
+// ToDo: Review
+// -------------------------------------
 
+* section contains patientHxSection ..1
+* section[patientHxSection]
+  * insert SectionComRules (
+    Patient History Section,
+    This Section describes all aspects of the medical history of the patient even if not pertinent to the current procedure\, and may include chief complaint\, past medical history\, social history\, family history\, surgical or procedure history\, medication history\, and other history information. The history may be limited to information pertinent to the current procedure or may be more comprehensive. The history may be reported as a collection of random clinical statements or it may be reported categorically. Categorical report formats may be divided into multiple subsections including Past Medical History\, Social History.,
+    http://loinc.org#11329-0 )
+
+
+
+/*
 // -------------------------------------
 // Admission Medications Section 0 … 1 R
 // -------------------------------------
@@ -153,7 +158,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
     Admission Medication Statement  , $MedicationStatement-uv-ips)
   * insert SectionEntrySliceDefRules (medicationRequest, 0.. , Admission Medication Request ,
     Admission Medication Request  , $MedicationRequest-uv-ips)
-
+*/
 
 /* * section[sectionAdmissionMedications] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[sectionAdmissionMedications] ^extension[0].valueString = "Section"
@@ -170,7 +175,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 
 
-
+/* Admission reason is part of the encounter
 // -------------------------------------
 // Chief Complaint and Reason for Visit Section 0 … 1
 // -------------------------------------
@@ -179,27 +184,12 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * insert SectionComRules (Chief Complaint and Reason for Visit,
                           This section records the patient's chief complaint (the patient’s own description\) and/or the reason for the patient's visit (the provider’s description of the reason for visit\). Local policy determines whether the information is divided into two sections or recorded in one section serving both purposes.,
                              http://loinc.org#46239-0  )
+*/
 
-/* * section[CCandReasonforVisitSection] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[CCandReasonforVisitSection] ^extension[0].valueString = "Section"
-* section[CCandReasonforVisitSection] ^short = "Chief Complaint and Reason for Visit"
-* section[CCandReasonforVisitSection] ^definition = "This section records the patient's chief complaint (the patient’s own description) and/or the reason for the patient's visit (the provider’s description of the reason for visit). Local policy determines whether the information is divided into two sections or recorded in one section serving both purposes."
-* section[CCandReasonforVisitSection].title 1..
-* section[CCandReasonforVisitSection].code 1..
-* section[CCandReasonforVisitSection].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[CCandReasonforVisitSection].code = http://loinc.org#46239-0 (exactly)
-* section[CCandReasonforVisitSection].text 1..
-* section[CCandReasonforVisitSection].text only Narrative
-* section[CCandReasonforVisitSection].emptyReason ..0
-* section[CCandReasonforVisitSection].emptyReason ^mustSupport = false */
-
-
-
-
+/*
 // -------------------------------------
 // Problems Section 0 … 1 R
 // -------------------------------------
-
 * section contains sectionProblems ..1
 * section[sectionProblems]
   * insert SectionComRules (
@@ -241,16 +231,16 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 * section[sectionAllergies]
   * insert SectionComRules (
-    HDR Allergies and Intolerances Section, // SHORT
-      This section documents the relevant allergies or intolerances (conditions\) for that patient\, describing the kind of reaction (e.g. rash\, anaphylaxis\,..\); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy.\r\nAt a minimum\, it should list currently active and any relevant historical allergies and adverse reactions.\r\nIf no information about allergies is available\, or if no allergies are known this should be clearly documented in the section. // DESC
-      ,  http://loinc.org#48765-2 )   // CODE
+      HDR Allergies and Intolerances Section, // SHORT
+      This section documents the relevant allergies or intolerances (conditions\) for that patient\, describing the kind of reaction (e.g. rash\, anaphylaxis\,..\); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy.\r\nAt a minimum\, it should list currently active and any relevant historical allergies and adverse reactions.\r\nIf no information about allergies is available\, or if no allergies are known this should be clearly documented in the section., // DESC
+      http://loinc.org#48765-2 )   // CODE
   * entry 1..
   * entry only Reference(AllergyIntolerance or DocumentReference  )
   * insert SectionEntrySliceComRules(Relevant allergies or intolerances (conditions\) for that patient.,
     It lists the relevant allergies or intolerances (conditions\) for that patient\, describing the kind of reaction (e.g. rash\, anaphylaxis\,..\); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy.\r\nAt a minimum\, it should list currently active and any relevant historical allergies and adverse reactions.\r\n This entry shall be used to document that no information about allergies is available\, or that no allergies are known .)
   // entry slices
-  * insert SectionEntrySliceDefRules (allergyIntolerance, 0.. , HDR Allergy entry ,
-    HDR Allergy entry  , $AllergyIntolerance-uv-ips)
+  * insert SectionEntrySliceDefRules (allergyIntolerance, 0.. , HDR Allergy entry,
+    HDR Allergy entry, $AllergyIntolerance-uv-ips)
 
 
 // -------------------------------------
@@ -318,7 +308,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionImmunizations].emptyReason ..0
 * section[sectionImmunizations].emptyReason ^mustSupport = false */
 
-
+/*
 // -------------------------------------
 // Family History Section 0 … 1
 // -------------------------------------
@@ -332,7 +322,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * entry only Reference(FamilyMemberHistory)
   * entry ^short = "Family History"
   * entry ^definition = "Family History"
-
+*/
 /* * section[familyHistorySection] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[familyHistorySection] ^extension[0].valueString = "Section"
 * section[familyHistorySection] ^short = "Family History Section"
@@ -348,8 +338,10 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[familyHistorySection].entry ^short = "Family History"
 * section[familyHistorySection].entry ^definition = "Family History"
 * section[familyHistorySection].emptyReason ..0
-* section[familyHistorySection].emptyReason ^mustSupport = false */
+* section[familyHistorySection].emptyReason ^mustSupport = false
+*/
 
+/*
 // -------------------------------------
 // Medical Devices Section 0 … 1
 // -------------------------------------
@@ -369,6 +361,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   // entry slices
   * insert SectionEntrySliceDefRules (deviceUse, 0.. , Medical Device entry ,
     Medical Device entry  , $DeviceUseStatement-uv-ips)
+*/
 /*
 * section[sectionMedicalDevices] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[sectionMedicalDevices] ^extension[0].valueString = "Section"
@@ -410,6 +403,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionPastIllnessHx].emptyReason ^mustSupport = false
 
 
+/*
 // -------------------------------------
 // Functional Status Section 0 … 1
 // -------------------------------------
@@ -431,12 +425,14 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionFunctionalStatus].entry ^definition = "It describes capabilities of the patient to perform acts of daily living, including possible needs of the patient to be continuously assessed by third parties. The invalidity status may in fact influence decisions about how to administer treatments.\r\nProfiles to express disabilities and functional assessments will be specified by future versions of this guide."
 * section[sectionFunctionalStatus].emptyReason ..0
 * section[sectionFunctionalStatus].emptyReason ^mustSupport = false
+*/
 
 // -------------------------------------
 // Care Team 0 … 1
 // -------------------------------------
 * insert CareTeamSectionRules
 
+/*
 // -------------------------------------
 // Gynaecological-obstetric history 0 … 1
 // -------------------------------------
@@ -456,7 +452,9 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionPregnancyHx].entry ^definition = "It contains information about whether the patient is currently pregnant or not.\r\nIt may contain addition summarizing information about the outcome of earlier pregnancies."
 * section[sectionPregnancyHx].emptyReason ..0
 * section[sectionPregnancyHx].emptyReason ^mustSupport = false
+*/
 
+/*
 // -------------------------------------
 // Social History Section
 // -------------------------------------
@@ -476,23 +474,20 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionSocialHistory].entry ^definition = "Description of the person’s Health related “lifestyle factors\" or \"lifestyle observations\" (e.g. smoke habits; alcohol consumption; diets, risky habits.)"
 * section[sectionSocialHistory].emptyReason ..0
 * section[sectionSocialHistory].emptyReason ^mustSupport = false
-
+*/
 
 
 // -------------------------------------
 // Hospital Course Section 1… 1
 // -------------------------------------
-* section contains sectionHospitalCourse ..1
-* section[sectionHospitalCourse] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionHospitalCourse] ^extension[0].valueString = "Section"
-* section[sectionHospitalCourse] ^short = "Hospital course"
-* section[sectionHospitalCourse] ^definition = "Hospital course describes the sequence of events from admission to discharge in a hospital facility."
-* section[sectionHospitalCourse].code 1..
-* section[sectionHospitalCourse].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionHospitalCourse].code = http://loinc.org#8648-8 (exactly)
-* section[sectionHospitalCourse].text 1..
+* section contains sectionHospitalCourse 1..1
+* section[sectionHospitalCourse]
+  * insert SectionComRules (
+    HDR Hospital course, // SHORT
+    Hospital course describes the sequence of events from admission to discharge in a hospital facility., // DESC
+    http://loinc.org#8648-8 )   // CODE
 
-
+/*
 // -------------------------------------
 // Medications Section 0 … 1
 // to be checked
@@ -516,10 +511,10 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionMedications].entry ^definition = "This list the medications relevant for the scope of the patient summary or it is used to indicate that the subject is known not to be on any relevant medication; either that no information is available about medications."
 * section[sectionMedications].emptyReason ..0
 * section[sectionMedications].emptyReason ^mustSupport = false
-
+*/
 
 // OR THIS ONE ???
-
+/*
 * section contains sectionMedicationsAdministered ..1
 * section[sectionMedicationsAdministered] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[sectionMedicationsAdministered] ^extension[0].valueString = "Section"
@@ -533,12 +528,13 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionMedicationsAdministered].entry only Reference($MedicationStatement-uv-ips or $MedicationRequest-uv-ips or MedicationAdministration or MedicationDispense)
 * section[sectionMedicationsAdministered].emptyReason ..0
 * section[sectionMedicationsAdministered].emptyReason ^mustSupport = false
+*/
 
 
 // -------------------------------------
 // Results Section 0 … 1
 // -------------------------------------
-
+/*
 * section contains sectionResults ..1
 * section[sectionResults] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[sectionResults] ^extension[0].valueString = "Results Section"
@@ -556,12 +552,13 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionResults].entry ^definition = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results."
 * section[sectionResults].emptyReason ..0
 * section[sectionResults].emptyReason ^mustSupport = false
-
+*/
 
 // -------------------------------------
 // Procedures Section 0 … 1
 // TO BE CHECKED
 // -------------------------------------
+/*
 * section contains sectionProcedure ..1
 * section[sectionProcedure] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[sectionProcedure] ^extension[0].valueString = "Section"
@@ -573,7 +570,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionProcedure].entry only Reference($Procedure-uv-ips)
 * section[sectionProcedure].emptyReason ..0
 * section[sectionProcedure].emptyReason ^mustSupport = false
-
+*/
 /*
 // -------------------------------------
 // Vital Signs Section 0 … 1
@@ -598,6 +595,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionVitalSigns].emptyReason ..0
 * section[sectionVitalSigns].emptyReason ^mustSupport = false
 */
+
 // -------------------------------------
 
 
@@ -647,6 +645,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 // -------------------------------------
 // Plan of Care Section
+// ToDo: Review
 // -------------------------------------
 * section contains sectionPlanOfCare ..1
 * section[sectionPlanOfCare] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
@@ -666,7 +665,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 // -------------------------------------
 // Hospital Discharge Studies Summary Section
 // -------------------------------------
-
+/*
 * section contains hospitalDischargeStudiesSection ..1
 * section[hospitalDischargeStudiesSection] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[hospitalDischargeStudiesSection] ^extension[0].valueString = "Section"
@@ -683,7 +682,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[hospitalDischargeStudiesSection].entry ^definition = "Study Summary"
 * section[hospitalDischargeStudiesSection].emptyReason ..0
 * section[hospitalDischargeStudiesSection].emptyReason ^mustSupport = false
-
+*/
 // -------------------------------------
 
 // -------------------------------------
@@ -713,6 +712,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 
 // -------------------------------------
 
+/*
 * section contains sectionEncounters ..1
 * section[sectionEncounters] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 * section[sectionEncounters] ^extension[0].valueString = "Section"
@@ -725,7 +725,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionEncounters].entry
 * section[sectionEncounters].emptyReason ..0
 * section[sectionEncounters].emptyReason ^mustSupport = false
-
+*/
 
 // -------------------------------------
 
