@@ -74,7 +74,7 @@ I propose to model it at the condition resource level and don't use encounter di
 otherwise there might be discrepancies and confusion.
 */
 * diagnosis 1..
-* diagnosis.condition only Reference(ConditionHdrXpandh)
+* diagnosis.condition only Reference(ConditionEncounterHdrXpandh)
 * diagnosis.use 0..0
 /*
 * diagnosis

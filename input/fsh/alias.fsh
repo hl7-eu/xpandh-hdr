@@ -27,6 +27,7 @@ Alias: $v3-act-priority = http://terminology.hl7.org/CodeSystem/v3-ActPriority
 Alias: $encounter-admit-source = http://terminology.hl7.org/CodeSystem/admit-source
 Alias: $poa = POAIndicatorXpanDHCS
 Alias: $whodas = https://id.who.int/whodas   // temporary URL
+Alias: $athena = http://fhir.ohdsi.org/CodeSystem/concepts // http://athena.ohdsi.org
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
