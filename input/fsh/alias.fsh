@@ -3,13 +3,13 @@
 //------- Code Systems
 Alias: $loinc = http://loinc.org
 Alias: $v3-ActClass = http://terminology.hl7.org/CodeSystem/v3-ActClass
+Alias: $icd10 = http://hl7.org/fhir/sid/icd-10
 Alias: $icd11 = http://id.who.int/icd11/mms
 Alias: $iso3166 = urn:iso:std:iso:3166
 Alias: $Immunization-recommendation-status = http://terminology.hl7.org/CodeSystem/immunization-recommendation-status
 Alias: $sct = http://snomed.info/sct
 Alias: $atc = http://www.whocc.no/atc
 Alias: $v3-NullFlavor = http://terminology.hl7.org/CodeSystem/v3-NullFlavor
-Alias: $icd-10 = http://hl7.org/fhir/sid/icd-10
 Alias: $ema = https://ec.europa.eu/health/documents/community-register/html/
 Alias: $tempVaccine-eu = http://tempvaccine.eu
 Alias: $mef-ae-comuni = http://terminology.hl7.it/CodeSystem/mef-ae-comuni
@@ -27,7 +27,10 @@ Alias: $v3-act-priority = http://terminology.hl7.org/CodeSystem/v3-ActPriority
 Alias: $encounter-admit-source = http://terminology.hl7.org/CodeSystem/admit-source
 Alias: $poa = POAIndicatorXpanDHCS
 Alias: $whodas = https://id.who.int/whodas   // temporary URL
-Alias: $athena = http://fhir.ohdsi.org/CodeSystem/concepts // http://athena.ohdsi.org
+//Alias: $athena = http://fhir.ohdsi.org/CodeSystem/concepts // http://athena.ohdsi.org
+Alias: $condition-category = http://terminology.hl7.org/CodeSystem/condition-category
+Alias: $AbsentOrUnknownProceduresUvIps = http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-procedures-uv-ips
+Alias: $AbsentOrUnknownDevicesUvIps = http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-devices-uv-ips
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
@@ -43,3 +46,4 @@ Alias: $address-eu = http://hl7.eu/fhir/laboratory/StructureDefinition/Address-e
 Alias: $iso21090-ADXP-streetName = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName
 Alias: $iso21090-ADXP-houseNumber = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber
 Alias: $iso21090-ADXP-postBox = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox
+Alias: $bodySite-reference = http://hl7.org/fhir/StructureDefinition/bodySite

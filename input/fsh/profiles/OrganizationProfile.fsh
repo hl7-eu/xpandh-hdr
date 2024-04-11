@@ -9,8 +9,12 @@ Description: "This profile sets minimum expectations for the Organization resour
 //* . ^definition = "\\-"
 //* . ^comment = "\\-"
 //* . ^mustSupport = false
+* type MS
 * telecom MS
 * telecom.system MS
 * telecom.value MS
 * address MS
 * address only AddressEu
+* partOf ^short = "The organization of which this organization is part of: e.g. an ERN"
+* partOf only Reference (OrganizationXpandh or Organization)
+* contact MS

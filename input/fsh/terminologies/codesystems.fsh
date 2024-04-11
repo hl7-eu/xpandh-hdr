@@ -192,7 +192,7 @@ may be experienced for other reasons such as not having enough time (unless this
 somehow linked to a health condition)."
   * #D5.4 "Getting your household work done as quickly as needed?" "This question refers to the timely meeting of expectations and needs of those respondents
 whom one lives with (or is close to), in relation to household tasks and responsibilities."
-  * #D5.5 "Your day-to-day work/school?" "This global question is intended to elicit respondents’ appraisal of difficulties encountered in dayto-day work or school activities. This includes issues such as attending on time, responding to
+  * #D5.5 "Your day-to-day work/school?" "This global question is intended to elicit respondents’ appraisal of difficulties encountered in day-to-day work or school activities. This includes issues such as attending on time, responding to
 supervision, supervising others, planning and organizing, meeting expectations in the workplace
 and any other relevant activities."
   * #D5.6 "Doing your most important work/school tasks well?" "Doing work or school tasks “well” refers to completing them as expected by a supervisor or
@@ -202,7 +202,7 @@ school."
   * #D5.8 " Getting your work done as quickly as needed?"
 * #D6 "Participation" "Domain 6 represents a shift from the line of questioning used in the first five domains. In this domain,
 respondents are asked to consider how other people and the world around them make it difficult for them
-to take part in society. Here, they are reporting not on their activity limitations but rather on the restrictions they experience from people, laws and other features of the world in which they find themselves.
+to take part in society. Here, they are reporting not on their activity limitations but rather on the restrictions they experience from people, laws and other features of the world in which they find themselves.
 The underlined phrases in the introduction must be emphasized to help respondents shift their mindset
 and understand what is being asked. Respondents need to understand that the focus of these questions
 is on problems encountered because of the society in which they live rather than because of their own

@@ -27,7 +27,7 @@ This profile identifies which core elements, extensions, vocabularies, and value
 * effective[x] ^comment = "At least a date should be present unless this observation is a historical report."
 * effective[x] ^type[0].extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support"
 * effective[x] ^type[=].extension.valueBoolean = true
-* performer only Reference(PractitionerXpandh or OrganizationXpandh or PatientXpandh or PractitionerRole or CareTeam or RelatedPerson)
+* performer only Reference(PractitionerXpandh or OrganizationXpandh or PatientXpandh or PractitionerRoleXpandh or CareTeamXpandh or RelatedPerson)
 * performer MS
 /*
 * value[x] only Quantity or CodeableConcept or string or boolean or integer or Range or Ratio or SampledData or time or dateTime or Period

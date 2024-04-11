@@ -13,13 +13,13 @@ Usage: #example
 * lotNumber = "EL0727" //
 * site.text = "deltoide"
 * route.text = "intramuscolare"
- 
-// * performer[0].actor.reference = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7" 
+
+// * performer[0].actor.reference = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"
 * performer[0].actor.display = "Dr.sa Minzoli Alberto"
-* performer[1].actor.reference = "Organization/org-example-it" // 
+* performer[1].actor.reference = "Organization/org-example-it" //
 * performer[0].actor.display = "Az. USL Toscana centro"
 
-* protocolApplied[0].targetDisease[0] = $icd-10#J12.82 "Pneumonia due to coronavirus disease 2019" 
+* protocolApplied[0].targetDisease[0] = $icd10#J12.82 "Pneumonia due to coronavirus disease 2019"
 * protocolApplied[0].targetDisease[1] = $icd11#XN109 "SARS-CoV-2"
 * protocolApplied[0].targetDisease[2] = $sct#840533007 "2019 novel coronavirus"
 * protocolApplied[0].doseNumberPositiveInt = 2

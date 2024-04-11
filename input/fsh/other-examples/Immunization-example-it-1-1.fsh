@@ -12,7 +12,7 @@ Dose somministrata	prima dose
 Data di richiamo	25/02/2021
 Modalita' di somministrazione	intramuscolare
 Sito di inoculazione	deltoide
-Presidio di erogazione	
+Presidio di erogazione
 Azienda di somministrazione	Az. USL Toscana centro
 Medico	NICCOLI SANDRA
 */
@@ -26,18 +26,18 @@ Medico	NICCOLI SANDRA
 * patient.reference = "Patient/example-it-1"
 * occurrenceDateTime = "2021-02-04"
 
-// * location.reference = "urn:uuid:55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8" 
+// * location.reference = "urn:uuid:55a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd8"
 // * manufacturer.display = "MODERNA BIOTECH SPAIN, S.L."
 * lotNumber = "EL0725" //
 * site.text = "deltoide"
 * route.text = "intramuscolare"
- 
-// * performer[0].actor.reference = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7" 
+
+// * performer[0].actor.reference = "urn:uuid:45a5c5b1-4ec1-4d60-b4b2-ff5a84a41fd7"
 * performer[0].actor.display = "Dr.sa Miccoli Andria"
-* performer[1].actor.reference = "Organization/org-example-it" // 
+* performer[1].actor.reference = "Organization/org-example-it" //
 * performer[0].actor.display = "Az. USL Toscana centro"
 
-* protocolApplied[0].targetDisease[0] = $icd-10#J12.82 "Pneumonia due to coronavirus disease 2019" 
+* protocolApplied[0].targetDisease[0] = $icd10#J12.82 "Pneumonia due to coronavirus disease 2019"
 * protocolApplied[0].targetDisease[1] = $icd11#XN109 "SARS-CoV-2"
 * protocolApplied[0].targetDisease[2] = $sct#840533007 "2019 novel coronavirus"
 * protocolApplied[0].doseNumberPositiveInt = 1

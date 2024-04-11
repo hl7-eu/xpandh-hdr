@@ -39,7 +39,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * subject only Reference(PatientXpandh)
 * subject 1..1
 * subject ^definition = "Who or what the composition is about. \r\nIn general a composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).\r\nFor the hdr the subject is always the patient."
-* encounter only Reference ( EncounterXpandh )
+* encounter only Reference (Encounter or InpatientEncounterHDRXpandh)
 * date ^short = "HDR date"
 * author ^short = "Who and/or what authored the Hospital Discharge Report"
 * author ^definition = "Identifies who is responsible for the information in the Hospital Discharge Report, not necessarily who typed it in."
@@ -119,6 +119,59 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
     * section ..0
 
   * entry 0..
+
+// -------------------------------------
+// Hospital Course Section 1..1
+// -------------------------------------
+* section contains sectionHospitalCourse 1..1
+* section[sectionHospitalCourse]
+  * insert SectionComRules (
+    HDR Hospital course, // SHORT
+    Hospital course describes the sequence of events from admission to discharge in a hospital facility., // DESC
+    http://loinc.org#8648-8 )   // CODE
+  * ^short = "Significant information about course of hospital stay"
+  * ^definition = "This section includes basic information about hospital staty (encounter), diagnostic summary in narrative form, pharmacotherapy, major procedures, medical devices, significant findings during hospital stay and clinical synthesis."
+  * section
+    * ^slicing.discriminator[+].type = #type
+    * ^slicing.discriminator[=].path = "resolve()"
+    * ^slicing.ordered = false
+    * ^slicing.rules = #open
+  * entry 1..1
+  * entry only Reference(InpatientEncounterHDRXpandh)
+
+  * section contains diagnosticSummaryDescription 1..1
+  * section[diagnosticSummaryDescription]
+    * insert SectionComRules (
+      Problem specification in narrative form, // SHORT
+      All problems/diagnoses that affect care during the inpatient case or are important to be recorded to ensure continuity of care. The diagnostic summary differentiates\, in accordance with the international recommendation\, between problems treated during hospital stay and other (untreated\) problems. Treated problems are problems that were the subject of diagnostics\, therapy\, nursing\, or (continuous\) monitoring during the hospitalisation. Furthermore problems could be divided into three categories: problems present on admission (POA\)\, conditions acquired during hospital stay (HAC\) and problems that cannot be classified as being of any of the two (N/A\). The diagnostic summary contains all conditions as they were recognised at the end of hospitalisation\, after all examinations. This section contains concise\, well specified\, codeable\, summary of problems. Problems are ordered by importance (main problems first\) during hospital stay. Description of the problem might be completed with additional details in the medical history section and/or in the Synthesis section.	, // DESC
+      $sct#721981007)
+    * entry 1..
+    * entry only Reference(ConditionEncounterHdrXpandh)
+    * section ..0
+
+  * section contains significantProcedures 1..1
+  * section[significantProcedures]
+    * insert SectionComRules (
+      Significant procedures, // SHORT
+      Significant surgical and non-surgical procedures performed during hospitalisation which are significant for continuity of care\, e.g. surgeries and other \"instrumental\"interventions (endoscopic\, intravascular\)\, chemotherapy\, radiotherapy\, purification methods (dialysis\, hemoperfusion\)\, circulation support methods (counterpulsation\, etc.\)\, administration of blood derivatives or others.\r\nThis section does not include purely diagnostic procedures (MRI\, CT\, etc.\). If no significant performance has been performed\, this fact must be explicitly stated using the IPS Absent and Unknown Data. , // DESC
+      $sct#721981007)
+    * entry 1..
+    * entry only Reference(ProcedureXpandh)
+    * section ..0
+
+  * section contains medicalDevices 1..1
+  * section[medicalDevices]
+    * insert SectionComRules (
+      Medical devices and implants, // SHORT
+      Implants and used medical devices that affected or may affect the provision of health services (diagnosis and treatment\). Also medical devices explanted\, or its use was stopped during hospitalisation. If the section is blank\, the reason must be explicitly stated using the IPS Absent and Unknown Data coding system. , // DESC
+      $sct#1184586001 "Medical device document section (record artifact\)")
+    * entry 1..
+    * entry only Reference(DeviceXpandh)
+    * section ..0
+
+
+
+
 
 // -------------------------------------
 // Patient History Section 0 … 1 R
@@ -476,16 +529,6 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section[sectionSocialHistory].emptyReason ^mustSupport = false
 */
 
-
-// -------------------------------------
-// Hospital Course Section 1… 1
-// -------------------------------------
-* section contains sectionHospitalCourse 1..1
-* section[sectionHospitalCourse]
-  * insert SectionComRules (
-    HDR Hospital course, // SHORT
-    Hospital course describes the sequence of events from admission to discharge in a hospital facility., // DESC
-    http://loinc.org#8648-8 )   // CODE
 
 /*
 // -------------------------------------

@@ -1,8 +1,8 @@
-Profile: EncounterXpandh
+Profile: InpatientEncounterHDRXpandh
 Parent: Encounter
-Id: Encounter-hdr-xpandh
-Title:    "Encounter"
-Description: "This profile defines how to represent Encounter in FHIR for the purpose of the XpanDH Hospital Discharge Report."
+Id: inpatient-encounter-hdr-xpandh
+Title:    "Inpatient Encounter Xpandh"
+Description: "This profile defines how to represent Inpatient Encounter in FHIR for the purpose of the XpanDH Hospital Discharge Report."
 * identifier ^short = "Identifier(s) by which this encounter is known."
 * status = #finished  // always #finished in discharge letter
   * ^short = "Status of this Hospital stay"
@@ -40,22 +40,21 @@ Description: "This profile defines how to represent Encounter in FHIR for the pu
   * ^short = "Admitting professional"
   * type = $v3-ParticipationType#ADM
   * individual 0..1
-  * individual only Reference (Practitioner or PractitionerRole)
-
+  * individual only Reference (PractitionerXpandh or PractitionerRoleXpandh)
 
 * participant contains discharger 0..*
 * participant[discharger]
   * ^short = "Discharging professional"
   * type = $v3-ParticipationType#DIS
   * individual 0..1
-  * individual only Reference (Practitioner or PractitionerRole)
+  * individual only Reference (PractitionerXpandh or PractitionerRoleXpandh)
 
 * participant contains refferer 0..*
 * participant[refferer]
   * ^short = "Referring professional"
   * type = $v3-ParticipationType#REF
   * individual 0..1
-  * individual only Reference (Practitioner or PractitionerRole)
+  * individual only Reference (PractitionerXpandh or PractitionerRoleXpandh)
 
 /* Admission diagnosis and discharge diagnosis as such does not exist in the EHN HDR data set.
 All information about diagnosis should be included in diagnostic summary, which could be represented by diagnosis element of the Encounter.

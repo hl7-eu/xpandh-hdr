@@ -1,5 +1,5 @@
 Instance: SK-Organization-GP
-InstanceOf: OrganizationCareProviderXpandh
+InstanceOf: OrganizationXpandh
 Usage: #example
 Description: "Slovak general practitioner example"
 * language = $bcp47#sk

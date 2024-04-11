@@ -3,20 +3,17 @@
 
 // --- Code Systems
 Alias: $ajcc = http://cancerstaging.org
-Alias: $atc = http://www.whocc.no/atc
 Alias: $dicomOntology = http://dicom.nema.org/resources/ontology/DCM
 Alias: $edqm = https://standardterms.edqm.eu
 Alias: $spor-sms = http://spor.ema.eu/sms // FAKE URL TO BE CHANGED
 Alias: $iccc3 = http://terminology.hl7.org/CodeSystem/iccc-3 // FAKE URL NOT YET ASSIGNED !!
 Alias: $icd03 = http://terminology.hl7.org/CodeSystem/icd-o-3
 Alias: $loinc =  http://loinc.org
-Alias: $icd10 = http://hl7.org/fhir/sid/icd-10
 Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
-Alias: $sct = http://snomed.info/sct
+
 Alias: $ucum =  http://unitsofmeasure.org
 Alias: $v2-0131 = http://terminology.hl7.org/CodeSystem/v2-0131
 Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
-Alias: $v3-NullFlavor = http://terminology.hl7.org/CodeSystem/v3-NullFlavor
 Alias: $v3-RoleCode = http://terminology.hl7.org/CodeSystem/v3-RoleCode
 Alias: $data-absent-reason = http://terminology.hl7.org/CodeSystem/data-absent-reason
 Alias: $diagnostic-service-sections = http://terminology.hl7.org/CodeSystem/v2-0074
@@ -98,7 +95,6 @@ Alias: $Specimen-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Specime
 Alias: $Bundle-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Bundle-uv-ips
 Alias: $vitalsigns = http://hl7.org/fhir/StructureDefinition/vitalsigns
 
-Alias: $CodeableConcept-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
 Alias: $SD-data-absent-reason = http://hl7.org/fhir/StructureDefinition/data-absent-reason
 
 Alias: $Range-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Range-uv-ips

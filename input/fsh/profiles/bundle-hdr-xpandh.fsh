@@ -84,9 +84,9 @@ Description: "Clinical document used to represent a Hospital Discharge Report fo
 * entry[medicationstatement].resource 1..
 * entry[medicationstatement].resource only $MedicationStatement-uv-ips
 * entry[practitioner].resource 1..
-* entry[practitioner].resource only $Practitioner-uv-ips
+* entry[practitioner].resource only PractitionerXpandh   //$Practitioner-uv-ips
 * entry[practitionerrole].resource 1..
-* entry[practitionerrole].resource only $PractitionerRole-uv-ips
+* entry[practitionerrole].resource only PractitionerRoleXpandh  //$PractitionerRole-uv-ips
 * entry[procedure].resource 1..
 * entry[procedure].resource only $Procedure-uv-ips
 * entry[organization].resource 1..

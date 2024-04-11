@@ -40,7 +40,7 @@ Title:      "Condition Value Set"
 Description:  """Hospital Discharge Report Condition value set includes selected codes from recommended EU code systems for health conditions (WHO-ICD-10, SNOMED CT and Orphacodes)."""
 * insert SetFmmandStatusRule (1, draft)
 * insert SNOMEDCopyrightForVS
-* codes from system $icd-10
+* codes from system $icd10
 * codes from system $orpha
 * codes from system $sct where concept is-a #404684003 "Clinical finding"
 * codes from system $sct where concept is-a #71388002 "Procedure"
@@ -328,7 +328,7 @@ Description: "Identifying codes based on the timing of classification for distan
 // --------------------------------------------------
 ValueSet: CancerStageGradingVS
 Id: cancer-stage-grading-vs
-Title: "Cancer Stage Grading: Athena"
+Title: "Cancer Stage Grading: Snomed CT"
 Description: "Identifying codes based on the timing of classification for stage group observations."
 * insert SetFmmandStatusRule (1, draft)
 * insert SNOMEDCopyrightForVS
@@ -343,3 +343,52 @@ Description: "Identifying codes based on the timing of classification for stage 
 * $athena#1635587 "Grade-H"
 * $athena#1634085 "Grade-L"
 */
+
+// --------------------------------------------------
+ValueSet: ProcedureSnomedXpandhVS
+Id: procedure-snomed-xpandh-vs
+Title: "Procedure codes: Snomed CT"
+Description: "This value set includes codes from SNOMED Clinical Terms®: descendants of 71388002 \\|Procedure (procedure)\\|, excluding [all subtypes of 14734007 \\|Administrative procedure (procedure)\\|, all subtypes of 59524001 \\|Blood bank procedure (procedure)\\|, all subtypes of 389067005 \\|Community health procedure (procedure)\\|, all subtypes of 442006003 \\|Determination of information related to transfusion (procedure)\\|, all subtypes of 225288009 \\|Environmental care procedure (procedure)\\|, all subtypes of 308335008 \\|Patient encounter procedure (procedure)\\|, all subtypes of 710135002 \\|Promotion (procedure)\\|, all subtypes of 389084004 \\|Staff related procedure (procedure)\\|]."
+* insert SetFmmandStatusRule (1, draft)
+* insert SNOMEDCopyrightForVS
+* ^experimental = false
+* codes from system $sct where concept descendent-of $sct#71388002 "Procedure (procedure)"
+* exclude codes from system $sct where concept is-a #14734007 "Administrative procedure (procedure)"
+* exclude codes from system $sct where concept is-a #59524001 "Blood bank procedure (procedure)"
+* exclude codes from system $sct where concept is-a #389067005 "Community health procedure (procedure)"
+* exclude codes from system $sct where concept is-a #442006003 "Determination of information related to transfusion (procedure)"
+* exclude codes from system $sct where concept is-a #225288009 "Environmental care procedure (procedure)"
+* exclude codes from system $sct where concept is-a #308335008 "Patient encounter procedure (procedure)"
+* exclude codes from system $sct where concept is-a #710135002 "Promotion (procedure)"
+* exclude codes from system $sct where concept is-a #389084004 "Staff related procedure (procedure)"
+
+
+ValueSet: ProceduresSnomedAbsentUnknownXpandhVS
+Id: procedures-snomed-absent-unknown-xpandh-vs
+Title: "Procedures - SNOMED CT + Absent/Unknown - IPS"
+Description: "This value set includes codes from SNOMED Clinical Terms®: descendants of 71388002 \\|Procedure (procedure)\\|, excluding [all subtypes of 14734007 \\|Administrative procedure (procedure)\\|, all subtypes of 59524001 \\|Blood bank procedure (procedure)\\|, all subtypes of 389067005 \\|Community health procedure (procedure)\\|, all subtypes of 442006003 \\|Determination of information related to transfusion (procedure)\\|, all subtypes of 225288009 \\|Environmental care procedure (procedure)\\|, all subtypes of 308335008 \\|Patient encounter procedure (procedure)\\|, all subtypes of 710135002 \\|Promotion (procedure)\\|, all subtypes of 389084004 \\|Staff related procedure (procedure)\\|], plus IPS codes for absent/unknown procedures."
+* insert SetFmmandStatusRule (1, draft)
+* insert SNOMEDCopyrightForVS
+* ^experimental = false
+* include codes from valueset ProcedureSnomedXpandhVS
+* include codes from valueset $AbsentOrUnknownProceduresUvIps
+
+
+ValueSet: MedicalDevicesSnomedCtXpandhVS
+Id: medical-devices-xpandh-vs
+Title: "Medical Devices (SNOMED CT) - Xpandh"
+Description: "This value set includes codes from SNOMED Clinical Terms®: all descendants of 49062001 \\|Device (physical object)\\|."
+* insert SetFmmandStatusRule (1, draft)
+* insert SNOMEDCopyrightForVS
+* ^experimental = false
+* include codes from system $sct where concept descendent-of #49062001 "Device (physical object)"
+
+ValueSet: MedicalDevicesSnomedAbsentUnknownXpandhVS
+Id: medical-devices-snomed-absent-unknown-xpandh-vs
+Title: "Medical Devices - SNOMED CT + Absent/Unknown - IPS"
+Description: "This value set includes codes from SNOMED Clinical Terms (SNOMED CT®) that are included in: all descendants of 49062001 \\|Device (physical object)\\|, plus IPS codes for absent/unknown devices."
+* insert SetFmmandStatusRule (1, draft)
+* insert SNOMEDCopyrightForVS
+* ^experimental = false
+* include codes from valueset MedicalDevicesSnomedCtXpandhVS
+* include codes from valueset $AbsentOrUnknownDevicesUvIps

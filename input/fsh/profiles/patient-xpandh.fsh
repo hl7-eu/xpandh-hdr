@@ -29,7 +29,7 @@ Description: "This profile defines how to represent Patient in FHIR for the purp
     * family 1.. // to be checked
 
 * generalPractitioner ^short = "Patient's nominated primary care provider."
-* generalPractitioner only Reference(OrganizationXpandh or PractitionerRole) // is this OK ?
+* generalPractitioner only Reference(OrganizationXpandh or PractitionerRoleXpandh) // is this OK ?
 * communication.language ^short = "Communication language"
 
 

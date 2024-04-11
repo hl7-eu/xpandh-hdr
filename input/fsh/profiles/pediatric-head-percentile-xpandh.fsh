@@ -1,6 +1,6 @@
 Profile: PediatricHeadOccipitalFrontalCircumferencePercentileXpandh
 Parent: ObservationVitalSignsXpandh
-Id: pediatric-head-occipital-frontal-circumference-percentile-xpandh
+Id: pediatric-head-occ-front-circumfer-percent-xpandh
 Title: "Xpandh Pediatric Head Occipital Frontal Circumference Profile"
 Description: "This profile sets minimum expectations for the Observation resource to record, search, and fetch body height observations with a standard SNOMED CT code and UCUM units of measure. It is based on the Observation Vital Signs Xpandh profile and identifies the *additional* mandatory core elements, extensions, vocabularies and value sets which **SHALL** be present in the Observation resource when using this profile."
 * ^experimental = false

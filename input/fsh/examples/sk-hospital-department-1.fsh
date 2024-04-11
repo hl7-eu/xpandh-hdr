@@ -1,5 +1,5 @@
 Instance: SK-Organization-Hospital-Department-1
-InstanceOf: OrganizationCareProviderXpandh
+InstanceOf: OrganizationXpandh
 Usage: #example
 Description: "Example of Slovak hospital department"
 * language = $bcp47#sk

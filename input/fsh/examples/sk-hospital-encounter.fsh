@@ -1,5 +1,5 @@
 Instance: SK-Hospital-Encounter
-InstanceOf: EncounterXpandh
+InstanceOf: InpatientEncounterHDRXpandh
 Usage: #example
 Description: "Slovak hospital - example of a health provider organization"
 
@@ -26,5 +26,5 @@ InstanceOf: Condition
 Title: "Condition: ICD-10 A00.0"
 Description: "Example of condition"
 Usage: #inline
-* code = $icd-10#A00.0 "Cholera"
+* code = $icd10#A00.0 "Cholera"
 * subject = Reference(Patient/Mracena)

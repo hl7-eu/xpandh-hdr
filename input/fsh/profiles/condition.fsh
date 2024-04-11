@@ -1,7 +1,7 @@
 Profile: ConditionHdrXpandh
 Parent: ConditionUvIps
 Id: condition-hdr-xpandh
-Title: "Condition for Xpandh Profile"
+Title: "Condition Xpandh Profile"
 Description: "This profile represents the constraint applied to the Condition in the scope of Xpandh hospital discharge report."
 
 * identifier ^definition = "Globally unique identifier of this problem which remain constant as the resource is updated and propagates from server to server."
@@ -22,6 +22,7 @@ Description: "This profile represents the constraint applied to the Condition in
 * code only $CodeableConcept-uv-ips
 * code from HdrConditionXpandhVS
   * ^definition = "The problem code specifies the problem. Depending on the setting, different code systems can be used. The ProblemCodelist provides an overview of the possible code systems."
+  * ^binding.description = "Valueset to describe the actual problem experienced by the patient"
 * bodySite
   * ^definition = "Anatomical location which is the focus of the problem."
   * extension contains LateralityQualifier named laterality 0..1
