@@ -145,8 +145,8 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
       Problem specification in narrative form, // SHORT
       All problems/diagnoses that affect care during the inpatient case or are important to be recorded to ensure continuity of care. The diagnostic summary differentiates\, in accordance with the international recommendation\, between problems treated during hospital stay and other (untreated\) problems. Treated problems are problems that were the subject of diagnostics\, therapy\, nursing\, or (continuous\) monitoring during the hospitalisation. Furthermore problems could be divided into three categories: problems present on admission (POA\)\, conditions acquired during hospital stay (HAC\) and problems that cannot be classified as being of any of the two (N/A\). The diagnostic summary contains all conditions as they were recognised at the end of hospitalisation\, after all examinations. This section contains concise\, well specified\, codeable\, summary of problems. Problems are ordered by importance (main problems first\) during hospital stay. Description of the problem might be completed with additional details in the medical history section and/or in the Synthesis section.	, // DESC
       $sct#721981007)
-    * entry 1..
-    * entry only Reference(ConditionEncounterHdrXpandh)
+    * entry 0..
+    //* entry only Reference(ConditionEncounterHdrXpandh)
     * section ..0
 
   * section contains significantProcedures 1..1
@@ -169,8 +169,16 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
     * entry only Reference(DeviceXpandh)
     * section ..0
 
-
-
+  * section contains medications 1..1
+  * section[medications]
+    * insert SectionComRules (
+      Pharmacotherapy, // SHORT
+      Selected drug treatment during hospitalisation. Medicinal products that were administered during hospitalisation and whose administration has already been discontinued before discharge. Only products which are important for continuity of care (antibiotics other than completely routine\, corticosteroids in high doses\, etc.\) will be listed. Products which administration will continue after discharge will be also recorder in the Medication summary section.
+Medicinal products\, the administration of which was started during hospitalisation but is also recommended after discharge\, will be listed in the summary table in the recommendation section. , // DESC
+      $sct#1003606003 "Medication history section (record artifact\)")
+    * entry 1..
+    * entry only Reference(MedicationStatementXpandh)
+    * section ..0
 
 
 // -------------------------------------
