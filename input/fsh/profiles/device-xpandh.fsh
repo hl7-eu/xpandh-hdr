@@ -1,7 +1,7 @@
 Profile: DeviceXpandh
 Parent: DeviceUvIps
 Id: device-xpandh
-Title: "Device (Xpndh)"
+Title: "Device (Xpandh)"
 Description: "This profile represents the constraints applied to the Device resource by the Xpandh FHIR Implementation Guide, based on FHIR R4. A device used by or implanted on the patient is described in the hospital discharge report as an instance of a Device resource constrained by this profile."
 //* type 0..1 MS
 //* type only CodeableConceptIPS
