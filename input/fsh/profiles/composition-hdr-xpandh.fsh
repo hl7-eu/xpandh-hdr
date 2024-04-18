@@ -35,7 +35,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * type only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
 * type ^short = "Kind of composition (\"Hospital Discharge Report\")"
 * type ^definition = "Specifies that this composition refer to a Hospital Discharge Report"
-* type = http://loinc.org#34105-7 "Hospital Discharge summary"
+* type = $loinc#34105-7 "Hospital Discharge summary"
 * subject only Reference(PatientXpandh)
 * subject 1..1
 * subject ^definition = "Who or what the composition is about. \r\nIn general a composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).\r\nFor the hdr the subject is always the patient."
@@ -73,9 +73,12 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section contains admissionEvaluationSection ..1
 * section[admissionEvaluationSection]
   * insert SectionComRules (
-    Hospital Admission evaluation, // SHORT
-      Hospital Admission evaluation, // DESC
-      http://loinc.org#67852-4 )   // CODE
+    Hospital Admission evaluation,
+      Hospital Admission evaluation,
+      $loinc#67852-4 "Hospital Admission evaluation note")   // SHORT, DESC, CODE
+  * ^comment = "Admission evaluation should be reported only exceptionally, if it is relevant to ensure continuity of care."
+  * insert EvaluationSubSectionRules
+  /*
   * section
     * ^slicing.discriminator[+].type = #type
     * ^slicing.discriminator[=].path = "resolve()"
@@ -87,8 +90,8 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * section contains anthropometry 0..1
   * section[anthropometry]
     * insert SectionComRules (
-      Anthropometric observations, // SHORT
-      Anthropometric Observations sub-section, // DESC
+      Anthropometric observations,
+      Anthropometric Observations sub-section,
       $sct#248326004)
     * entry 1..
     * entry only Reference(BodyHeightXpandh or BodyWeightXpandh or BMIProfileXpandh or SkinfoldThicknessXpandh or CircumferenceMeasurementXpandh)
@@ -117,7 +120,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
     * code = $sct#1184588000 "Functional status document section (record artifact)"
     * entry only Reference(FunctionalStatusAssessmentXpandh)
     * section ..0
-
+*/
   * entry 0..
 
 // -------------------------------------
@@ -126,9 +129,9 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 * section contains sectionHospitalCourse 1..1
 * section[sectionHospitalCourse]
   * insert SectionComRules (
-    HDR Hospital course, // SHORT
-    Hospital course describes the sequence of events from admission to discharge in a hospital facility., // DESC
-    http://loinc.org#8648-8 )   // CODE
+    HDR Hospital course,
+    Hospital course describes the sequence of events from admission to discharge in a hospital facility.,
+    $loinc#8648-8 "Hospital course Narrative")   // CODE
   * ^short = "Significant information about course of hospital stay"
   * ^definition = "This section includes basic information about hospital staty (encounter), diagnostic summary in narrative form, pharmacotherapy, major procedures, medical devices, significant findings during hospital stay and clinical synthesis."
   * section
@@ -142,18 +145,18 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * section contains diagnosticSummaryDescription 1..1
   * section[diagnosticSummaryDescription]
     * insert SectionComRules (
-      Problem specification in narrative form, // SHORT
-      All problems/diagnoses that affect care during the inpatient case or are important to be recorded to ensure continuity of care. The diagnostic summary differentiates\, in accordance with the international recommendation\, between problems treated during hospital stay and other (untreated\) problems. Treated problems are problems that were the subject of diagnostics\, therapy\, nursing\, or (continuous\) monitoring during the hospitalisation. Furthermore problems could be divided into three categories: problems present on admission (POA\)\, conditions acquired during hospital stay (HAC\) and problems that cannot be classified as being of any of the two (N/A\). The diagnostic summary contains all conditions as they were recognised at the end of hospitalisation\, after all examinations. This section contains concise\, well specified\, codeable\, summary of problems. Problems are ordered by importance (main problems first\) during hospital stay. Description of the problem might be completed with additional details in the medical history section and/or in the Synthesis section.	, // DESC
+      Problem specification in narrative form,
+      All problems/diagnoses that affect care during the inpatient case or are important to be recorded to ensure continuity of care. The diagnostic summary differentiates\, in accordance with the international recommendation\, between problems treated during hospital stay and other (untreated\) problems. Treated problems are problems that were the subject of diagnostics\, therapy\, nursing\, or (continuous\) monitoring during the hospitalisation. Furthermore problems could be divided into three categories: problems present on admission (POA\)\, conditions acquired during hospital stay (HAC\) and problems that cannot be classified as being of any of the two (N/A\). The diagnostic summary contains all conditions as they were recognised at the end of hospitalisation\, after all examinations. This section contains concise\, well specified\, codeable\, summary of problems. Problems are ordered by importance (main problems first\) during hospital stay. Description of the problem might be completed with additional details in the medical history section and/or in the Synthesis section.	,
       $sct#721981007)
-    * entry 0..
+    * entry ..0
     //* entry only Reference(ConditionEncounterHdrXpandh)
     * section ..0
 
   * section contains significantProcedures 1..1
   * section[significantProcedures]
     * insert SectionComRules (
-      Significant procedures, // SHORT
-      Significant surgical and non-surgical procedures performed during hospitalisation which are significant for continuity of care\, e.g. surgeries and other \"instrumental\"interventions (endoscopic\, intravascular\)\, chemotherapy\, radiotherapy\, purification methods (dialysis\, hemoperfusion\)\, circulation support methods (counterpulsation\, etc.\)\, administration of blood derivatives or others.\r\nThis section does not include purely diagnostic procedures (MRI\, CT\, etc.\). If no significant performance has been performed\, this fact must be explicitly stated using the IPS Absent and Unknown Data. , // DESC
+      Significant procedures,
+      Significant surgical and non-surgical procedures performed during hospitalisation which are significant for continuity of care\, e.g. surgeries and other \"instrumental\"interventions (endoscopic\, intravascular\)\, chemotherapy\, radiotherapy\, purification methods (dialysis\, hemoperfusion\)\, circulation support methods (counterpulsation\, etc.\)\, administration of blood derivatives or others.\r\nThis section does not include purely diagnostic procedures (MRI\, CT\, etc.\). If no significant performance has been performed\, this fact must be explicitly stated using the IPS Absent and Unknown Data. ,
       $sct#721981007)
     * entry 1..
     * entry only Reference(ProcedureXpandh)
@@ -162,8 +165,8 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * section contains medicalDevices 1..1
   * section[medicalDevices]
     * insert SectionComRules (
-      Medical devices and implants, // SHORT
-      Implants and used medical devices that affected or may affect the provision of health services (diagnosis and treatment\). Also medical devices explanted\, or its use was stopped during hospitalisation. If the section is blank\, the reason must be explicitly stated using the IPS Absent and Unknown Data coding system. , // DESC
+      Medical devices and implants,
+      Implants and used medical devices that affected or may affect the provision of health services (diagnosis and treatment\). Also medical devices explanted\, or its use was stopped during hospitalisation. If the section is blank\, the reason must be explicitly stated using the IPS Absent and Unknown Data coding system. ,
       $sct#1184586001 "Medical device document section (record artifact\)")
     * entry 1..
     * entry only Reference(DeviceXpandh)
@@ -172,13 +175,64 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * section contains medications 1..1
   * section[medications]
     * insert SectionComRules (
-      Pharmacotherapy, // SHORT
+      Pharmacotherapy,
       Selected drug treatment during hospitalisation. Medicinal products that were administered during hospitalisation and whose administration has already been discontinued before discharge. Only products which are important for continuity of care (antibiotics other than completely routine\, corticosteroids in high doses\, etc.\) will be listed. Products which administration will continue after discharge will be also recorder in the Medication summary section.
-Medicinal products\, the administration of which was started during hospitalisation but is also recommended after discharge\, will be listed in the summary table in the recommendation section. , // DESC
+Medicinal products\, the administration of which was started during hospitalisation but is also recommended after discharge\, will be listed in the summary table in the recommendation section. ,
       $sct#1003606003 "Medication history section (record artifact\)")
     * entry 1..
     * entry only Reference(MedicationStatementXpandh)
     * section ..0
+
+  * section contains significantResults 0..1
+  * section[significantResults]
+    * insert SectionComRules (
+      Significant Observation Results,
+      Results of significant functional\, diagnostic\, and imaging examinations to ensure continuity of care\, performed during hospitalisation. Results of examinations ordered but not yet delivered should be presented separately from results already delivered.,
+      $sct#423100009 "Results section (record artifact\)")
+    * entry 1..
+    * entry only Reference(Observation or ObservationResultsRadiologyUvIps or ObservationResultsLaboratoryEu)
+    * section ..0
+
+  * section contains synthesis 1..1
+  * section[synthesis]
+    * insert SectionComRules (
+      Synthesis,
+      This section provides clinical synthesis (e.g. description of reasons and course of hospital stay\) clustered by managed conditions. Clinical synthesis may include clinical reasoning (differential diagnostics\, explanation of clinical context\) in clinically complex conditions.,
+      $sct#424836000 "Assessment section (record artifact\)")
+    * entry ..0
+
+    * section ^slicing.discriminator[0].type = #value
+    * section ^slicing.discriminator[0].path = "code"
+    * section ^slicing.ordered = false
+    * section ^slicing.rules = #open
+    * section ^short = "Subsections of the Hospital Discharge Report Synthesis"
+
+    * section contains problemSynthesis 1..
+    * section[problemSynthesis]
+      * insert SectionComRules (
+      Problem synthesis,
+      Summary description of the reason and course of hospitalisation for a specific problem.,
+      $sct#423016009 "Clinical statement entry (record artifact\)")
+      * entry only Reference(ConditionHdrXpandh)
+    * section contains clinicalReasoning 1..
+    * section[clinicalReasoning]
+      * insert SectionComRules (
+      Clinical reasoning,
+      The clinical summary can be concluded with a clinical consideration (diff. diagnosis\, explanation of context\, etc.\) for clinically complex conditions.,
+      $sct#424836000 "Assessment section (record artifact\)")
+      * entry only Reference(ClinicalImpressionHdrXpandh)
+
+
+// -------------------------------------
+// Discharge Details Section 1 … 1 R
+// -------------------------------------
+* section contains dischargeDetails 1..1
+* section[dischargeDetails]
+  * insert SectionComRules (
+      Discharge details,
+      The hospital discharge status or disposition of the patient having a hospitalization.,
+      $loinc#8650-4 "Hospital discharge disposition Narrative")
+  * insert EvaluationSubSectionRules
 
 
 // -------------------------------------
@@ -191,7 +245,7 @@ Medicinal products\, the administration of which was started during hospitalisat
   * insert SectionComRules (
     Patient History Section,
     This Section describes all aspects of the medical history of the patient even if not pertinent to the current procedure\, and may include chief complaint\, past medical history\, social history\, family history\, surgical or procedure history\, medication history\, and other history information. The history may be limited to information pertinent to the current procedure or may be more comprehensive. The history may be reported as a collection of random clinical statements or it may be reported categorically. Categorical report formats may be divided into multiple subsections including Past Medical History\, Social History.,
-    http://loinc.org#11329-0 )
+    $loinc#11329-0 )
 
 
 
@@ -203,8 +257,8 @@ Medicinal products\, the administration of which was started during hospitalisat
 
 * section[sectionAdmissionMedications]
   * insert SectionComRules (
-    Admission Medications, // SHORT
-      Admission Medications, // DESC
+    Admission Medications,
+      Admission Medications,
       http://loinc.org#42346-7  )   // CODE
   * entry 0..
   * entry only Reference(MedicationStatement
@@ -254,8 +308,8 @@ Medicinal products\, the administration of which was started during hospitalisat
 * section contains sectionProblems ..1
 * section[sectionProblems]
   * insert SectionComRules (
-    HDR Problems Section, // SHORT
-      The HDR problem section lists and describes clinical problems or conditions currently being monitored for the patient., // DESC
+    HDR Problems Section,
+      The HDR problem section lists and describes clinical problems or conditions currently being monitored for the patient.,
       http://loinc.org#11450-4 )   // CODE
   * entry 1..
   * entry only Reference(Condition
@@ -292,9 +346,9 @@ Medicinal products\, the administration of which was started during hospitalisat
 
 * section[sectionAllergies]
   * insert SectionComRules (
-      HDR Allergies and Intolerances Section, // SHORT
-      This section documents the relevant allergies or intolerances (conditions\) for that patient\, describing the kind of reaction (e.g. rash\, anaphylaxis\,..\); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy.\r\nAt a minimum\, it should list currently active and any relevant historical allergies and adverse reactions.\r\nIf no information about allergies is available\, or if no allergies are known this should be clearly documented in the section., // DESC
-      http://loinc.org#48765-2 )   // CODE
+      HDR Allergies and Intolerances Section,
+      This section documents the relevant allergies or intolerances (conditions\) for that patient\, describing the kind of reaction (e.g. rash\, anaphylaxis\,..\); preferably the agents that cause it; and optionally the criticality and the certainty of the allergy.\r\nAt a minimum\, it should list currently active and any relevant historical allergies and adverse reactions.\r\nIf no information about allergies is available\, or if no allergies are known this should be clearly documented in the section.,
+      $loinc#48765-2 )   // CODE
   * entry 1..
   * entry only Reference(AllergyIntolerance or DocumentReference  )
   * insert SectionEntrySliceComRules(Relevant allergies or intolerances (conditions\) for that patient.,
@@ -316,9 +370,9 @@ Medicinal products\, the administration of which was started during hospitalisat
 * section contains sectionProceduresHx ..1
 * section[sectionProceduresHx]
   * insert SectionComRules (
-    HDR History of Procedures Section, // SHORT
-      The History of Procedures Section contains a description of the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section\)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy // DESC
-      ,  http://loinc.org#47519-4 )   // CODE
+    HDR History of Procedures Section,
+      The History of Procedures Section contains a description of the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section\)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy
+      ,$loinc#47519-4 "History of Procedures Document")   // CODE
   * entry 1..
   * entry only Reference(Procedure
                           or DocumentReference  )
@@ -337,9 +391,9 @@ Medicinal products\, the administration of which was started during hospitalisat
 
 * section[sectionImmunizations]
   * insert SectionComRules (
-    HDR Immunizations Section, // SHORT
-      The Immunizations Section defines a patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nThe section includes current immunization status\, and may contain the entire immunization history that is relevant to the period of time being summarized. // DESC
-      ,  http://loinc.org#11369-6 )   // CODE
+    HDR Immunizations Section,
+      The Immunizations Section defines a patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nThe section includes current immunization status\, and may contain the entire immunization history that is relevant to the period of time being summarized.
+      , $loinc#11369-6 "History of Immunization Narrative")   // CODE
   * entry 1..
   * entry only Reference(Immunization
                           or DocumentReference  )
@@ -376,8 +430,8 @@ Medicinal products\, the administration of which was started during hospitalisat
 * section contains familyHistorySection ..1
 * section[familyHistorySection]
   * insert SectionComRules (
-    Family History Section, // SHORT
-      This section contains data defining the patient’s genetic relatives in terms of possible or relevant health risk factors that have a potential impact on the patient’s healthcare risk profile. // DESC
+    Family History Section,
+      This section contains data defining the patient’s genetic relatives in terms of possible or relevant health risk factors that have a potential impact on the patient’s healthcare risk profile.
       ,  http://loinc.org#10157-6  )   // CODE
   * entry 0..
   * entry only Reference(FamilyMemberHistory)
@@ -409,8 +463,8 @@ Medicinal products\, the administration of which was started during hospitalisat
 * section contains sectionMedicalDevices ..1
 * section[sectionMedicalDevices]
   * insert SectionComRules (
-    HDR Medical Devices Section, // SHORT
-      The medical devices section contains narrative text and coded entries describing the patient history of medical device use. // DESC
+    HDR Medical Devices Section,
+      The medical devices section contains narrative text and coded entries describing the patient history of medical device use.
       , http://loinc.org#46264-8 )   // CODE
   * entry 1..
   * entry only Reference(DeviceUseStatement
