@@ -31,6 +31,7 @@ Alias: $whodas = https://id.who.int/whodas   // temporary URL
 Alias: $condition-category = http://terminology.hl7.org/CodeSystem/condition-category
 Alias: $AbsentOrUnknownProceduresUvIps = http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-procedures-uv-ips
 Alias: $AbsentOrUnknownDevicesUvIps = http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-devices-uv-ips
+Alias: $AbsentOrUnknownAllergiesUvIps = http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-allergies-uv-ips
 
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
