@@ -73,3 +73,47 @@ RuleSet: CareTeamSectionRules
   * insert SectionEntrySliceDefRules (cteam, 0.. , Care Team , Care Team , CareTeamXpandh)
   * insert NoSubSectionsRules
 
+
+
+RuleSet: EvaluationSubSectionRules
+* section
+  * ^slicing.discriminator[+].type = #type
+  * ^slicing.discriminator[=].path = "resolve()"
+  * ^slicing.ordered = false
+  * ^slicing.rules = #open
+  * ^short = "Objective findings"
+  * ^definition = "Findings made by healthcare practitioner"
+
+* section contains anthropometry 0..1
+* section[anthropometry]
+  * insert SectionComRules (
+    Anthropometric observations,
+    Anthropometric Observations sub-section,
+    $sct#248326004)
+  * entry 1..
+  * entry only Reference(BodyHeightXpandh or BodyWeightXpandh or BMIProfileXpandh or SkinfoldThicknessXpandh or CircumferenceMeasurementXpandh)
+  * section ..0
+
+* section contains vitalSigns 0..1
+* section[vitalSigns]
+  * title = "Vital signs"
+  * code = $sct#1184593002 "Vital sign document section (record artifact)"
+  * entry 1..
+  * entry only Reference(BloodPressureXpandh or HeartRateXpandh or RespiratoryRateXpandh or BodyTemperatureXpandh or OxygenSaturationXpandh )
+  * section ..0
+
+* section contains physicalExamination 0..1  // ToDo: add structure
+* section[physicalExamination]
+  * title = "Physical examination"
+  * code = $sct#425044008 "Physical exam section (record artifact)"
+  * text 1..    // now only textual section, should we use questionnair resource for structuring per body part? Maybe as on option?
+  * entry 0..   // now only textual section, should we use questionnair response or Observation for structuring per body part?
+  * section ..0
+
+* section contains functionalStatus 0..1
+* section[functionalStatus]
+  * section[functionalStatus]
+  * title = "Functional status assessment"
+  * code = $sct#1184588000 "Functional status document section (record artifact)"
+  * entry only Reference(FunctionalStatusAssessmentXpandh)
+  * section ..0
