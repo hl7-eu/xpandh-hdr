@@ -33,3 +33,7 @@ All of the examples that are used in this Implementation Guide are available for
 - [XML](examples.xml.zip)
 - [JSON](examples.json.zip)
 - [TTL](examples.ttl.zip)
+
+###  Dependencies
+
+{% include dependency-table.xhtml %}

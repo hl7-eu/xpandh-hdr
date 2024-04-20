@@ -88,17 +88,20 @@
   deliverable D1.4 and D4.1 <a href="https://xpandh-project.iscte-iul.pt/">XpanDH Web Site</a>
   </p>
 
-  <a
-    name="dependencies"></a>
-  <h3>Dependencies</h3> {% include dependency-table.xhtml %} <a
-    name="x-versions"></a>
-  <h3>Cross Version Analysis</h3> {% include cross-version-analysis.xhtml %} <a
-    name="global"></a>
-  <h3>Global Profiles</h3> {% include globals-table.xhtml %} <a
-    name="ip-statements"></a>
-  <h3>IP Statements</h3> {% include ip-statements.xhtml %} <a
-    name="authors"></a>
-  <h3>Authors and Contributors</h3>
+  <a name="x-versions"></a>
+  <h3>Cross Version Analysis</h3>
 
+{% include cross-version-analysis.xhtml %}
+
+  <a name="global"></a>
+  <h3>Global Profiles</h3>
+
+{% include globals-table.xhtml %}
+
+
+  <a name="ip-statements"></a>
+  <h3>IP Statements</h3>
+
+{% include ip-statements.xhtml %}
 
 </div>

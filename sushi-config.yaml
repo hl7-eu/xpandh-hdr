@@ -23,12 +23,12 @@ copyright: >-
 #
 
 dependencies:
-  hl7.fhir.eu.laboratory: current
+  hl7.fhir.eu.laboratory: 0.1.0
   hl7.fhir.uv.ips: 1.1.0
   hl7.fhir.extensions.r5: 4.0.1
   hl7.eu.fhir.xpandh: current
-  hl7.fhir.eu.extensions.r4: dev
-  hl7.fhir.us.mcode: current
+  hl7.fhir.eu.extensions: 0.1.0
+  hl7.fhir.us.mcode: current # to be removed if no more needed
 
 #
 #
