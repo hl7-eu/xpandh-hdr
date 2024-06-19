@@ -77,50 +77,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
       Hospital Admission evaluation,
       $loinc#67852-4 "Hospital Admission evaluation note")   // SHORT, DESC, CODE
   * ^comment = "Admission evaluation should be reported only exceptionally, if it is relevant to ensure continuity of care."
-  * insert EvaluationSubSectionRules
-  /*
-  * section
-    * ^slicing.discriminator[+].type = #type
-    * ^slicing.discriminator[=].path = "resolve()"
-    * ^slicing.ordered = false
-    * ^slicing.rules = #open
-    * ^short = "Objective findings"
-    * ^definition = "Findings made by healthcare practitioner"
-
-  * section contains anthropometry 0..1
-  * section[anthropometry]
-    * insert SectionComRules (
-      Anthropometric observations,
-      Anthropometric Observations sub-section,
-      $sct#248326004)
-    * entry 1..
-    * entry only Reference(BodyHeightXpandh or BodyWeightXpandh or BMIProfileXpandh or SkinfoldThicknessXpandh or CircumferenceMeasurementXpandh)
-    * section ..0
-
-  * section contains vitalSigns 0..1
-  * section[vitalSigns]
-    * title = "Vital signs"
-    * code = $sct#1184593002 "Vital sign document section (record artifact)"
-    * entry 1..
-    * entry only Reference(BloodPressureXpandh or HeartRateXpandh or RespiratoryRateXpandh or BodyTemperatureXpandh or OxygenSaturationXpandh )
-    * section ..0
-
-  * section contains physicalExamination 0..1  // ToDo: add structure
-  * section[physicalExamination]
-    * title = "Physical examination"
-    * code = $sct#425044008 "Physical exam section (record artifact)"
-    * text 1..    // now only textual section, should we use questionnair resource for structuring per body part? Maybe as on option?
-    * entry 0..   // now only textual section, should we use questionnair response or Observation for structuring per body part?
-    * section ..0
-
-  * section contains functionalStatus 0..1
-  * section[functionalStatus]
-    * section[functionalStatus]
-    * title = "Functional status assessment"
-    * code = $sct#1184588000 "Functional status document section (record artifact)"
-    * entry only Reference(FunctionalStatusAssessmentXpandh)
-    * section ..0
-*/
+  * insert EvaluationSubSectionRules  // insert all sub-section
   * entry 0..
 
 // -------------------------------------
@@ -233,6 +190,40 @@ Medicinal products\, the administration of which was started during hospitalisat
       The hospital discharge status or disposition of the patient having a hospitalization.,
       $loinc#8650-4 "Hospital discharge disposition Narrative")
   * insert EvaluationSubSectionRules
+
+
+// -------------------------------------
+// Plan of Care Section
+// -------------------------------------
+* section contains sectionPlanOfCare 0..1
+* section[sectionPlanOfCare]
+  * insert SectionComRules (
+      Care plan and other recommendations section.,
+      Care plan and other recommendations after discharge.,
+      $loinc#18776-5 "Plan of care note")
+  * ^short = "Care plan and other recommendations after discharge."
+  * ^definition = "This section includes summary information on the medication recommended for the period after discharge, formal care plans and other recommendations (advice) after discharge."
+  * entry only Reference(CarePlan or DocumentReference)
+
+  * section
+    * ^slicing.discriminator[+].type = #type
+    * ^slicing.discriminator[=].path = "resolve()"
+    * ^slicing.ordered = false
+    * ^slicing.rules = #open
+
+  * section contains medicationSummary 1..1
+  * section[medicationSummary]
+    * insert SectionComRules (
+    Medication summary,
+    Summary information on the medication recommended for the period after discharge\, indicating whether the medication is changed or newly started. Compared to previous practices\, the overview is supplemented with medication that has been discontinued.,
+    $sct#736378000 "Medication management plan (record artifact\)")
+    * entry 1..
+    * entry only Reference(MedicationStatementXpandh or MedicationRequest or MedicationDispenseHdrXpandh)
+      * ^short = "Medication statement, Medication request/recommendation or Medications dispensation."
+      * ^definition = "Medication statement on drug that has been or is taken, Medication request/recommendation for medication or Information about medication dispensed/provided to the patient on discharge."
+    * section ..0
+
+// Continue here !!
 
 
 // -------------------------------------
@@ -747,25 +738,6 @@ Medicinal products\, the administration of which was started during hospitalisat
 * section[sectionDischargeMedications].emptyReason ^mustSupport = false
 */
 
-
-// -------------------------------------
-// Plan of Care Section
-// ToDo: Review
-// -------------------------------------
-* section contains sectionPlanOfCare ..1
-* section[sectionPlanOfCare] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionPlanOfCare] ^extension[0].valueString = "Section"
-* section[sectionPlanOfCare] ^short = "IPS Plan of Care Section"
-* section[sectionPlanOfCare] ^definition = "The plan of care section contains a narrative description of the expectations for care including proposals, goals, and order requests for monitoring, tracking, or improving the condition of the patient."
-* section[sectionPlanOfCare].title 1..
-* section[sectionPlanOfCare].code 1..
-* section[sectionPlanOfCare].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionPlanOfCare].code = http://loinc.org#18776-5 (exactly)
-* section[sectionPlanOfCare].text 1..
-* section[sectionPlanOfCare].text only Narrative
-* section[sectionPlanOfCare].entry only Reference( CarePlan or DocumentReference)
-* section[sectionPlanOfCare].emptyReason ..0
-* section[sectionPlanOfCare].emptyReason ^mustSupport = false
 
 // -------------------------------------
 // Hospital Discharge Studies Summary Section
