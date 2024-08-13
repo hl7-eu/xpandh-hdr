@@ -221,6 +221,7 @@ Medicinal products\, the administration of which was started during hospitalisat
     * entry only Reference(MedicationStatementXpandh or MedicationRequest or MedicationDispenseHdrXpandh)
       * ^short = "Medication statement, Medication request/recommendation or Medications dispensation."
       * ^definition = "Medication statement on drug that has been or is taken, Medication request/recommendation for medication or Information about medication dispensed/provided to the patient on discharge."
+      * ^comment = "Each medication statement should reflect status of the medication - indicating whether the medication is changed/unchanged or newly started."
     * section ..0
 
 // Continue here !!
