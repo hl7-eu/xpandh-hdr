@@ -99,7 +99,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
   * entry 1..1
   * entry only Reference(InpatientEncounterHDRXpandh)
 
-  * section contains diagnosticSummaryDescription 1..1
+  * section contains diagnosticSummaryDescription 0..1
   * section[diagnosticSummaryDescription]
     * insert SectionComRules (
       Problem specification in narrative form,
@@ -109,7 +109,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
     //* entry only Reference(ConditionEncounterHdrXpandh)
     * section ..0
 
-  * section contains significantProcedures 1..1
+  * section contains significantProcedures 0..1
   * section[significantProcedures]
     * insert SectionComRules (
       Significant procedures,
@@ -119,7 +119,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
     * entry only Reference(ProcedureXpandh)
     * section ..0
 
-  * section contains medicalDevices 1..1
+  * section contains medicalDevices 0..1
   * section[medicalDevices]
     * insert SectionComRules (
       Medical devices and implants,
@@ -129,7 +129,7 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
     * entry only Reference(DeviceXpandh)
     * section ..0
 
-  * section contains medications 1..1
+  * section contains medications 0..1
   * section[medications]
     * insert SectionComRules (
       Pharmacotherapy,
@@ -150,7 +150,7 @@ Medicinal products\, the administration of which was started during hospitalisat
     * entry only Reference(Observation or ObservationResultsRadiologyUvIps or ObservationResultsLaboratoryEu)
     * section ..0
 
-  * section contains synthesis 1..1
+  * section contains synthesis 0..1
   * section[synthesis]
     * insert SectionComRules (
       Synthesis,
@@ -164,14 +164,14 @@ Medicinal products\, the administration of which was started during hospitalisat
     * section ^slicing.rules = #open
     * section ^short = "Subsections of the Hospital Discharge Report Synthesis"
 
-    * section contains problemSynthesis 1..
+    * section contains problemSynthesis 0..
     * section[problemSynthesis]
       * insert SectionComRules (
       Problem synthesis,
       Summary description of the reason and course of hospitalisation for a specific problem.,
       $sct#423016009 "Clinical statement entry (record artifact\)")
       * entry only Reference(ConditionHdrXpandh)
-    * section contains clinicalReasoning 1..
+    * section contains clinicalReasoning 0..
     * section[clinicalReasoning]
       * insert SectionComRules (
       Clinical reasoning,
@@ -211,7 +211,7 @@ Medicinal products\, the administration of which was started during hospitalisat
     * ^slicing.ordered = false
     * ^slicing.rules = #open
 
-  * section contains medicationSummary 1..1
+  * section contains medicationSummary 0..1
   * section[medicationSummary]
     * insert SectionComRules (
     Medication summary,
@@ -334,7 +334,7 @@ Medicinal products\, the administration of which was started during hospitalisat
 // -------------------------------------
 // Allergies and Intolerances Section 0 … 1
 // -------------------------------------
-* section contains sectionAllergies 1..1
+* section contains sectionAllergies 0..1
 
 * section[sectionAllergies]
   * insert SectionComRules (
