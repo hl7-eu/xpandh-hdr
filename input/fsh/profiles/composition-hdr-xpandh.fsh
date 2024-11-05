@@ -224,6 +224,21 @@ Medicinal products\, the administration of which was started during hospitalisat
       * ^comment = "Each medication statement should reflect status of the medication - indicating whether the medication is changed/unchanged or newly started."
     * section ..0
 
+// -------------------------------------
+// Health Insurance (Coverage) and payment section
+// -------------------------------------
+* section contains sectionHealthInsurance 0..1
+* section[sectionHealthInsurance]
+  * insert SectionComRules (
+      Health insurance and payment information section.,
+      Health insurance information is not always required\, however\, in some jurisdictions\, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.,
+      $loinc#48768-6 "Payment sources Document" ) // this is a provisional code as I was not able to find better
+  * ^short = "Health insurance and payment information."
+  * ^definition = "This section includes heath insurance and payment information."
+  * entry only Reference(CoverageHdrXpandh)
+
+
+
 // Continue here !!
 
 
