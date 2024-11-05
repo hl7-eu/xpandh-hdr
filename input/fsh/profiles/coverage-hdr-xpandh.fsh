@@ -9,7 +9,7 @@ Description: "Coverage used to represent the payer for this Encounter for the sc
 * . ^short = "Encounter Payer"
 * . ^definition = "Encounter Payer"
 // add binding for category and code
-* payor 
+* payor
   * ^slicing.discriminator[0].type = #type
   * ^slicing.discriminator[0].path = "valueReference.resolve()"
   * ^slicing.ordered = false
@@ -19,5 +19,4 @@ Description: "Coverage used to represent the payer for this Encounter for the sc
 
 * payor contains organization 0..*
 * payor[organization] only Reference ( Organization )
-
 * beneficiary only Reference ( PatientXpandh )
