@@ -17,14 +17,13 @@
   bubbles</a>. </p>
 
 
+
   <blockquote class="dragon">
-    <p>This specification has been created to contribute to the development of the European EHRxF
-  for this domain.</p>
+    <p>This guide is kept only for documentation purposes, representing an official deliverable of the XpanDH project.</p>
     <p>
-      <b>This guide is not intended to replace or override possible future standard guides or any
-  other Implementation Guide that will be specified by MyHealth@Eu and/or JA-09; but to provide
-  support for its development.</b>
-    </p>
+      <b>This guide is not intended to replace or override any other Implementation Guide specified by Standard Development Organizations, MyHealth@Eu and/or JA-09.</b></p>
+
+      <p>Please refer to the <b>the <a href="https://hl7.eu/fhir/hdr/">HL7 Europe Hospital Discharge Report FHIR IG</a></b>for the specifications related to this domain</p>
   </blockquote>
 
 
