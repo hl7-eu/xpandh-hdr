@@ -105,8 +105,8 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
       Problem specification in narrative form,
       All problems/diagnoses that affect care during the inpatient case or are important to be recorded to ensure continuity of care. The diagnostic summary differentiates\, in accordance with the international recommendation\, between problems treated during hospital stay and other (untreated\) problems. Treated problems are problems that were the subject of diagnostics\, therapy\, nursing\, or (continuous\) monitoring during the hospitalisation. Furthermore problems could be divided into three categories: problems present on admission (POA\)\, conditions acquired during hospital stay (HAC\) and problems that cannot be classified as being of any of the two (N/A\). The diagnostic summary contains all conditions as they were recognised at the end of hospitalisation\, after all examinations. This section contains concise\, well specified\, codeable\, summary of problems. Problems are ordered by importance (main problems first\) during hospital stay. Description of the problem might be completed with additional details in the medical history section and/or in the Synthesis section.	,
       $sct#721981007)
-    * entry ..0
-    //* entry only Reference(ConditionEncounterHdrXpandh)
+    * entry 0..*
+    * entry only Reference(ConditionEncounterHdrXpandh)
     * section ..0
 
   * section contains significantProcedures 0..1
@@ -221,7 +221,23 @@ Medicinal products\, the administration of which was started during hospitalisat
     * entry only Reference(MedicationStatementXpandh or MedicationRequest or MedicationDispenseHdrXpandh)
       * ^short = "Medication statement, Medication request/recommendation or Medications dispensation."
       * ^definition = "Medication statement on drug that has been or is taken, Medication request/recommendation for medication or Information about medication dispensed/provided to the patient on discharge."
+      * ^comment = "Each medication statement should reflect status of the medication - indicating whether the medication is changed/unchanged or newly started."
     * section ..0
+
+// -------------------------------------
+// Health Insurance (Coverage) and payment section
+// -------------------------------------
+* section contains sectionHealthInsurance 0..1
+* section[sectionHealthInsurance]
+  * insert SectionComRules (
+      Health insurance and payment information section.,
+      Health insurance information is not always required\, however\, in some jurisdictions\, the insurance number is also used as the patient identifier. It is necessary not just for identification but also forms access to funding for care.,
+      $loinc#48768-6 "Payment sources Document" ) // this is a provisional code as I was not able to find better
+  * ^short = "Health insurance and payment information."
+  * ^definition = "This section includes heath insurance and payment information."
+  * entry only Reference(CoverageHdrXpandh)
+
+
 
 // Continue here !!
 

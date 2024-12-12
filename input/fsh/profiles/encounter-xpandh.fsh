@@ -29,7 +29,7 @@ Description: "This profile defines how to represent Inpatient Encounter in FHIR 
 
 * participant
   * individual 0..1
-  * individual only Reference (PractitionerXpandh or PractitionerRoleXpandh or RelatedPerson) 
+  * individual only Reference (PractitionerXpandh or PractitionerRoleXpandh or RelatedPerson)
 * participant
   * ^short = "List of participants involved in the encounters"
   * ^definition = """Slice per type of participant: admitter, discharger,.."""
@@ -53,20 +53,20 @@ Description: "This profile defines how to represent Inpatient Encounter in FHIR 
 * participant[referrer]
   * ^short = "Referring professional"
   * type = $v3-ParticipationType#REF
-  
+
 
 * diagnosis ^short = "The list of diagnosis relevant to this encounter, see comment"
 * diagnosis ^comment = "While Encounter.diagnosis could be optionally populated, mainly for administrative purposes, we strongly recommend to put all clinical relevant diagnoses, stated at start, during and at the end of the hospital stay, into the corresponding section(s) of the HDR."
-* diagnosis.condition only Reference(ConditionEncounterHdrXpandh)
-
+// as encounter diagnosis could be used for any purposes (e.g. reimbursement), it is not desired to limit to only Xpandh conditions which includes mandatory categorization poa and treated.
+//* diagnosis.condition only Reference(ConditionEncounterHdrXpandh)
 
 
 * hospitalization
   * admitSource ^short = "From where patient was admitted (physician referral, transfer)."
-  * dischargeDisposition ^short = "Category or kind of location after discharge" 
+  * dischargeDisposition ^short = "Category or kind of location after discharge"
 
   * destination only Reference (Organization or Location)
-  
+
   // add voc binding
 * location ^short = "Locations where the patient stayed"
   * location only Reference ( Location )

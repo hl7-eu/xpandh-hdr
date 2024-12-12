@@ -31,7 +31,7 @@ Usage: #definition
 
 * group[=].element[+].code = #HDREncounter.admission
 * group[=].element[=].display = "A.2.3.3 - Admission [Mandatory]"
-* group[=].element[=].target.code = #Encounter.ofType(Organization)
+* group[=].element[=].target.code = #Encounter.ofType(Organization)  // Shoud be reviewed
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
 
