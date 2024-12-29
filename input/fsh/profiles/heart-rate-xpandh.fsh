@@ -8,7 +8,7 @@ Description: "This profile sets minimum expectations for the Observation resourc
 * . ^short = "Heart Rate Profile"
 //* . ^definition = "\\-"
 //* . ^comment = "\\-"
-* code = $sct#364075005 "Heart rate (observable entity)"
+* code = $sct#364075005  //"Heart rate (observable entity)"
 * code MS
 * code ^short = "Heart Rate"
 * valueQuantity 0..1 MS
