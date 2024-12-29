@@ -8,7 +8,7 @@ Description: "This profile sets minimum expectations for the Observation resourc
 * . ^short = "Body Temperature Profile"
 //* . ^definition = "\\-"
 //* . ^comment = "\\-"
-* code = $sct#386725007 "Body temperature (observable entity)"
+* code = $sct#386725007 //"Body temperature (observable entity)"
 * code MS
 * code ^short = "Body Temperature"
 * valueQuantity 0..1 MS
