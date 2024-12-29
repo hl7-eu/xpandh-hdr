@@ -33,6 +33,10 @@ Alias: $AbsentOrUnknownProceduresUvIps = http://hl7.org/fhir/uv/ips/ValueSet/abs
 Alias: $AbsentOrUnknownDevicesUvIps = http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-devices-uv-ips
 Alias: $AbsentOrUnknownAllergiesUvIps = http://hl7.org/fhir/uv/ips/ValueSet/absent-or-unknown-allergies-uv-ips
 
+//----------- Value sets
+Alias: $iso3166-1-2 = http://hl7.org/fhir/ValueSet/iso3166-1-2
+Alias: $ActClassExposure = http://terminology.hl7.org/ValueSet/v3-ActClassExposure
+
 //----------- Profiles
 Alias: $Observation-results-uv-ips = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-uv-ips
 Alias: ips_lab_result = http://hl7.org/fhir/uv/ips/StructureDefinition/Observation-results-laboratory-uv-ips
@@ -49,3 +53,4 @@ Alias: $iso21090-ADXP-streetName = http://hl7.org/fhir/StructureDefinition/iso21
 Alias: $iso21090-ADXP-houseNumber = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber
 Alias: $iso21090-ADXP-postBox = http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-postBox
 Alias: $bodySite-reference = http://hl7.org/fhir/StructureDefinition/bodySite
+Alias: $ext-data-absent-reason = http://hl7.org/fhir/StructureDefinition/data-absent-reason
