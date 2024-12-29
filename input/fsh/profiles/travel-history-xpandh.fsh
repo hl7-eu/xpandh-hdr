@@ -8,7 +8,7 @@ Description: "This profile sets minimum expectations for the Observation resourc
 * . ^short = "Skinfold Thickness Profile"
 //* . ^definition = "\\-"
 //* . ^comment = "\\-"
-* code = $sct#420008001 "Travel"
+* code = $sct#420008001  //"Travel"
 * effective[x] ^short = "Date or period of visit in a country"
 * effective[x] ^definition = "The date or period of visit in a country."
 * value[x] ^short = "Country visited"
