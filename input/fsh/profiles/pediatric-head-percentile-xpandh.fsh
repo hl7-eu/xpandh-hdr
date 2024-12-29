@@ -8,7 +8,7 @@ Description: "This profile sets minimum expectations for the Observation resourc
 * . ^short = "Pediatric Head Occipital Frontal Circumference"
 //* . ^definition = "\\-"
 //* . ^comment = "\\-"
-* code = $sct#1153595005 "Child head circumference for age percentile (observable entity)"
+* code = $sct#1153595005  //"Child head circumference for age percentile (observable entity)"
 * code MS
 * code ^short = "Circumference observation code"
 * valueQuantity 0..1 MS
