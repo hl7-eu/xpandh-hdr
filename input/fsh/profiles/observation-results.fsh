@@ -2,9 +2,9 @@ Profile: ObservationResultsXpandh
 Parent: Observation
 Id: Observation-results-xpandh
 Title:    "Observation Results"
-Description: "This profile constrains the Observation resource to represent various types of results and associated observations in a patient summary. This is the base profile from which the other results profiles are derived."
+Description: "This profile constrains the Observation resource to represent various types of results and associated observations in a HDR. This is the base profile from which the other results profiles are derived."
 * ^experimental = false
-* ^purpose = "This profile constrains the Observation resource to represent various types of results and associated observations in a patient summary."
+* ^purpose = "This profile constrains the Observation resource to represent various types of results and associated observations in a hospital discharge report."
 * status = #final (exactly)
 * category only $CodeableConcept-uv-ips
 * code only $CodeableConcept-uv-ips
