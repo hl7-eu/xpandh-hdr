@@ -8,7 +8,7 @@ Description: "This profile sets minimum expectations for the Observation resourc
 * . ^short = "Oxygen Saturation Profile"
 //* . ^definition = "\\-"
 //* . ^comment = "\\-"
-* code = $sct#103228002 "Hemoglobin saturation with oxygen (observable entity)"
+* code = $sct#103228002  //"Hemoglobin saturation with oxygen (observable entity)"
 * code MS
 * code ^short = "Oxygen Saturation"
 * valueQuantity 0..1 MS
