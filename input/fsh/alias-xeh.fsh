@@ -65,7 +65,7 @@ Alias: $patient-citizenship = http://hl7.org/fhir/StructureDefinition/patient-ci
 Alias: $patient-nationality = http://hl7.org/fhir/StructureDefinition/patient-nationality
 Alias: $composition-basedOn-order-or-requisition = http://hl7.eu/fhir/StructureDefinition/composition-basedOn-order-or-requisition
 Alias: $information-recipient = http://hl7.eu/fhir/StructureDefinition/information-recipient
-Alias: $composition-clinicaldocument-versionNumber = http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber
+//Alias: $composition-clinicaldocument-versionNumber = http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber
 
 
 // --- Profiles
