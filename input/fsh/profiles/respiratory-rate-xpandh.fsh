@@ -8,7 +8,7 @@ Description: "This profile sets minimum expectations for the Observation resourc
 * . ^short = "Respiratory Rate Profile"
 //* . ^definition = "\\-"
 //* . ^comment = "\\-"
-* code = $sct#86290005 "Respiratory rate (observable entity)"
+* code = $sct#86290005  //"Respiratory rate (observable entity)"
 * code MS
 * code ^short = "Respiratory Rate"
 * valueQuantity 0..1 MS
