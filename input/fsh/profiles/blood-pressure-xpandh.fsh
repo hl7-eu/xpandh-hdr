@@ -21,7 +21,7 @@ Description: "This profile sets minimum expectations for the Observation resourc
     diastolic 1..1 MS
 * component[systolic] ^short = "Systolic Blood Pressure"
 * component[systolic].code 1..1 MS
-* component[systolic].code = $sct#271649006 "Systolic blood pressure (observable entity)"
+* component[systolic].code = $sct#271649006 //"Systolic blood pressure (observable entity)"
 * component[systolic].code ^short = "Systolic Blood Pressure Code"
 * component[systolic].valueQuantity only Quantity
 * component[systolic].valueQuantity MS
