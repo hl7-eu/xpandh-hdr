@@ -1,0 +1,17 @@
+// --------------------------------------------------
+ValueSet: ImmunicationTargetVS
+Id: immunization-target-vs
+Title: "Xpandh Immunization Target Disease or Agent"
+Description: """Vaccine preventable disease being targeted. Value set includes selected codes from recommended EU code systems for disease or agent that the vaccination provides protection against (WHO-ICD-10, SNOMED CT). All WHO-ICD-10 and SNOMED CT codes from disease hierarchy are included."""
+//This value set includes codes from SNOMED CT that represent specific vaccine target diseases (descendant concepts, if they exist, are not included).
+//
+//SNOMED CT® ECL definition:\
+//4834000 \|Typhoid fever (disorder)\| OR 6142004 \|Influenza (disorder)\| OR 16541001 \|Yellow fever (disorder)\| OR 14189004 \|Measles (disorder)\| OR 14168008 \|Rabies (disorder)\| OR 18624000 \|Disease caused by Rotavirus (disorder)\| OR 23502006 \|Lyme disease (disorder)\| OR 23511006 \|Meningococcal infectious disease (disorder)\| OR 24662006 \|Influenza caused by Influenza B virus (disorder)\| OR 25225006 \|Disease caused by Adenovirus (disorder)\| OR 27836007 \|Pertussis (disorder)\| OR 32398004 \|Bronchitis (disorder)\| OR 36653000 \|Rubella (disorder)\| OR 36989005 \|Mumps (disorder)\| OR 37246009 \|Disease caused by rickettsiae (disorder)\| OR 38907003 \|Varicella (disorder)\| OR 40468003 \|Viral hepatitis, type A (disorder)\| OR 50711007 \|Viral hepatitis type C (disorder)\| OR 52947006 \|Japanese encephalitis virus disease (disorder)\| OR 56717001 \|Tuberculosis (disorder)\| OR 58750007 \|Plague (disorder)\| OR 63650001 \|Cholera (disorder)\| OR 66071002 \|Viral hepatitis type B (disorder)\| OR 67924001 \|Smallpox (disorder)\| OR 70036007 \|Haemophilus influenzae pneumonia (disorder)\| OR 75702008 \|Brucellosis (disorder)\| OR 76902006 \|Tetanus (disorder)\| OR 85904008 \|Paratyphoid fever (disorder)\| OR 111852003 \|Vaccinia (disorder)\| OR 186150001 \|Enteritis caused by rotavirus (disorder)\| OR 186772009 \|Rocky Mountain spotted fever (disorder)\| OR 186788009 \|Q fever (disorder)\| OR 240532009 \|Human papillomavirus infection (disorder)\| OR 240613006 \|Typhus group rickettsial disease (disorder)\| OR 372244006 \|Malignant melanoma (disorder)\| OR 397430003 \|Diphtheria caused by Corynebacterium diphtheriae (disorder)\| OR 398102009 \|Acute poliomyelitis (disorder)\| OR 398565003 \|Infection caused by Clostridium botulinum (disorder)\| OR 409498004 \|Anthrax (disorder)\| OR 417093003 \|Disease caused by West Nile virus (disorder)\| OR 442438000 \|Influenza caused by Influenza A virus (disorder)\| OR 442696006 \|Influenza caused by Influenza A virus subtype H1N1 (disorder)\| OR 450715004 \|Influenza caused by Influenza A virus subtype H7 (disorder)\| OR 707448003 \|Influenza caused by Influenza A virus subtype H7N9 (disorder)\| OR 709410003 \|Haemophilus influenzae type b infection (disorder)\| OR 712986001 \|Encephalitis caused by tick-borne encephalitis virus (disorder)\| OR 713083002 \|Influenza caused by Influenza A virus subtype H5 (disorder)\| OR 772810003 \|Influenza caused by Influenza A virus subtype H3N2 (disorder)\| OR 772828001 \|Influenza caused by Influenza A virus subtype H5N1 (disorder)\| OR 840539006 \|Disease caused by severe acute respiratory syndrome coronavirus 2 (disorder)\|
+
+* insert SetFmmandStatusRule (1, draft)
+* insert SNOMEDCopyrightForVS
+* ^status = #active
+* ^experimental = false
+* codes from system $icd10
+* codes from system $sct where concept is-a #64572001 "Disease"
+
