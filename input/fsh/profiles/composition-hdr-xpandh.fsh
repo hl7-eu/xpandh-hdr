@@ -15,15 +15,6 @@ Description: "Clinical document used to represent a Hospital Discharge Report (H
 */
 
 * extension contains $information-recipient named information-recipient 0..*
-/* //HK: Commented, because causing error during build
-* extension[information-recipient]
-  * ^slicing.discriminator[0].type = #type
-  * ^slicing.discriminator[0].path = "valueReference.resolve()"
-  * ^slicing.ordered = false
-  * ^slicing.rules = #open
-  * ^short = "Sliced per type of recipient"
-  * ^definition = "Sliced per type of recipient"
-*/
 * extension[information-recipient] contains practictionerRole 0..*
 * extension[information-recipient][practictionerRole].valueReference only Reference ( PractitionerRoleXpandh )
 
