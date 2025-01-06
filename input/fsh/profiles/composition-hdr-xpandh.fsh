@@ -335,7 +335,8 @@ Medicinal products\, the administration of which was started during hospitalisat
       * ^definition = "Family history"
     * section ..0
 
-    * section[socialHx]
+  * section contains socialHx 0..1
+  * section[socialHx]
     * insert SectionComRules (
       Social history,
       Information about social determinants of health.,
