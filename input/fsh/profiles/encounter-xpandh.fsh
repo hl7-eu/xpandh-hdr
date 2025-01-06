@@ -18,7 +18,7 @@ Description: "This profile defines how to represent Inpatient Encounter in FHIR 
   * ^short = "Encounter priority" // add voc binding
 * subject only Reference (PatientXpandh)
 * subject 1..
-  * ^short = "The pateint preesent at the encounter"
+  * ^short = "The patient present at the encounter"
 * basedOn ^short = "The request for which this encounter has been made"
 * period
   * ^short = "The start and end time of this encounter."
