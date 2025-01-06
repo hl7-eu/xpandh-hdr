@@ -78,7 +78,7 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #relatedto
 
 * group[=].element[+].code = #HDREncounter.admission.referringHP
-* group[=].element[=].display = " - Referring professional Id []"
+* group[=].element[=].display = "- Referring professional Id []"
 * group[=].element[=].target.code = #Encounter.participant.individual
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #equivalent
@@ -162,7 +162,7 @@ Usage: #definition
 * group[=].element[=].target.equivalence = #equivalent
 
 * group[=].element[+].code = #HDREncounter.location.organization
-* group[=].element[=].display = " - Organization Id []"
+* group[=].element[=].display = "- Organization Id []"
 * group[=].element[=].target.code = #Encounter.location.location.managingOrganization
 * group[=].element[=].target.display = ""
 * group[=].element[=].target.equivalence = #relatedto
