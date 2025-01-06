@@ -323,97 +323,31 @@ Medicinal products\, the administration of which was started during hospitalisat
       * ^definition = "Travel history as reported by the patient or other informant."
     * section ..0
 
+  * section contains familyHx 0..1
+  * section[familyHx]
+    * insert SectionComRules (
+      Family history,
+      Information about serious illnesses in close blood relatives with known or suspected genetic potential or with possible impact on patient care.,
+      $sct#422432008 ) //"Family history section (record artifact)"
+    * entry 0..*
+    * entry only Reference(FamilyMemberHistory)
+      * ^short = "Family history"
+      * ^definition = "Family history"
+    * section ..0
+
+    * section[socialHx]
+    * insert SectionComRules (
+      Social history,
+      Information about social determinants of health.,
+      $sct#1184589008 ) //"Social history document section (record artifact)"
+    * entry 0..*
+    * entry only Reference(SocialHistoryXpandh)
+      * ^short = "Social history"
+      * ^definition = "Social determinants of health"
+    * section ..0
+
 // Continue here !!
 
-
-/*
-// -------------------------------------
-// Admission Medications Section 0 … 1 R
-// -------------------------------------
-* section contains sectionAdmissionMedications ..1
-
-* section[sectionAdmissionMedications]
-  * insert SectionComRules (
-    Admission Medications,
-      Admission Medications,
-      http://loinc.org#42346-7  )   // CODE
-  * entry 0..
-  * entry only Reference(MedicationStatement
-                          or MedicationRequest
-                          or MedicationAdministration
-                          or MedicationDispense
-                          or DocumentReference  )
-
-  * insert SectionEntrySliceComRules(Admission Medication, Admission Medication)
-  // entry slices
-  * insert SectionEntrySliceDefRules (medicationStatement, 0.. , Admission Medication Statement ,
-    Admission Medication Statement  , $MedicationStatement-uv-ips)
-  * insert SectionEntrySliceDefRules (medicationRequest, 0.. , Admission Medication Request ,
-    Admission Medication Request  , $MedicationRequest-uv-ips)
-*/
-
-/* * section[sectionAdmissionMedications] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionAdmissionMedications] ^extension[0].valueString = "Section"
-* section[sectionAdmissionMedications] ^short = "Admission Medications"
-* section[sectionAdmissionMedications].title 1..
-* section[sectionAdmissionMedications].code 1..
-* section[sectionAdmissionMedications].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionAdmissionMedications].code = http://loinc.org#42346-7 (exactly)
-* section[sectionAdmissionMedications].text 1..
-* section[sectionAdmissionMedications].entry
-* section[sectionAdmissionMedications].entry only Reference($MedicationStatement-uv-ips or $MedicationRequest-uv-ips or MedicationAdministration or MedicationDispense)
-* section[sectionAdmissionMedications].emptyReason ..0
-* section[sectionAdmissionMedications].emptyReason ^mustSupport = false */
-
-
-
-/* Admission reason is part of the encounter
-// -------------------------------------
-// Chief Complaint and Reason for Visit Section 0 … 1
-// -------------------------------------
-* section contains CCandReasonforVisitSection ..1
-* section[CCandReasonforVisitSection]
-  * insert SectionComRules (Chief Complaint and Reason for Visit,
-                          This section records the patient's chief complaint (the patient’s own description\) and/or the reason for the patient's visit (the provider’s description of the reason for visit\). Local policy determines whether the information is divided into two sections or recorded in one section serving both purposes.,
-                             http://loinc.org#46239-0  )
-*/
-
-/*
-// -------------------------------------
-// Problems Section 0 … 1 R
-// -------------------------------------
-* section contains sectionProblems ..1
-* section[sectionProblems]
-  * insert SectionComRules (
-    HDR Problems Section,
-      The HDR problem section lists and describes clinical problems or conditions currently being monitored for the patient.,
-      http://loinc.org#11450-4 )   // CODE
-  * entry 1..
-  * entry only Reference(Condition
-                          or DocumentReference  )
-  * insert SectionEntrySliceComRules(Clinical problems or conditions currently being monitored for the patient.,
-    It lists and describes clinical problems or conditions currently being monitored for the patient.  This entry shall be used to document that no information about problems is available\, or that no relevant problems are known.)
-  // entry slices
-  * insert SectionEntrySliceDefRules (problemIps, 0.. , Problem ,
-    Problem  , $Condition-uv-ips)
-
-/* * section[sectionProblems] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionProblems] ^extension[0].valueString = "Section"
-* section[sectionProblems] ^short = "HDR Problems Section"
-* section[sectionProblems] ^definition = "The HDR problem section lists and describes clinical problems or conditions currently being monitored for the patient."
-* section[sectionProblems].title 1..
-* section[sectionProblems].code 1..
-* section[sectionProblems].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionProblems].code = http://loinc.org#11450-4 (exactly)
-* section[sectionProblems].text 1..
-* section[sectionProblems].text only Narrative
-* section[sectionProblems].entry 1.. */
-
-/* * section[sectionProblems].entry only Reference($Condition-uv-ips)
-* section[sectionProblems].entry ^short = "Clinical problems or conditions currently being monitored for the patient."
-* section[sectionProblems].entry ^definition = "It lists and describes clinical problems or conditions currently being monitored for the patient.  This entry shall be used to document that no information about problems is available, or that no relevant problems are known."
-* section[sectionProblems].emptyReason ..0
-* section[sectionProblems].emptyReason ^mustSupport = false */
 
 
 // -------------------------------------
@@ -441,134 +375,6 @@ Medicinal products\, the administration of which was started during hospitalisat
 
 * insert AlertSectionRules
 
-/*
-// -------------------------------------
-// History of Procedures Section 0 … 1
-// -------------------------------------
-* section contains sectionProceduresHx ..1
-* section[sectionProceduresHx]
-  * insert SectionComRules (
-    HDR History of Procedures Section,
-      The History of Procedures Section contains a description of the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section\)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy
-      ,$loinc#47519-4 "History of Procedures Document")   // CODE
-  * entry 1..
-  * entry only Reference(Procedure
-                          or DocumentReference  )
-  * insert SectionEntrySliceComRules(Patient past procedures pertinent to the scope of this document.,
-    It lists the patient past procedures that are pertinent to the scope of this document.\r\nProcedures may refer for example to:\r\n1. Invasive Diagnostic procedure:e.g. Cardiac catheterization; (the results of these procedure are documented in the results section\)\r\n2. Therapeutic procedure: e.g. dialysis;\r\n3. Surgical procedure: e.g. appendectomy. This entry shall be used to document that no information about past procedures is available\, or that no relevant past procedures are known.)
-  // entry slices
-  * insert SectionEntrySliceDefRules (procedure, 0.. , Past Procedure entry ,
-    Past Procedure entry  , $Procedure-uv-ips)
-
-*/
-
-/*
-// -------------------------------------
-// Immunizations Section 0 … 1
-// -------------------------------------
-
-* section contains sectionImmunizations ..1
-
-* section[sectionImmunizations]
-  * insert SectionComRules (
-    HDR Immunizations Section,
-      The Immunizations Section defines a patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\nThe section includes current immunization status\, and may contain the entire immunization history that is relevant to the period of time being summarized.
-      , $loinc#11369-6 "History of Immunization Narrative")   // CODE
-  * entry 1..
-  * entry only Reference(Immunization
-                          or DocumentReference  )
-  * insert SectionEntrySliceComRules ( Patient's immunization status and pertinent history.
-    , It defines the patient's current immunization status and pertinent immunization history.\r\nThe primary use case for the Immunization Section is to enable communication of a patient's immunization status.\r\n It may contain the entire immunization history that is relevant to the period of time being summarized. This entry shall be used to document that no information about immunizations is available\, or that no immunizations are known. ) //'
-
-
-  // entry slices
-  * insert SectionEntrySliceDefRules (immunization, 0.. , Immunization entry ,
-    Immunization entry  , $Immunization-uv-ips)
-*/
-
-/*
-// -------------------------------------
-// Family History Section 0 … 1
-// -------------------------------------
-* section contains familyHistorySection ..1
-* section[familyHistorySection]
-  * insert SectionComRules (
-    Family History Section,
-      This section contains data defining the patient’s genetic relatives in terms of possible or relevant health risk factors that have a potential impact on the patient’s healthcare risk profile.
-      ,  http://loinc.org#10157-6  )   // CODE
-  * entry 0..
-  * entry only Reference(FamilyMemberHistory)
-  * entry ^short = "Family History"
-  * entry ^definition = "Family History"
-*/
-
-/*
-// -------------------------------------
-// Medical Devices Section 0 … 1
-// -------------------------------------
-* section contains sectionMedicalDevices ..1
-* section[sectionMedicalDevices]
-  * insert SectionComRules (
-    HDR Medical Devices Section,
-      The medical devices section contains narrative text and coded entries describing the patient history of medical device use.
-      , http://loinc.org#46264-8 )   // CODE
-  * entry 1..
-  * entry only Reference(DeviceUseStatement
-                          or DocumentReference  )
-  * insert SectionEntrySliceComRules ( Patient history of medical device use.
-    , It describes the patient history of medical device use. This entry shall be used to document that no information about medical device use is available\, or that no relevant medical device use is known. ) //'
-
-
-  // entry slices
-  * insert SectionEntrySliceDefRules (deviceUse, 0.. , Medical Device entry ,
-    Medical Device entry  , $DeviceUseStatement-uv-ips)
-*/
-/*
-// -------------------------------------
-// History of Past Illness Section 0 … 1
-// -------------------------------------
-
-* section contains sectionPastIllnessHx ..1
-* section[sectionPastIllnessHx] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionPastIllnessHx] ^extension[0].valueString = "Section"
-* section[sectionPastIllnessHx] ^short = "HDR History of Past Illness Section"
-* section[sectionPastIllnessHx] ^definition = "The History of Past Illness section contains a narrative description and coded entries of the conditions the patient suffered in the past"
-* section[sectionPastIllnessHx].title 1..
-* section[sectionPastIllnessHx].code 1..
-* section[sectionPastIllnessHx].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionPastIllnessHx].code = http://loinc.org#11348-0 (exactly)
-* section[sectionPastIllnessHx].text 1..
-* section[sectionPastIllnessHx].entry 1..
-* section[sectionPastIllnessHx].entry only Reference($Condition-uv-ips)
-* section[sectionPastIllnessHx].entry ^short = "Conditions the patient suffered in the past."
-* section[sectionPastIllnessHx].entry ^definition = "It contains a description of the conditions the patient suffered in the past."
-* section[sectionPastIllnessHx].emptyReason ..0
-* section[sectionPastIllnessHx].emptyReason ^mustSupport = false
-*/
-
-/*
-// -------------------------------------
-// Functional Status Section 0 … 1
-// -------------------------------------
-
-* section contains sectionFunctionalStatus ..1
-* section[sectionFunctionalStatus] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionFunctionalStatus] ^extension[0].valueString = "Section"
-* section[sectionFunctionalStatus] ^short = "IPS Functional Status"
-* section[sectionFunctionalStatus] ^definition = "The functional status section shall contain a narrative description of capability of the patient to perform acts of daily living, including possible needs of the patient to be continuously assessed by third parties. The invalidity status may in fact influence decisions about how to administer treatments.\r\nProfiles to express disabilities and functional assessments will be specified by future versions of this guide."
-* section[sectionFunctionalStatus].title 1..
-* section[sectionFunctionalStatus].code 1..
-* section[sectionFunctionalStatus].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionFunctionalStatus].code = http://loinc.org#47420-5 (exactly)
-* section[sectionFunctionalStatus].text 1..
-* section[sectionFunctionalStatus].text only Narrative
-* section[sectionFunctionalStatus].entry
-* section[sectionFunctionalStatus].entry only Reference(Condition or $Condition-uv-ips or ClinicalImpression or DocumentReference)
-* section[sectionFunctionalStatus].entry ^short = "Optional entry used to represent disabilities and functional assessments"
-* section[sectionFunctionalStatus].entry ^definition = "It describes capabilities of the patient to perform acts of daily living, including possible needs of the patient to be continuously assessed by third parties. The invalidity status may in fact influence decisions about how to administer treatments.\r\nProfiles to express disabilities and functional assessments will be specified by future versions of this guide."
-* section[sectionFunctionalStatus].emptyReason ..0
-* section[sectionFunctionalStatus].emptyReason ^mustSupport = false
-*/
 
 // -------------------------------------
 // Care Team 0 … 1
@@ -620,162 +426,6 @@ Medicinal products\, the administration of which was started during hospitalisat
 */
 
 
-/*
-// -------------------------------------
-// Medications Section 0 … 1
-// to be checked
-// -------------------------------------
-* section contains sectionMedications 1..1
-* section[sectionMedications] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionMedications] ^extension[0].valueString = "Section"
-* section[sectionMedications] ^short = "Hospital Discharge Report Medication Summary Section"
-* section[sectionMedications] ^definition = "The medication summary section contains a description of the patient's medications relevant for the scope of the patient summary.\r\nThe actual content could depend on the jurisdiction, it could report:\r\n- the currently active medications; \r\n- the current and past medications considered relevant by the authoring GP; \r\n- the patient prescriptions or dispensations automatically extracted by a regional or a national EHR.\r\n\r\nIn all those cases however medications are documented in the Patient Summary as medication statements.\r\nThis section requires either an entry indicating the subject is known not to be on any medications; either an entry indicating that no information is available about medications; or entries summarizing the subject's medications."
-* section[sectionMedications].title 1..
-* section[sectionMedications].title ^short = "Medication Summary section"
-* section[sectionMedications].title ^definition = "The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents.\r\n\r\nMedication Summary"
-* section[sectionMedications].code 1..
-* section[sectionMedications].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionMedications].code = http://loinc.org#10160-0 (exactly)
-* section[sectionMedications].text 1..
-* section[sectionMedications].text only Narrative
-* section[sectionMedications].entry 1..
-* section[sectionMedications].entry only Reference($MedicationStatement-uv-ips or $MedicationRequest-uv-ips or MedicationAdministration or MedicationDispense)
-* section[sectionMedications].entry ^short = "Medications relevant for the scope of the patient summary"
-* section[sectionMedications].entry ^definition = "This list the medications relevant for the scope of the patient summary or it is used to indicate that the subject is known not to be on any relevant medication; either that no information is available about medications."
-* section[sectionMedications].emptyReason ..0
-* section[sectionMedications].emptyReason ^mustSupport = false
-*/
-
-// OR THIS ONE ???
-/*
-* section contains sectionMedicationsAdministered ..1
-* section[sectionMedicationsAdministered] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionMedicationsAdministered] ^extension[0].valueString = "Section"
-* section[sectionMedicationsAdministered] ^short = "Admission Medications"
-* section[sectionMedicationsAdministered].title 1..
-* section[sectionMedicationsAdministered].code 1..
-* section[sectionMedicationsAdministered].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionMedicationsAdministered].code = http://loinc.org#29549-3 (exactly)
-* section[sectionMedicationsAdministered].text 1..
-* section[sectionMedicationsAdministered].entry
-* section[sectionMedicationsAdministered].entry only Reference($MedicationStatement-uv-ips or $MedicationRequest-uv-ips or MedicationAdministration or MedicationDispense)
-* section[sectionMedicationsAdministered].emptyReason ..0
-* section[sectionMedicationsAdministered].emptyReason ^mustSupport = false
-*/
-
-
-// -------------------------------------
-// Results Section 0 … 1
-// -------------------------------------
-/*
-* section contains sectionResults ..1
-* section[sectionResults] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionResults] ^extension[0].valueString = "Results Section"
-* section[sectionResults] ^short = "IPS Results Section"
-* section[sectionResults] ^definition = "This section assembles relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results."
-* section[sectionResults].title 1..
-* section[sectionResults].code 1..
-* section[sectionResults].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionResults].code = http://loinc.org#30954-2 (exactly)
-* section[sectionResults].text 1..
-* section[sectionResults].entry
-* section[sectionResults].entry only Reference (Observation or DiagnosticReport or DocumentReference or $Observation-results-uv-ips or $DiagnosticReport-uv-ips) // or BundleLabReportXpandh)
-
-* section[sectionResults].entry ^short = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient."
-* section[sectionResults].entry ^definition = "Relevant observation results collected on the patient or produced on in-vitro biologic specimens collected from the patient. Some of these results may be laboratory results, others may be anatomic pathology results, others, radiology results, and others, clinical results."
-* section[sectionResults].emptyReason ..0
-* section[sectionResults].emptyReason ^mustSupport = false
-*/
-
-// -------------------------------------
-// Procedures Section 0 … 1
-// TO BE CHECKED
-// -------------------------------------
-/*
-* section contains sectionProcedure ..1
-* section[sectionProcedure] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionProcedure] ^extension[0].valueString = "Section"
-* section[sectionProcedure].code 1..
-* section[sectionProcedure].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionProcedure].code = http://loinc.org#29554-3 (exactly)
-* section[sectionProcedure].text 1..
-* section[sectionProcedure].entry
-* section[sectionProcedure].entry only Reference($Procedure-uv-ips)
-* section[sectionProcedure].emptyReason ..0
-* section[sectionProcedure].emptyReason ^mustSupport = false
-*/
-/*
-// -------------------------------------
-// Vital Signs Section 0 … 1
-// -------------------------------------
-* section contains sectionVitalSigns ..1
-* section[sectionVitalSigns] ..1
-* section[sectionVitalSigns] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionVitalSigns] ^extension[0].valueString = "Vital Signs Section"
-* section[sectionVitalSigns] ^label = "Vital signs"
-* section[sectionVitalSigns] ^short = "IPS Vital Signs Section"
-* section[sectionVitalSigns] ^definition = "The Vital signs section includes blood pressure, body temperature, heart rate, and respiratory rate. It may also include other clinical findings, such as height, weight, body mass index, head circumference, and pulse oximetry. In particular, notable vital signs or physical findings such as the most recent, maximum and/or minimum, baseline, or relevant trends may be included"
-* section[sectionVitalSigns].title 1..
-* section[sectionVitalSigns].code 1..
-* section[sectionVitalSigns].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionVitalSigns].code = http://loinc.org#8716-3 (exactly)
-* section[sectionVitalSigns].text 1..
-* section[sectionVitalSigns].text only Narrative
-* section[sectionVitalSigns].entry
-* section[sectionVitalSigns].entry only Reference(Observation or DocumentReference or $vitalsigns)
-* section[sectionVitalSigns].entry ^short = "Notable vital signs or physical findings."
-* section[sectionVitalSigns].entry ^definition = "Notable vital signs or physical findings as: blood pressure, body temperature, heart rate, and respiratory rate. It may also include other clinical findings, such as height, weight, body mass index, head circumference, and pulse oximetry. In particular, notable vital signs or physical findings such as the most recent, maximum and/or minimum, baseline, or relevant trends may be included"
-* section[sectionVitalSigns].emptyReason ..0
-* section[sectionVitalSigns].emptyReason ^mustSupport = false
-*/
-
-// -------------------------------------
-
-
-/*
-// -------------------------------------
-// Discharge Diagnosis Section 0 … 1 R
-// -------------------------------------
-
-* section contains dischargeDiagnosisSection ..1
-* section[dischargeDiagnosisSection] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[dischargeDiagnosisSection] ^extension[0].valueString = "Section"
-* section[dischargeDiagnosisSection] ^short = "Discharge Diagnosis Section"
-* section[dischargeDiagnosisSection] ^definition = "The discharge diagnosis section shall contain a narrative description of the conditions that need to be monitored after discharge from the hospital and those that were resolved during the hospital course. It shall include entries for patient conditions as described in the Entry Content Module."
-* section[dischargeDiagnosisSection].title 1..
-* section[dischargeDiagnosisSection].code 1..
-* section[dischargeDiagnosisSection].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[dischargeDiagnosisSection].code = http://loinc.org#11535-2 (exactly)
-* section[dischargeDiagnosisSection].text 1..
-* section[dischargeDiagnosisSection].text only Narrative
-* section[dischargeDiagnosisSection].entry 0..
-* section[dischargeDiagnosisSection].entry only Reference(Condition) // define specialized profiles
-* section[dischargeDiagnosisSection].entry ^short = "Discharge Diagnosis"
-* section[dischargeDiagnosisSection].entry ^definition = "Discharge Diagnosis"
-* section[dischargeDiagnosisSection].emptyReason ..0
-* section[dischargeDiagnosisSection].emptyReason ^mustSupport = false
-*/
-
-/*
-// -------------------------------------
-// Discharge Medications Section 0 … 1
-// -------------------------------------
-* section contains sectionDischargeMedications ..1
-* section[sectionDischargeMedications] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionDischargeMedications] ^extension[0].valueString = "Section"
-* section[sectionDischargeMedications] ^short = "Admission Medications"
-* section[sectionDischargeMedications].title 1..
-* section[sectionDischargeMedications].code 1..
-* section[sectionDischargeMedications].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionDischargeMedications].code = http://loinc.org#42346-7 (exactly)
-* section[sectionDischargeMedications].text 1..
-* section[sectionDischargeMedications].entry
-* section[sectionDischargeMedications].entry only Reference($MedicationStatement-uv-ips or $MedicationRequest-uv-ips or MedicationAdministration or MedicationDispense)
-* section[sectionDischargeMedications].emptyReason ..0
-* section[sectionDischargeMedications].emptyReason ^mustSupport = false
-*/
-
-
 // -------------------------------------
 // Hospital Discharge Studies Summary Section
 // -------------------------------------
@@ -809,20 +459,13 @@ Medicinal products\, the administration of which was started during hospitalisat
 
 // -------------------------------------
 * section contains sectionAdvanceDirectives ..1
-* section[sectionAdvanceDirectives] ^extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-* section[sectionAdvanceDirectives] ^extension[0].valueString = "Section"
-* section[sectionAdvanceDirectives] ^short = "IPS Advance Directives Section"
-* section[sectionAdvanceDirectives] ^definition = "The advance directives section contains a narrative description of patient's advance directive."
-* section[sectionAdvanceDirectives].title 1..
-* section[sectionAdvanceDirectives].code 1..
-* section[sectionAdvanceDirectives].code only http://hl7.org/fhir/uv/ips/StructureDefinition/CodeableConcept-uv-ips
-* section[sectionAdvanceDirectives].code = http://loinc.org#42348-3 (exactly)
-* section[sectionAdvanceDirectives].text 1..
-* section[sectionAdvanceDirectives].text only Narrative
-* section[sectionAdvanceDirectives].entry
-* section[sectionAdvanceDirectives].entry only Reference(Consent or DocumentReference)
-* section[sectionAdvanceDirectives].emptyReason ..0
-* section[sectionAdvanceDirectives].emptyReason ^mustSupport = false
+
+* section[sectionAdvanceDirectives]
+  * insert SectionComRules (
+    Advance Directives Section,
+    The advance directives section contains a narrative description of patient's advance directive.,
+    $loinc#42348-3 )  // 	Advance directives
+  * entry only Reference(Consent or DocumentReference) // ==> Add Profile
 
 // -------------------------------------
 
