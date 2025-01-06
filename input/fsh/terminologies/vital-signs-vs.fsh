@@ -6,6 +6,7 @@ Title:      "Vital Signs Observation Value Set"
 Description: "The vital sign obsevrvation codes from the XpanDH Vital Signs."
 * insert SetFmmandStatusRule (1, draft)
 * insert SNOMEDCopyrightForVS
+* ^experimental = false
 
 * codes from valueset AnthropometricObservationVS
 * $sct#364075005 "Heart rate (observable entity)"
