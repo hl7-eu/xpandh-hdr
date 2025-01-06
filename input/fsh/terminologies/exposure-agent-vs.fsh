@@ -6,5 +6,5 @@ Description: "Xpandh exposure agent value set. This value set includes codes fro
 * insert SNOMEDCopyrightForVS
 * ^experimental = false
 
-* codes from system $icd10 where concept descendant-of #A00-B99 "Certain infectious and parasitic diseases"
+* codes from system $icd10 where concept descendant-of #I "Certain infectious and parasitic diseases"
 * codes from system $sct where concept descendant-of #40733004 "Infectious disease (disorder)"
