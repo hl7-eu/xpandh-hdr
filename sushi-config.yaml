@@ -26,9 +26,10 @@ dependencies:
   hl7.fhir.eu.laboratory: 0.1.0
   hl7.fhir.uv.ips: 1.1.0
   hl7.fhir.extensions.r5: 4.0.1
-  hl7.eu.fhir.xpandh: dev
+#  hl7.fhir.eu.base: current
+#  hl7.eu.fhir.xpandh: dev
   hl7.fhir.eu.extensions: 0.1.0
-  hl7.fhir.us.mcode: current # to be removed if no more needed
+#  hl7.fhir.us.mcode: current # to be removed if no more needed
 
 #
 #

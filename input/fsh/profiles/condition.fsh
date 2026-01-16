@@ -23,10 +23,11 @@ Description: "This profile represents the constraint applied to the Condition in
 * code from HdrConditionXpandhVS
   * ^definition = "The problem code specifies the problem. Depending on the setting, different code systems can be used. The ProblemCodelist provides an overview of the possible code systems."
   * ^binding.description = "Valueset to describe the actual problem experienced by the patient"
-* bodySite
+/* * bodySite
   * ^definition = "Anatomical location which is the focus of the problem."
   * extension contains LateralityQualifier named laterality 0..1
   * extension[laterality].valueCodeableConcept from LateralityQualifierVS (required)
+ */
 * subject only Reference(PatientXpandh)
 * subject MS
 * onset[x] only dateTime or Age or Period or Range or string
